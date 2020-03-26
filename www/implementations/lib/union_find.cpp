@@ -15,16 +15,43 @@ int_mat union_find(int n, int m, pt_list pts){
     auto cell_index = [&] (int i, int j){
         return i*n + m;
     };
+    auto get_cell = [&] (int p) {
+        int nj = p%n;
+        return std::make_tuple<>((p - nj)/n, nj);
+    };
     //UF find with path compression
     std::function<int(int,int)> find = [&] (int i, int j) {
         int v = parents[i][j];
         if (v != cell_index(i,j)) {
-            int nj = v%n;
-            parents[i][j] = find(v-nj, nj);
+            int k,l;
+            std::tie(k,l) = get_cell(v);
+            parents[i][j] = find(k, l);
         }
         return parents[i][j];
     };
     //UF union
+    auto make_union = [&] (int p, int q) {
+        if (p == q) return p;
+        int k,l;
+        std::tie(k,l) = get_cell(p);
+        parents[k][l] = q;
+        return q;
+    };
+    //flattens parents
+    auto flatten = [&] () {
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (parents[i][j] == -1 ||
+                     parents[i][j] == cell_index(i,j))
+                    continue;
+                int k,l;
+                do {
+                    std::tie(k,l) = get_cell(parents[i][j]);
+                    parents[i][j] = parents[k][l];
+                } while (parents[k][l] != cell_index(k,l));
+            }
+        }
+    };
 
     int rems_ind = 0;
     for (int i = 0; i < m; ++i) {
@@ -43,7 +70,7 @@ int_mat union_find(int n, int m, pt_list pts){
                 t = find(i-1, j);
                 if (l != -1) {
                     l = find(i, j-1);
-                    parents[i][j] = 
+                    parents[i][j] = make_union(l, t);
                 }
                 else
                     parents[i][j] = t;
@@ -54,4 +81,6 @@ int_mat union_find(int n, int m, pt_list pts){
             }
         }
     }
+    flatten();
+    return parents;
 }
