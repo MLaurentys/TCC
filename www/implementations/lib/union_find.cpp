@@ -5,11 +5,7 @@ std::tuple<int_mat, int> union_find(int n, int m, pt_list pts){
 
     //accessor with necessary bound check
     auto check = [&] (int i, int j) {
-        int ret = -1;
-        if (i >= 0 && j >= 0) {
-            ret = parents[i][j];
-        }
-        return ret;
+        return (i>=0 && j>=0) ? parents[i][j] : -1;
     };
     //cell index calculation = base parent index
     auto cell_index = [&] (int i, int j){

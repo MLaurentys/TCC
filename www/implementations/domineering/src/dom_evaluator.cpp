@@ -32,3 +32,10 @@ vector<semi_board> DomEvaluator::break_configuration(const Domineering& g){
     }
     return ret;
 }
+
+/*
+
+
+
+
+*/

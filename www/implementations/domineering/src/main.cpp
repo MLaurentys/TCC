@@ -8,7 +8,7 @@ bool test1(){
     DomEvaluator de;
     d.make_move(make_tuple(make_tuple(0, 1), make_tuple(1, 1)));
     d.print_board();
-    de.evaluate(d);
+    //de.evaluate(d);
     return false;
 }
 
