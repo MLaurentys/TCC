@@ -1,6 +1,6 @@
 #include "union_find.h"
 
-int_mat union_find(int n, int m, pt_list pts){
+std::tuple<int_mat, int> union_find(int n, int m, pt_list pts){
     int_mat parents(m, std::vector<int>(n));
 
     //accessor with necessary bound check
@@ -13,7 +13,7 @@ int_mat union_find(int n, int m, pt_list pts){
     };
     //cell index calculation = base parent index
     auto cell_index = [&] (int i, int j){
-        return i*n + m;
+        return i*n + j;
     };
     auto get_cell = [&] (int p) {
         int nj = p%n;
@@ -39,11 +39,15 @@ int_mat union_find(int n, int m, pt_list pts){
     };
     //flattens parents
     auto flatten = [&] () {
+        std::unordered_map<int, int> hm;
+        std::vector<int> groups;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (parents[i][j] == -1 ||
-                     parents[i][j] == cell_index(i,j))
+                if (parents[i][j] == -1) continue;
+                if (parents[i][j] == cell_index(i,j)){
+                    groups.push_back(parents[i][j]);
                     continue;
+                }
                 int k,l;
                 do {
                     std::tie(k,l) = get_cell(parents[i][j]);
@@ -51,12 +55,22 @@ int_mat union_find(int n, int m, pt_list pts){
                 } while (parents[k][l] != cell_index(k,l));
             }
         }
+        for (int i = 0; i < groups.size(); ++i)
+            hm[groups[i]] = i;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (parents[i][j] == -1) continue;
+                parents[i][j] = hm[parents[i][j]];
+            }
+        }
+        return groups.size();
     };
 
     int rems_ind = 0;
     for (int i = 0; i < m; ++i) {
         for (int j = 0; j < n; ++j) {
             if (std::tie(i, j) == pts[rems_ind]) {
+                ++rems_ind;
                 parents[i][j] = -1;
                 continue;
             }
@@ -81,6 +95,6 @@ int_mat union_find(int n, int m, pt_list pts){
             }
         }
     }
-    flatten();
-    return parents;
+    int g_amt = flatten();
+    return std::make_tuple<>(parents, g_amt);
 }
