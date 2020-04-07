@@ -21,6 +21,7 @@ class Domineering{
     void make_move(move);
     Domineering(int n, int m);
     Domineering(int n, int m, vector<b_pos> remove);
+    Domineering(const Domineering& other);
     void print_board();
     vector<b_pos> get_sorted_removes() const;
 

@@ -1,11 +1,18 @@
 #include "../include/domineering.h"
 
-Domineering::Domineering(int width, int height){
+Domineering::Domineering(int width, int height) {
     n = width;
     m = height;
 }
 
-void Domineering::print_board(){
+Domineering::Domineering(const Domineering& other) {
+    n = other.n;
+    m = other.m;
+    moves = other.moves;
+    removed = other.removed;
+}
+
+void Domineering::print_board() {
     vector<b_pos> rems = get_sorted_removes();
     cout << "[";
     int rem_ind = 0;
@@ -22,7 +29,7 @@ void Domineering::print_board(){
     }
 }
 
-void Domineering::make_move(move mv){
+void Domineering::make_move(move mv) {
     moves.push_back(mv);
     b_pos p1, p2;
     std::tie(p1, p2) = mv;
