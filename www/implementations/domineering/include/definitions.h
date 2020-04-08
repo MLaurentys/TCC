@@ -9,7 +9,7 @@ typedef std::tuple<int,int,int,int,int> semi_board;
 typedef std::tuple<int,int> b_pos;
 typedef std::tuple<b_pos, b_pos> move;
 
-template <typename T>
-constexpr auto mt = std::make_tuple<T,T>;
+template<typename T, typename U>
+constexpr auto game = std::tuple<vector<T>, vector<U>>;
 
 #endif

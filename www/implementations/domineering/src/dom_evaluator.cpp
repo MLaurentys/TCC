@@ -51,3 +51,9 @@ tuple<int_mat, vector<semi_board>> DomEvaluator::break_configuration(
     }
     return {mat, ret};
 }
+
+
+float DomEvaluator::evaluate_game_fixed(int_mat& mat, semi_board sb) {
+    auto moves = get_moves(mat, sb);
+    
+}
