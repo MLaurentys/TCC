@@ -15,15 +15,16 @@ using std::get;
 
 class DomEvaluator{
     public:
-    float evaluate(const Domineering&);
-    
+    std::vector<game> evaluate(const Domineering&);
+    void print_evaluation(game);
+
     private:
     tuple<vector<move>, vector<move>> get_moves (const int_mat&, const semi_board&);
     tuple<int_mat, vector<semi_board>> break_configuration(const Domineering&);
     float eval_rec(const Domineering&);
 
-    template<typename T, typename U>
-    game<T,U> evaluate_game_fixed(int_mat&, semi_board){}
+
+    game evaluate_game_fixed(int_mat&, semi_board);
 };
 
 #endif

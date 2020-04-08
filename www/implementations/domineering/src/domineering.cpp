@@ -1,6 +1,6 @@
 #include "../include/domineering.h"
 
-Domineering::Domineering(int width, int height) {
+Domineering::Domineering(int height, int width) {
     n = width;
     m = height;
 }
@@ -18,7 +18,7 @@ void Domineering::print_board() {
     int rem_ind = 0;
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
-            if(std::tie(i, j) == rems[rem_ind]){
+            if(rems[rem_ind] == std::tie(i, j)){
                 ++rem_ind;
                 cout << "x";
             }
@@ -31,10 +31,8 @@ void Domineering::print_board() {
 
 void Domineering::make_move(move mv) {
     moves.push_back(mv);
-    b_pos p1, p2;
-    std::tie(p1, p2) = mv;
-    removed.push_back(p1);
-    removed.push_back(p2);
+    removed.push_back(get<0>(mv));
+    removed.push_back(get<1>(mv));
 }
 
 vector<b_pos> Domineering::get_sorted_removes() const {
@@ -46,7 +44,7 @@ vector<b_pos> Domineering::get_sorted_removes() const {
 
 void Domineering::sort_removed(vector<b_pos>& rems) const {
     auto comp = [&](const b_pos& p1, const b_pos& p2) {
-        int a = n * (get<1>(p1) - get<1>(p2)) + (get<0>(p1) - get<1>(p2));
+        int a = n * (p1.y - p2.y) + (p1.x - p2.x);
         return a < 0;
     };
     std::sort(rems.begin(), rems.end(), comp);

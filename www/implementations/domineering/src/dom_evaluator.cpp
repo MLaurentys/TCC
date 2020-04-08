@@ -1,59 +1,103 @@
 #include "../include/dom_evaluator.h"
 
-float DomEvaluator::evaluate(const Domineering& game){
-    auto games = break_configuration(game);
-    return 0.0f;
+std::vector<game> DomEvaluator::evaluate(const Domineering& G){
+    auto games = break_configuration(G);
+    std::vector<game> ret;
+    for (auto& sb : get<1>(games))
+        ret.push_back(evaluate_game_fixed(get<0>(games),sb));
+    return ret;
 }
 
 tuple<vector<move>, vector<move>> DomEvaluator::get_moves(
         const int_mat& mat,
         const semi_board& sb) {
     vector<move> left,right;
-    int r_it = 0;
     //left moves verticaLLy
-    for (int i = get<0>(sb); i < get<2>(sb); ++i)
-        for (int j = std::max(1,get<1>(sb)); j < get<3>(sb); ++j)
-            if (mat[i][j] == get<4>(sb) && mat[i][j-1] == get<4>(sb))
-                left.push_back({{i,j-1}, {i,j}});
+    for (int i = std::max(1,sb.top); i < sb.height; ++i)
+        for (int j = sb.left; j < sb.width + sb.left; ++j)
+            if (mat[i][j] == sb.gID && mat[i-1][j] == sb.gID)
+                left.push_back({{i-1,j}, {i,j}});
     //right moves hoRizontally
-    for (int i = std::max(1, get<0>(sb)); i < get<2>(sb); ++i)
-        for (int j = get<1>(sb); j < get<3>(sb); ++j)
-            if (mat[i][j] == get<4>(sb) && mat[i-1][j] == get<4>(sb))
-                right.push_back({{i-1,j}, {i,j}});
+    for (int i = sb.top; i < sb.top + sb.height; ++i)
+        for (int j = std::max(1, sb.left); j < sb.left + sb.width; ++j)
+            if (mat[i][j] == sb.gID && mat[i][j-1] == sb.gID)
+                right.push_back({{i,j-1}, {i,j}});
     return {left, right};
 }
 
 tuple<int_mat, vector<semi_board>> DomEvaluator::break_configuration(
-        const Domineering& g) {
-    auto rems = g.get_sorted_removes();
-    int n = g.wid(), m = g.hei(), g_amt;
+        const Domineering& G) {
+    auto rems = G.get_sorted_removes();
+    int n = G.wid(), m = G.hei(), g_amt;
     int_mat mat;
     std::tie(mat, g_amt) = union_find(n, m, rems);
     vector<semi_board> ret(g_amt, {INT32_MAX, INT32_MAX, 0, 0, -1});
+    // During this loop, width and height will mean max x and max y 
     for (int i = 0; i < m; ++i) {
-        get<4>(ret[i]) = i;
+        ret[i].gID = i;
         for (int j = 0; j < n; ++j) {
             int g = mat[i][j];
             if (g == -1) continue;
-            if (j < get<0>(ret[g])) {
-                get<2>(ret[g]) += get<0>(ret[g]) - i;
-                get<0>(ret[g]) = i;
-            }
-            else
-                get<2>(ret[g]) = std::max(get<2>(ret[g]), j - get<0>(ret[g]));
-            if (i < get<1>(ret[g])) {
-                get<3>(ret[g]) += get<1>(ret[g]) - i;
-                get<1>(ret[g]) = i;
-            }
-            else
-                get<3>(ret[g]) = std::max(get<3>(ret[g]), i - get<1>(ret[g]));
+            if (j < ret[g].left)
+                ret[g].left = j;
+            if (j > ret[g].width)
+                ret[g].width = j;
+            if (i < ret[g].top)
+                ret[g].top = i;
+            if (i > ret[g].height)
+                ret[g].height = i;
         }
+    }
+    for (auto& sb : ret){
+        sb.width -= sb.left - 1;
+        sb.height -= sb.top - 1;
     }
     return {mat, ret};
 }
 
+void toggle (int_mat& mat, move& m, int id) {
+    int x1,y1,x2,y2;
+    x1 = get<0>(m).x; y1 = get<0>(m).y; x2 = get<1>(m).x; y2 = get<1>(m).y;
+    if (mat[x1][y1] == -1) {
+        mat[x1][y1] = id;
+        mat[x2][y2] = id;
+    }
+    else{
+        mat[x1][y1] = -1;
+        mat[x2][y2] = -1;
+    }
+}
 
-float DomEvaluator::evaluate_game_fixed(int_mat& mat, semi_board sb) {
+game DomEvaluator::evaluate_game_fixed(int_mat& mat, semi_board sb) {
     auto moves = get_moves(mat, sb);
-    
+    int id = sb.gID;
+    game ret;
+    for (move& m : get<0>(moves)) {
+        toggle(mat, m, id);
+        ret.left.push_back(evaluate_game_fixed(mat, sb));
+        toggle(mat, m, id);
+    }
+    for (move& m : get<1>(moves)) {
+        toggle(mat, m, id);
+        ret.right.push_back(evaluate_game_fixed(mat, sb));
+        toggle(mat, m, id);
+    }
+    return ret;
+}
+
+std::string build_eval_string (game& G) {
+    std::string s = " < { ";
+    for (game& g : G.left) {
+        s += build_eval_string(g) + ", ";
+    }
+    s += " } : { ";
+    for (game& g : G.right) {
+        s += build_eval_string(g) + ", ";
+    }
+    s += " } >";
+    return s;
+}
+
+void DomEvaluator::print_evaluation(game G){
+    cout << build_eval_string(G);
 }

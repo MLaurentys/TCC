@@ -51,7 +51,7 @@ std::tuple<int_mat, int> union_find(int n, int m, pt_list pts){
                 } while (parents[k][l] != cell_index(k,l));
             }
         }
-        for (int i = 0; i < groups.size(); ++i)
+        for (int i = 0; i < (int)groups.size(); ++i)
             hm[groups[i]] = i;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
@@ -65,7 +65,7 @@ std::tuple<int_mat, int> union_find(int n, int m, pt_list pts){
     int rems_ind = 0;
     for (int i = 0; i < m; ++i) {
         for (int j = 0; j < n; ++j) {
-            if (std::tie(i, j) == pts[rems_ind]) {
+            if (pts[rems_ind] == std::tie(i, j)) {
                 ++rems_ind;
                 parents[i][j] = -1;
                 continue;
