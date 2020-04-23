@@ -1,0 +1,26 @@
+\contentsline {chapter}{\numberline {1}Introduction}{6}{chapter.1}
+\contentsline {chapter}{\numberline {2}Definitions}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1}Numbers}{8}{section.2.1}
+\contentsline {section}{\numberline {2.2}Games}{8}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Combinatorial Games}{8}{subsection.2.2.1}
+\contentsline {section}{\numberline {2.3}Rulesets}{8}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Red, Green and Blue Hacklebush}{8}{subsection.2.3.1}
+\contentsline {chapter}{\numberline {3}Theory}{9}{chapter.3}
+\contentsline {section}{\numberline {3.1}Previous Research}{9}{section.3.1}
+\contentsline {section}{\numberline {3.2}Theoretical Approach}{9}{section.3.2}
+\contentsline {chapter}{\numberline {4}Data}{10}{chapter.4}
+\contentsline {section}{\numberline {4.1}Source Material}{10}{section.4.1}
+\contentsline {chapter}{\numberline {5}Methods}{11}{chapter.5}
+\contentsline {section}{\numberline {5.1}The Approach [or Model]}{11}{section.5.1}
+\contentsline {chapter}{\numberline {6}Empirical Analysis}{12}{chapter.6}
+\contentsline {section}{\numberline {6.1}Results}{12}{section.6.1}
+\contentsline {section}{\numberline {6.2}Discussion}{13}{section.6.2}
+\contentsline {chapter}{\numberline {7}Conclusion}{14}{chapter.7}
+\contentsline {section}{\numberline {7.1}Research Aims}{14}{section.7.1}
+\contentsline {section}{\numberline {7.2}Research Objectives}{14}{section.7.2}
+\contentsline {section}{\numberline {7.3}Practical Implications}{14}{section.7.3}
+\contentsline {section}{\numberline {7.4}Future Research}{14}{section.7.4}
+\contentsline {section}{\numberline {7.5}Chapter Summary}{14}{section.7.5}
+\contentsline {chapter}{References}{14}{section*.8}
+\contentsline {chapter}{\numberline {A}(Appendix A title)}{15}{appendix.A}
+\contentsline {chapter}{\numberline {B}(Appendix B title)}{16}{appendix.B}

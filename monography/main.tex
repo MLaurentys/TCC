@@ -1,0 +1,113 @@
+\documentclass[12pt,twoside]{report}
+\usepackage[a4paper,width=150mm,headheight=110pt,top=25mm,bottom=25mm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgffor} 
+\usepackage{float}
+\usepackage{graphics} 
+\usepackage{fancyhdr}
+\usepackage[round, numbers,authoryear]{natbib}
+\usepackage{color}
+\usepackage{indentfirst}
+
+\graphicspath{{images/}}
+
+\definecolor{mycolor}{RGB}{30,75,180}
+\definecolor{mycolor2}{RGB}{40,75,90}
+\definecolor{red}{RGB}{200,0,0}
+\usepackage[colorlinks = true,
+            linkcolor = mycolor,
+            urlcolor  = mycolor,
+            citecolor = mycolor,
+            anchorcolor = mycolor]{hyperref}
+
+\usepackage[hypcap=true,font={small,it}]{caption}
+\usetikzlibrary{calc}
+
+\captionsetup{belowskip=2pt,aboveskip=2pt}
+\bibliographystyle{abbrvnat}
+
+\renewcommand{\chaptername}{}
+
+\renewcommand{\figureautorefname}{figure} % lower case default ref
+\renewcommand{\tableautorefname}{table} % lower case default ref
+\newcommand{\latex}{\LaTeX\xspace}
+\newcommand{\mcite}[1]{\textcolor{mycolor}{\citeauthor{#1} (\citeyear{#1})}}
+\newcommand{\hcite}[1]{(\textcolor{mycolor}{\citeauthor{#1}, \citeyear{#1}})}
+\newcommand{\defi}[1]{\textbf{#1}}
+\newcommand{\todo}[1]{\textbf{\color{red} TODO:} #1}
+%----------------------------------------------------------------------------------------------------%
+
+%--------------------------------------------- DOCUMENT ---------------------------------------------%
+\begin{document}
+%\fancyhead[RO,LE]{}
+
+% Title page
+    \input{sections/title}
+
+% Optional Chapters
+
+    %\chapter*{Dedication}
+    %\chapter*{Declaration}
+    \chapter*{Acknowledgements}
+    \textcolor{red}{It is usual, but not compulsory, to thank those who have been of particular help to you in completing the thesis.}
+
+% Table of contents, list of figures, and list of tables
+    {\hypersetup{linkcolor=black}
+        \tableofcontents
+        \listoffigures
+        \listoftables
+    }
+        {\hypersetup{linkcolor=mycolor}}
+    
+% Introduction
+    \chapter{Introduction} 
+    \input{sections/introduction}
+    
+% Definitions
+    \chapter{Definitions}
+    \input{sections/definitions}
+% Theory
+    \chapter{Theory}
+    \input{sections/theory}
+    
+% Data
+    \chapter{Data}
+    \input{sections/data}
+    
+% Methods
+    \chapter{Methods}
+    \input{sections/methods}
+    
+% Empirical Analysis
+    \chapter{Empirical Analysis}
+    \input{sections/empirical_analysis}
+    
+% Conclusion
+    \chapter{Conclusion}
+    \input{sections/conclusion}
+    
+% Bibliography
+    \phantomsection
+    \addcontentsline{toc}{chapter}{References}%
+    \bibliography{bibliography}
+    
+    \vspace{2.0cm}
+    \textcolor{red}{Refer to \href{http://libguides.lub.lu.se/plagiarism}{LUSEM’s Harvard referencing guidelines} in the Teaching and Learning platform. \url{Lusem.lu.se/asks}}
+    % The template provides \hcite and \mcite commands to present hyperlinked references in the 
+    % Harvard referencing style '(Author, Year)'  and 'Author (Year)'
+    % The template has an automated bibliography section based on references 
+    % consistent with entries in the 'bibliography.bib' file 
+
+% Appendices
+    \appendix
+    \chapter{(Appendix A title)}
+    \input{sections/appendix_A}
+    
+     \chapter{(Appendix B title)}
+    \input{sections/appendix_B}
+
+\end{document}
+%----------------------------------------------------------------------------------------------------%
