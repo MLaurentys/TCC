@@ -3,20 +3,18 @@
 \usepackage[utf8]{inputenc}
 \usepackage{listings}
 \usepackage{graphicx}
-\usepackage{tikz}
 \usepackage{pgffor} 
 \usepackage{float}
 \usepackage{graphics} 
 \usepackage{fancyhdr}
 \usepackage[round, numbers,authoryear]{natbib}
 \usepackage{color}
-\usepackage{indentfirst}
+\usepackage[dvipsnames]{xcolor}
 
 \graphicspath{{images/}}
 
 \definecolor{mycolor}{RGB}{30,75,180}
 \definecolor{mycolor2}{RGB}{40,75,90}
-\definecolor{red}{RGB}{200,0,0}
 \usepackage[colorlinks = true,
             linkcolor = mycolor,
             urlcolor  = mycolor,
@@ -24,7 +22,6 @@
             anchorcolor = mycolor]{hyperref}
 
 \usepackage[hypcap=true,font={small,it}]{caption}
-\usetikzlibrary{calc}
 
 \captionsetup{belowskip=2pt,aboveskip=2pt}
 \bibliographystyle{abbrvnat}
@@ -36,16 +33,13 @@
 \newcommand{\latex}{\LaTeX\xspace}
 \newcommand{\mcite}[1]{\textcolor{mycolor}{\citeauthor{#1} (\citeyear{#1})}}
 \newcommand{\hcite}[1]{(\textcolor{mycolor}{\citeauthor{#1}, \citeyear{#1}})}
-\newcommand{\defi}[1]{\textbf{#1}}
-\newcommand{\naming}[1]{\textbf{#1}}
-\newcommand{\todo}[1]{\textbf{\color{red} TODO:} #1}
 %----------------------------------------------------------------------------------------------------%
 
 %--------------------------------------------- DOCUMENT ---------------------------------------------%
 \begin{document}
 %\fancyhead[RO,LE]{}
 
-% Title page
+% Title page    
     \input{sections/title}
 
 % Optional Chapters
@@ -65,30 +59,30 @@
     
 % Introduction
     \chapter{Introduction} 
-    \input{sections/introduction}
+    \input{Sections/Introduction}
     
 % Definitions
     \chapter{Definitions}
-    \input{sections/definitions}
+    \input{Sections/definitions}
 % Theory
     \chapter{Theory}
-    \input{sections/theory}
+    \input{Sections/Theory}
     
 % Data
     \chapter{Data}
-    \input{sections/data}
+    \input{Sections/Data}
     
 % Methods
     \chapter{Methods}
-    \input{sections/methods}
+    \input{Sections/Methods}
     
 % Empirical Analysis
     \chapter{Empirical Analysis}
-    \input{sections/empirical_analysis}
+    \input{Sections/EmpiricalAnalysis}
     
 % Conclusion
     \chapter{Conclusion}
-    \input{sections/conclusion}
+    \input{Sections/Conclusion}
     
 % Bibliography
     \phantomsection
@@ -105,10 +99,10 @@
 % Appendices
     \appendix
     \chapter{(Appendix A title)}
-    \input{sections/appendix_A}
+    \input{Sections/Appendix_A}
     
      \chapter{(Appendix B title)}
-    \input{sections/appendix_B}
+    \input{Sections/Appendix_B}
 
 \end{document}
 %----------------------------------------------------------------------------------------------------%

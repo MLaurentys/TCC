@@ -86,14 +86,14 @@ game DomEvaluator::evaluate_game_fixed(int_mat& mat, semi_board sb) {
 }
 
 std::string build_eval_string (game& G) {
-    std::string s = " < { ";
-    for (game& g : G.left) {
-        s += build_eval_string(g) + ", ";
-    }
-    s += " } : { ";
-    for (game& g : G.right) {
-        s += build_eval_string(g) + ", ";
-    }
+    std::string s = "< { ";
+    for (int i = 0; i < G.left.size() - 1; ++i)
+        s += build_eval_string(G.left[i]) + ", ";
+    s += build_eval_string(G.left[G.left.size()-1]);
+    s += " } | { ";
+    for (int i = 0; i < G.right.size() - 1; ++i)
+        s += build_eval_string(G.right[i]) + ", ";
+    s += build_eval_string(G.right[G.right.size()-1]);
     s += " } >";
     return s;
 }
