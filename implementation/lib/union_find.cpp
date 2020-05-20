@@ -1,4 +1,4 @@
-#include "union_find.h"
+#include "union_find.hpp"
 
 std::tuple<int_mat, int> union_find(int n, int m, pt_list pts){
     int_mat parents(m, std::vector<int>(n));

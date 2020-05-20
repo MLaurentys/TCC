@@ -1,4 +1,4 @@
-#include "../include/domineering.h"
+#include "../include/domineering.hpp"
 
 Domineering::Domineering(int height, int width) {
     n = width;

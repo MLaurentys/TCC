@@ -6,8 +6,8 @@
 #include <iostream>
 #include <algorithm>
 
-#include "definitions.h"
-#include "../../lib/union_find.h"
+#include "definitions.hpp"
+#include "../../lib/union_find.hpp"
 
 using std::tuple;
 using std::vector;

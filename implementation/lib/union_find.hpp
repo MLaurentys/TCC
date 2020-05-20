@@ -1,7 +1,7 @@
 #ifndef _UNION_FIND_H
 #define _UNION_FIND_H
 
-#include "../domineering/include/definitions.h"
+#include "../domineering/include/definitions.hpp"
 #include <vector>
 #include <tuple>
 #include <functional>

@@ -2,3 +2,4 @@ bin
 out
 .aux
 .temp
+build

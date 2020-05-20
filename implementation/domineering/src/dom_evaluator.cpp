@@ -1,4 +1,4 @@
-#include "../include/dom_evaluator.h"
+#include "../include/dom_evaluator.hpp"
 
 std::vector<game> DomEvaluator::evaluate(const Domineering& G){
     auto games = break_configuration(G);

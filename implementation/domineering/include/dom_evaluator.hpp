@@ -5,8 +5,8 @@
 #include <tuple>
 #include <algorithm>
 
-#include "domineering.h"
-#include "definitions.h"
+#include "domineering.hpp"
+#include "definitions.hpp"
 
 using std::tuple;
 using std::vector;

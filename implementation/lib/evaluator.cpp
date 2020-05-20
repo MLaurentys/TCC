@@ -1,8 +1,8 @@
 //this file is temporary.
 // will be removed when I finish the template implementation
 
-#include "evaluator.h"
-#include "../domineering/include/domineering.h"
+#include "evaluator.hpp"
+#include "../domineering/include/domineering.hpp"
 
 evaluation evaluate(
         const Domineering& G,
