@@ -1,5 +1,4 @@
 #include "../include/dom_evaluator.hpp"
-
 std::vector<game> DomEvaluator::evaluate(const Domineering& G){
     auto games = break_configuration(G);
     std::vector<game> ret;
@@ -8,9 +7,8 @@ std::vector<game> DomEvaluator::evaluate(const Domineering& G){
     return ret;
 }
 
-tuple<vector<move>, vector<move>> DomEvaluator::get_moves(
-        const int_mat& mat,
-        const semi_board& sb) {
+tuple<vector<move>, vector<move>>
+DomEvaluator::get_moves(const int_mat& mat, const semi_board& sb) {
     vector<move> left,right;
     //left moves verticaLLy
     for (int i = std::max(1,sb.top); i < sb.height; ++i)
@@ -25,8 +23,8 @@ tuple<vector<move>, vector<move>> DomEvaluator::get_moves(
     return {left, right};
 }
 
-tuple<int_mat, vector<semi_board>> DomEvaluator::break_configuration(
-        const Domineering& G) {
+tuple<int_mat, vector<semi_board>>
+DomEvaluator::break_configuration(const Domineering& G) {
     auto rems = G.get_sorted_removes();
     int n = G.wid(), m = G.hei(), g_amt;
     int_mat mat;

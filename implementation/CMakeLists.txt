@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
+
 set(FILES
 domineering/src/main.cpp
 domineering/src/domineering.cpp
@@ -16,8 +18,7 @@ lib/evaluator/hpp
 lib/union_find.hpp)
 
 add_subdirectory(game_numbers)
-
 project(tcc)
-add_executable(aout ${FILES})
-set_target_properties(aout PROPERTIES PUBLIC_HEADER ${HEADERS})
-target_link_libraries(aout PUBLIC game_numbers)
+add_executable(a.out ${FILES})
+set_target_properties(a.out PROPERTIES PUBLIC_HEADER ${HEADERS})
+target_link_libraries(a.out PUBLIC game_number)

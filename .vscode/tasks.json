@@ -1,10 +1,17 @@
 {
     "tasks": [
         {
+            "label": "CMake Build",
+            "group": "build",
+            "args": ["--build", "."],
+            "options": {"cwd": "${workspaceRoot}/implementation/build"},
+            "command": "cmake"
+        },
+        {
             "label": "My Build",
             "group": "build",
             "type": "shell",
-            "options": {"cwd": "${workspaceRoot}/www/implementations/domineering"},
+            "options": {"cwd": "${workspaceRoot}/implementation/domineering"},
             "command": "make"
         },
         {

@@ -7,6 +7,8 @@
 
 #include "domineering.hpp"
 #include "definitions.hpp"
+#include "../../game_numbers/include/game_number_repr.hpp"
+
 
 using std::tuple;
 using std::vector;
@@ -19,8 +21,12 @@ class DomEvaluator{
     void print_evaluation(game);
 
     private:
-    tuple<vector<move>, vector<move>> get_moves (const int_mat&, const semi_board&);
-    tuple<int_mat, vector<semi_board>> break_configuration(const Domineering&);
+    tuple<vector<move>, vector<move>>
+    get_moves (const int_mat&, const semi_board&);
+
+    tuple<int_mat, vector<semi_board>>
+    break_configuration(const Domineering&);
+    
     float eval_rec(const Domineering&);
 
 

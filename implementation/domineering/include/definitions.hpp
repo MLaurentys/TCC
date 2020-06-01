@@ -1,8 +1,10 @@
-#ifndef DEFINITION_H
-#define DEFINITION_H
+#ifndef DOM_DEFINITION_H
+#define DOM_DEFINITION_H
 
 #include <tuple>
 #include <vector>
+
+#include "../../game_numbers/include/definitions.hpp"
 
 struct semi_board {
     int left;

@@ -44,5 +44,7 @@
         "string": "cpp",
         "iostream": "cpp",
         "map": "cpp"
-    }
+    },
+    "cmake.buildDirectory": "${workspaceFolder}/implementation/build",
+    "cmake.sourceDirectory": "${workspaceFolder}/implementation"
 }

@@ -4,11 +4,31 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+    {
+        "name": "CMake Launch",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/implementation/build/a.out",
+        "args": [],
+        "stopAtEntry": false,
+        "cwd": "${workspaceFolder}",
+        "environment": [],
+        "externalConsole": false,
+        "MIMode": "gdb",
+        "setupCommands": [
+            {
+                "description": "Enable pretty-printing for gdb",
+                "text": "-enable-pretty-printing",
+                "ignoreFailures": true
+            }
+        ],
+        "preLaunchTask": "CMake Build"
+    },
         {
             "name": "gcc-8 - Build and debug active file",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceRoot}/www/implementations/domineering/out/domineering",
+            "program": "${workspaceRoot}/implementation/domineering/out/domineering",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
