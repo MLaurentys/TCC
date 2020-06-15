@@ -31,8 +31,8 @@ void Domineering::print_board() {
 
 void Domineering::make_move(move mv) {
     moves.push_back(mv);
-    removed.push_back(get<0>(mv));
-    removed.push_back(get<1>(mv));
+    removed.push_back(mv.pos1);
+    removed.push_back(mv.pos2);
 }
 
 vector<b_pos> Domineering::get_sorted_removes() const {

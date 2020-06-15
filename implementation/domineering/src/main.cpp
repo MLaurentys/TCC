@@ -8,9 +8,9 @@ using std::tuple;
 using std::cout;
 using std::endl;
 
-// using gn_ptr = std::unique_ptr<GameNumber>;
-// using sets = GameNumberS<GNRepresentation::sets>;
-// using real = GameNumberS<GNRepresentation::real>;
+using gn_ptr = std::unique_ptr<GameNumber>;
+using sets = GameNumberS<GNRepresentation::sets>;
+using real = GameNumberS<GNRepresentation::real>;
 
 // bool test0() {
 //     gn_ptr gn = std::make_unique<real> (10.0f);

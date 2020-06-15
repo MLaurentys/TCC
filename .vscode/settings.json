@@ -46,5 +46,6 @@
         "map": "cpp"
     },
     "cmake.buildDirectory": "${workspaceFolder}/implementation/build",
-    "cmake.sourceDirectory": "${workspaceFolder}/implementation"
+    "cmake.sourceDirectory": "${workspaceFolder}/implementation",
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
 }
