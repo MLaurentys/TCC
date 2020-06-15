@@ -29,6 +29,7 @@ bool test1(){
     d.make_move({{0,1}, {1,1}});
     d.print_board();
     std::vector<game> evaluation = de.evaluate(d);
+    std::cout << (evaluation.size()) << std::endl;
     for (auto& e : evaluation) {
         de.print_evaluation(e);
         cout << " + ";

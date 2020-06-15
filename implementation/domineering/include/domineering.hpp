@@ -28,8 +28,8 @@ class Domineering{
     private:
     int n; //horizontal
     int m; //vertical
-    vector<b_pos> removed;
     vector<move> moves;
+    vector<b_pos> removed;
     void sort_removed(vector<b_pos>&) const;
 };
 

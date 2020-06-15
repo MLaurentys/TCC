@@ -1,9 +1,9 @@
 #include "../include/dom_evaluator.hpp"
 std::vector<game> DomEvaluator::evaluate(const Domineering& G){
-    auto games = break_configuration(G);
+    auto configurations = break_configuration(G);
     std::vector<game> ret;
-    for (auto& sb : get<1>(games))
-        ret.push_back(evaluate_game_fixed(get<0>(games),sb));
+    for (auto& sb : get<1>(configurations))
+        ret.push_back(evaluate_game_fixed(get<0>(configurations),sb));
     return ret;
 }
 
@@ -20,7 +20,7 @@ DomEvaluator::get_moves(const int_mat& mat, const semi_board& sb) {
         for (int j = std::max(1, sb.left); j < sb.left + sb.width; ++j)
             if (mat[i][j] == sb.gID && mat[i][j-1] == sb.gID)
                 right.push_back({{i,j-1}, {i,j}});
-    return {left, right};
+    return std::make_tuple(std::move(left), std::move(right));
 }
 
 tuple<int_mat, vector<semi_board>>
@@ -83,16 +83,20 @@ game DomEvaluator::evaluate_game_fixed(int_mat& mat, semi_board sb) {
     return ret;
 }
 
+// I.e. < < 2 | 6 >, 4 | 6, 10, 19 >
+// < < < | > | > | < | > >
 std::string build_eval_string (game& G) {
-    std::string s = "< { ";
-    for (int i = 0; i < G.left.size() - 1; ++i)
+    std::string s = "< ";
+    int sz_l = static_cast<int>(G.left.size());
+    int sz_r = static_cast<int>(G.right.size());
+    for (int i = 0; i < sz_l - 1; ++i)
         s += build_eval_string(G.left[i]) + ", ";
-    s += build_eval_string(G.left[G.left.size()-1]);
-    s += " } | { ";
-    for (int i = 0; i < G.right.size() - 1; ++i)
+    if (sz_l) s += build_eval_string(G.left[sz_l - 1]) + " ";
+    s += "|";
+    for (int i = 0; i < sz_r; ++i)
         s += build_eval_string(G.right[i]) + ", ";
-    s += build_eval_string(G.right[G.right.size()-1]);
-    s += " } >";
+    if (sz_r) s += build_eval_string(G.right[sz_r - 1]) + " ";
+    s += " >";
     return s;
 }
 

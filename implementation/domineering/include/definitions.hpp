@@ -21,8 +21,8 @@ struct b_pos {
     int y;
     b_pos (int a, int b) : x{a}, y{b} {}
     b_pos (const b_pos& other) : x{other.x}, y{other.y} {}
-    bool operator== (std::tuple<int&,int&> other)
-        {return std::get<0>(other) == x && std::get<1>(other) == y;}
+    bool operator== (const b_pos& other)
+        {return other.x == x && other.y == y;}
     b_pos& operator= (const b_pos& other) {
         x = other.x;
         y = other.y;
@@ -41,6 +41,7 @@ struct move {
 struct game {
     std::vector<game> left;
     std::vector<game> right;
+    game () : left{}, right{} {}
 };
 
 #endif
