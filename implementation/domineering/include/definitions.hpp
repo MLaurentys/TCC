@@ -43,5 +43,11 @@ struct game {
     std::vector<game> right;
     game () : left{}, right{} {}
 };
-
+namespace gameF {
+    inline float* get_eval (const game&) { return nullptr; }
+    inline auto lIter (const game& g) {
+        return std::make_tuple(g.left.begin(), g.left.end()); }
+    inline auto rIter (const game& g) {
+        return std::make_tuple(g.right.begin(), g.right.end()); }
+}
 #endif

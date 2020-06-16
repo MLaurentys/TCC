@@ -8,7 +8,6 @@ Domineering::Domineering(const Domineering& other) : n{other.n},
 
 void Domineering::print_board() {
     vector<b_pos> rems = get_sorted_removes();
-    cout << "[";
     int rem_ind = 0;
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
@@ -19,7 +18,7 @@ void Domineering::print_board() {
             else cout << "o";
             cout << " ";
         }
-        cout << "]\n ";
+        cout << "]\n";
     }
 }
 
