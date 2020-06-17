@@ -59,7 +59,7 @@ bool test2(){
     DomEvaluator de;
     d.make_move({{0,1}, {0,2}});
     d.print_board();
-    auto evaluation = de.evaluate(d);
+    std::vector<game> evaluation = de.evaluate(d);
     int sz = static_cast<int>(evaluation.size());
     for (int i = 0; i < sz - 1; ++i) {
         de.print_evaluation(evaluation[i]);

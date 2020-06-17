@@ -34,7 +34,7 @@ class DomEvaluator{
     
     float eval_rec(const Domineering&);
 
-    game evaluate_game_fixed(int_mat&, semi_board);
+    game evaluate_game_fixed(int_mat&, semi_board&);
 };
 
 #endif

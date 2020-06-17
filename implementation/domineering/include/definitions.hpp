@@ -14,6 +14,16 @@ struct semi_board {
     int gID;
     semi_board (int a, int b, int c, int d, int e) :
         left{a}, bottom{b}, width{c}, height{d}, gID{e} {}
+
+    semi_board (const semi_board& other) : left{other.left},
+        bottom{other.bottom}, width{other.width}, height{other.height},
+        gID{other.gID} {}
+    semi_board& operator= (const semi_board& other) { 
+        left = other.left; bottom = other.bottom;
+        width = other.width; height = other.height;
+        gID = other.gID;
+        return *this;
+    }
 };
 
 struct rectangle {
@@ -23,10 +33,18 @@ struct rectangle {
         width{wid}, height{hei} {}
     rectangle (const semi_board& sb) :
         width{sb.width}, height{sb.height} {}
-
+    rectangle (const rectangle& other) :
+        width{other.width}, height{other.height} {}
+    rectangle& operator= (const rectangle& other) {
+        width = other.width;
+        height = other.height;
+        return *this;
+    }
     bool operator== (const rectangle& other) const {
-        return width==other.width && height==other.height;}
-    
+        return width==other.width && height==other.height;
+    }
+
+
 };
 
 struct b_pos {
@@ -48,6 +66,8 @@ struct move {
     b_pos pos2;
     move (const b_pos& p1, const b_pos& p2) : pos1(p1), pos2(p2) {}
     move (const move& other) : pos1(other.pos1), pos2(other.pos2) {}
+    move& operator= (const move& other) {
+        pos1 = other.pos1; pos2 = other.pos2; return *this;}
 };
 
 
@@ -55,6 +75,12 @@ struct game {
     std::vector<game> left;
     std::vector<game> right;
     game () : left{}, right{} {}
+    game (const game& other) : left{other.left}, right{other.right} {}
+    game& operator= (const game& other) {
+        left = other.left;
+        right = other.right;
+        return *this;
+    }
 };
 namespace gameF {
     inline float* get_eval (const game&) { return nullptr; }

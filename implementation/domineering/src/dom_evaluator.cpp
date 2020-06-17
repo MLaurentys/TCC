@@ -3,10 +3,15 @@
 unordered_map<rectangle, game> DomEvaluator::hmap {};
 
 std::vector<game> DomEvaluator::evaluate(const Domineering& G){
-    auto configurations = break_configuration(G);
+    int_mat mat;
+    vector<semi_board> sbs;
+    std::tie(mat, sbs) = break_configuration(G);
     std::vector<game> ret;
-    for (auto& sb : get<1>(configurations))
-        ret.push_back(evaluate_game_fixed(get<0>(configurations),sb));
+    for (auto& sb : sbs) {
+        int a = 0;
+        ret.push_back(evaluate_game_fixed(mat,sb));
+        int b = 1;
+    }
     return ret;
 }
 
@@ -53,7 +58,7 @@ DomEvaluator::break_configuration(const Domineering& G) {
         sb.width -= sb.left - 1;
         sb.height -= sb.bottom - 1;
     }
-    return {mat, ret};
+    return std::make_tuple(std::move(mat), std::move(ret));
 }
 
 void toggle (int_mat& mat, move& m, int id) {
@@ -69,7 +74,7 @@ void toggle (int_mat& mat, move& m, int id) {
     }
 }
 
-game DomEvaluator::evaluate_game_fixed(int_mat& mat, semi_board sb) {
+game DomEvaluator::evaluate_game_fixed(int_mat& mat, semi_board& sb) {
     bool is_rec = is_rect(mat, sb);
     if (is_rec) {
         auto it = hmap.find(rectangle(sb)); 
