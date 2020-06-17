@@ -1,4 +1,7 @@
 #include "../include/dom_evaluator.hpp"
+
+unordered_map<rectangle, game> DomEvaluator::hmap {};
+
 std::vector<game> DomEvaluator::evaluate(const Domineering& G){
     auto configurations = break_configuration(G);
     std::vector<game> ret;
@@ -11,12 +14,12 @@ tuple<vector<move>, vector<move>>
 DomEvaluator::get_moves(const int_mat& mat, const semi_board& sb) {
     vector<move> left,right;
     //left moves verticaLLy
-    for (int i = std::max(1,sb.top); i < sb.height; ++i)
+    for (int i = std::max(1,sb.bottom); i < sb.height; ++i)
         for (int j = sb.left; j < sb.width + sb.left; ++j)
             if (mat[i][j] == sb.gID && mat[i-1][j] == sb.gID)
                 left.push_back({{i-1,j}, {i,j}});
     //right moves hoRizontally
-    for (int i = sb.top; i < sb.top + sb.height; ++i)
+    for (int i = sb.bottom; i < sb.bottom + sb.height; ++i)
         for (int j = std::max(1, sb.left); j < sb.left + sb.width; ++j)
             if (mat[i][j] == sb.gID && mat[i][j-1] == sb.gID)
                 right.push_back({{i,j-1}, {i,j}});
@@ -40,15 +43,15 @@ DomEvaluator::break_configuration(const Domineering& G) {
                 ret[g].left = j;
             if (j > ret[g].width)
                 ret[g].width = j;
-            if (i < ret[g].top)
-                ret[g].top = i;
+            if (i < ret[g].bottom)
+                ret[g].bottom = i;
             if (i > ret[g].height)
                 ret[g].height = i;
         }
     }
     for (auto& sb : ret){
         sb.width -= sb.left - 1;
-        sb.height -= sb.top - 1;
+        sb.height -= sb.bottom - 1;
     }
     return {mat, ret};
 }
@@ -67,6 +70,14 @@ void toggle (int_mat& mat, move& m, int id) {
 }
 
 game DomEvaluator::evaluate_game_fixed(int_mat& mat, semi_board sb) {
+    bool is_rec = is_rect(mat, sb);
+    if (is_rec) {
+        auto it = hmap.find(rectangle(sb)); 
+        if (it != hmap.end()) {
+            cout << "Used hash_map\n";
+            return it->second;
+        }
+    }
     auto moves = get_moves(mat, sb);
     int id = sb.gID;
     game ret;
@@ -79,6 +90,10 @@ game DomEvaluator::evaluate_game_fixed(int_mat& mat, semi_board sb) {
         toggle(mat, m, id);
         ret.right.push_back(evaluate_game_fixed(mat, sb));
         toggle(mat, m, id);
+    }
+    if (is_rec) {
+        cout << "Filled hash_map\n";
+        hmap[rectangle(sb)] = ret;
     }
     return ret;
 }
@@ -102,4 +117,11 @@ std::string build_eval_string (game& G) {
 
 void DomEvaluator::print_evaluation(game G){
     cout << build_eval_string(G);
+}
+
+bool DomEvaluator::is_rect (const int_mat& mat, const semi_board& sb) {
+    for (int i = sb.bottom; i < sb.bottom + sb.height; ++i)
+        for (int j = sb.left; j < sb.left + sb.width; ++j)
+            if (mat[i][j] != sb.gID) return false;
+    return true;
 }

@@ -29,16 +29,13 @@ void Domineering::make_move(move mv) {
 }
 
 vector<b_pos> Domineering::get_sorted_removes() const {
-    auto rems(removed);
-    sort_removed(rems);
-    rems.push_back({-1, -1});
-    return rems;
-}
-
-void Domineering::sort_removed(vector<b_pos>& rems) const {
     auto comp = [&](const b_pos& p1, const b_pos& p2) {
-        int a = n * (p1.y - p2.y) + (p1.x - p2.x);
-        return a < 0;
+        if (p1.x == p2.x)
+            return p1.y < p2.y;
+        return p1.x < p2.x;
     };
+
+    auto rems(removed);
     std::sort(rems.begin(), rems.end(), comp);
+    return rems;
 }

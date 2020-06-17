@@ -8,12 +8,25 @@
 
 struct semi_board {
     int left;
-    int top;
+    int bottom;
     int width;
     int height;
     int gID;
     semi_board (int a, int b, int c, int d, int e) :
-        left{a}, top{b}, width{c}, height{d}, gID{e} {}
+        left{a}, bottom{b}, width{c}, height{d}, gID{e} {}
+};
+
+struct rectangle {
+    int width;
+    int height;
+    rectangle (int wid, int hei) :
+        width{wid}, height{hei} {}
+    rectangle (const semi_board& sb) :
+        width{sb.width}, height{sb.height} {}
+
+    bool operator== (const rectangle& other) const {
+        return width==other.width && height==other.height;}
+    
 };
 
 struct b_pos {
@@ -49,5 +62,15 @@ namespace gameF {
         return std::make_tuple(g.left.begin(), g.left.end()); }
     inline auto rIter (const game& g) {
         return std::make_tuple(g.right.begin(), g.right.end()); }
+}
+
+namespace std {
+  template <>
+  struct hash<rectangle> {
+    size_t operator()(const rectangle& key) const {
+      return 100*key.width + key.height;
+    }
+  };
+
 }
 #endif

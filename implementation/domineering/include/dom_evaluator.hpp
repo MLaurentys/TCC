@@ -4,6 +4,8 @@
 #include <vector>
 #include <tuple>
 #include <algorithm>
+#include <memory>
+#include <unordered_map>
 
 #include "domineering.hpp"
 #include "definitions.hpp"
@@ -13,7 +15,7 @@
 using std::tuple;
 using std::vector;
 using std::get;
-
+using std::unordered_map;
 
 class DomEvaluator{
     public:
@@ -21,6 +23,9 @@ class DomEvaluator{
     void print_evaluation(game);
 
     private:
+    static unordered_map<rectangle, game> hmap;
+    static bool is_rect (const int_mat&, const semi_board&);
+
     tuple<vector<move>, vector<move>>
     get_moves (const int_mat&, const semi_board&);
 
@@ -28,7 +33,6 @@ class DomEvaluator{
     break_configuration(const Domineering&);
     
     float eval_rec(const Domineering&);
-
 
     game evaluate_game_fixed(int_mat&, semi_board);
 };

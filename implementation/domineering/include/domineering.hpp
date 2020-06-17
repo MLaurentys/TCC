@@ -30,7 +30,6 @@ class Domineering{
     int m; //vertical
     vector<move> moves;
     vector<b_pos> removed;
-    void sort_removed(vector<b_pos>&) const;
 };
 
 
