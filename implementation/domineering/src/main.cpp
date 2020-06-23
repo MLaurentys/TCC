@@ -24,6 +24,8 @@ using real = GameNumberS<GNRepresentation::real>;
 // }
 
 bool test1(){
+    cout << "hashmap at the beggining:\n";
+    for (auto& kv : DomEvaluator::hmap) {kv.first.print();}
     Domineering d(2,3);
     DomEvaluator de;
     d.make_move({{0,1}, {1,1}});
@@ -55,6 +57,8 @@ bool test1(){
 }
 
 bool test2(){
+    cout << "hashmap at the beggining:\n";
+    for (auto& kv : DomEvaluator::hmap) {kv.first.print();}
     Domineering d(2,3);
     DomEvaluator de;
     d.make_move({{0,1}, {0,2}});
@@ -82,10 +86,15 @@ bool test2(){
             cout << "No";
         cout << "\n";
     }
+    cout << "hashmap at the end:\n";
+    for (auto& kv : DomEvaluator::hmap) {kv.first.print();}
+
     return false;
 }
 
 bool test3(){
+    cout << "hashmap at the beggining:\n";
+    for (auto& kv : DomEvaluator::hmap) {kv.first.print();}
     Domineering d(5,5);
     DomEvaluator de;
     d.make_move({{0,1}, {0,2}});
@@ -93,6 +102,7 @@ bool test3(){
     d.make_move({{1,2}, {2,2}});
     d.make_move({{3,2}, {4,2}});
     d.make_move({{3,3}, {3,4}});
+    //d.make_move({{2,3}, {2,4}});
     d.print_board();
     auto evaluation = de.evaluate(d);
     int sz = static_cast<int>(evaluation.size());
@@ -123,6 +133,8 @@ bool test3(){
             cout << "No";
         cout << "\n";
     }
+    cout << "hashmap at the end:\n";
+    for (auto& kv : DomEvaluator::hmap) {kv.first.print();}
     return false;
 }
 

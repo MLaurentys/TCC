@@ -9,9 +9,12 @@ Domineering::Domineering(const Domineering& other) : n{other.n},
 void Domineering::print_board() {
     vector<b_pos> rems = get_sorted_removes();
     int rem_ind = 0;
+    int len = static_cast<int>(rems.size());
     for (int i = 0; i < m; i++) {
+        cout << "[ ";
         for (int j = 0; j < n; j++) {
-            if(rems[rem_ind] == b_pos{i, j}){
+            b_pos temp {i, j};
+            if(rem_ind < len && rems[rem_ind] == temp){
                 ++rem_ind;
                 cout << "x";
             }

@@ -1,6 +1,6 @@
 #include "union_find.hpp"
 
-std::tuple<int_mat, int> union_find(int n, int m, pt_list pts){
+std::tuple<int_mat, int> union_find(int n, int m, pt_list pts) {
     int_mat parents(m, std::vector<int>(n));
 
     //accessor with necessary bound check
@@ -63,9 +63,10 @@ std::tuple<int_mat, int> union_find(int n, int m, pt_list pts){
     };
 
     int rems_ind = 0;
+    int len = static_cast<int>(pts.size());
     for (int i = 0; i < m; ++i) {
         for (int j = 0; j < n; ++j) {
-            if (pts[rems_ind] == b_pos{i, j}) {
+            if (rems_ind < len && pts[rems_ind] == b_pos{i, j}) {
                 ++rems_ind;
                 parents[i][j] = -1;
                 continue;

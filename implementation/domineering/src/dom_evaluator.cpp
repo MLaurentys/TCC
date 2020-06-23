@@ -34,16 +34,19 @@ DomEvaluator::get_moves(const int_mat& mat, const semi_board& sb) {
 tuple<int_mat, vector<semi_board>>
 DomEvaluator::break_configuration(const Domineering& G) {
     auto rems = G.get_sorted_removes();
-    int n = G.wid(), m = G.hei(), g_amt;
+    int n = G.wid(), m = G.hei(), g_ind = 0, g_amt;
     int_mat mat;
+    unordered_map<int, int> id_map {};
     std::tie(mat, g_amt) = union_find(n, m, rems);
     vector<semi_board> ret(g_amt, {INT32_MAX, INT32_MAX, 0, 0, -1});
     // During this loop, width and height will mean max x and max y 
     for (int i = 0; i < m; ++i) {
-        ret[i].gID = i;
         for (int j = 0; j < n; ++j) {
             int g = mat[i][j];
             if (g == -1) continue;
+            if (id_map.find(g) == id_map.end())
+                id_map[g] = g_ind++;
+            ret[g].gID = id_map[g];
             if (j < ret[g].left)
                 ret[g].left = j;
             if (j > ret[g].width)

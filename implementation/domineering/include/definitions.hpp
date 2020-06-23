@@ -3,6 +3,7 @@
 
 #include <tuple>
 #include <vector>
+#include <iostream>
 
 #include "../../game_numbers/include/definitions.hpp"
 
@@ -43,7 +44,9 @@ struct rectangle {
     bool operator== (const rectangle& other) const {
         return width==other.width && height==other.height;
     }
-
+    void print () const {
+        std::cout << width << " x " << height << "\n"; 
+    }
 
 };
 
@@ -59,6 +62,8 @@ struct b_pos {
         y = other.y;
         return *this;
     }
+    b_pos (b_pos&& other) : x{std::move(other.x)}, y{std::move(other.y)}
+        {}
 };
 
 struct move {

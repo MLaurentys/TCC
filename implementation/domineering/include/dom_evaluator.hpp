@@ -21,9 +21,9 @@ class DomEvaluator{
     public:
     std::vector<game> evaluate(const Domineering&);
     void print_evaluation(game);
+    static unordered_map<rectangle, game> hmap;
 
     private:
-    static unordered_map<rectangle, game> hmap;
     static bool is_rect (const int_mat&, const semi_board&);
 
     tuple<vector<move>, vector<move>>
