@@ -1,3 +1,7 @@
+/*
+ * This files contains the definition of the DomEvaluator class.
+ */
+
 #ifndef DOM_EVALUATOR_H
 #define DOM_EVALUATOR_H
 
@@ -17,6 +21,10 @@ using std::vector;
 using std::get;
 using std::unordered_map;
 
+/*
+ * This class is used to evaluate the advantadges of given positions of the
+ *  game called domineering.
+ */
 class DomEvaluator{
     public:
     std::vector<game> evaluate(const Domineering&);
