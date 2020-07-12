@@ -1,3 +1,7 @@
+/*
+ * This file contains the implementation of the DomEvaluator class.
+ */
+
 #include "../include/dom_evaluator.hpp"
 
 unordered_map<rectangle, game> DomEvaluator::hmap {};

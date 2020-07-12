@@ -1,3 +1,7 @@
+/*
+ * This files contains the definition of the Domineering class.
+ */
+
 #ifndef DOMINEERING_H
 #define DOMINEERING_H
 
@@ -14,6 +18,9 @@ using std::vector;
 using std::cout;
 using std::get;
 
+/*
+ * This class implements the game of domineering.
+ */
 class Domineering{
     public:
     int wid() const {return n;};

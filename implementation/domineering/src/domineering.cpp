@@ -1,3 +1,7 @@
+/*
+ * This file contains the implementation of the Domineering class.
+ */
+
 #include "../include/domineering.hpp"
 
 Domineering::Domineering(int height, int width) : n{width}, m{height},
