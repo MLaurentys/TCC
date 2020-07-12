@@ -140,7 +140,7 @@ bool test3(){
 
 int main(){
     std::cout << "test 1:\n";
-    //test1();
+    test1();
     cout << "\n";
     std::cout << "test 2:\n";
     test2();

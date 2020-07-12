@@ -57,7 +57,7 @@ DomEvaluator::break_configuration(const Domineering& G) {
                 ret[g].height = i;
         }
     }
-    for (auto& sb : ret){
+    for (auto& sb : ret) {
         sb.width -= sb.left - 1;
         sb.height -= sb.bottom - 1;
     }
@@ -70,8 +70,7 @@ void toggle (int_mat& mat, move& m, int id) {
     if (mat[x1][y1] == -1) {
         mat[x1][y1] = id;
         mat[x2][y2] = id;
-    }
-    else{
+    } else {
         mat[x1][y1] = -1;
         mat[x2][y2] = -1;
     }

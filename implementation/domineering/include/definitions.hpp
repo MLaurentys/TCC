@@ -7,6 +7,20 @@
 
 #include "../../game_numbers/include/definitions.hpp"
 
+/*
+
+o o o o
+o o x x
+o o x o
+
+
+3 3 3 3
+3 3 -1 -1
+3 3 -1 5
+
+sd (3) : 2, 0 | 4, 3
+*/
+
 struct semi_board {
     int left;
     int bottom;
@@ -19,7 +33,7 @@ struct semi_board {
     semi_board (const semi_board& other) : left{other.left},
         bottom{other.bottom}, width{other.width}, height{other.height},
         gID{other.gID} {}
-    semi_board& operator= (const semi_board& other) { 
+    semi_board& operator= (const semi_board& other) {
         left = other.left; bottom = other.bottom;
         width = other.width; height = other.height;
         gID = other.gID;
