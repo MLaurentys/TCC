@@ -16,22 +16,22 @@ The only remaining criteria of this definition (as established in [\todo{WW}]), 
 The foundations of mathematical plays, highlighted, give light to a complex and rich set of problems. At the same time, some other complex and rich problems are left behind. The game of chess, for example, does not meet the ending condition and, therefore, is left out. Fortunately, games like chess might benefit from these studies to adaptations or additional rules (although they do not consist of good examples of combinatorial games). Take the following example:\\
 
 \begin{tikzpicture}
-\node[draw] (title) at (1.5, 3) {Blue-Red Hackenbush};
-\node (p1) at (0,0) {};
-\node (p2) at (3,0) {floor};
-\begin{scope} [every node/.style={scale=0.4, circle, draw, fill=black}]
-	\node (p3) at (1,0) {};
-	\node (p4) at (1,1) {};
-	\node (p5) at (1,2) {};
-	\node (p6) at (2,0) {};
-	\node (p7) at (2,1) {};
-	\draw (p1) -- (p2);
-	\begin{scope} [ultra thick]
-		\draw[blue] (p3) -- (p4);
-		\draw[red] (p4) -- (p5);
-		\draw[red] (p6) -- (p7);
+	\node[draw] (title) at (1.5, 3) {Blue-Red Hackenbush};
+	\node (p1) at (0,0) {};
+	\node (p2) at (3,0) {floor};
+	\begin{scope} [every node/.style={scale=0.4, circle, draw, fill=black}]
+		\node (p3) at (1,0) {};
+		\node (p4) at (1,1) {};
+		\node (p5) at (1,2) {};
+		\node (p6) at (2,0) {};
+		\node (p7) at (2,1) {};
+		\draw (p1) -- (p2);
+		\begin{scope} [ultra thick]
+			\draw[blue] (p3) -- (p4);
+			\draw[red] (p4) -- (p5);
+			\draw[red] (p6) -- (p7);
+		\end{scope}
 	\end{scope}
-\end{scope}
 \end{tikzpicture}
 
 
