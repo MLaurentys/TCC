@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.4.17)  13 JUL 2020 20:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.4.17)  13 JUL 2020 20:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1120,7 +1120,7 @@ Package natbib Warning: Citation `econ' on page 13 undefined on input line 9.
 
 Package natbib Warning: Citation `econ' on page 13 undefined on input line 9.
 
-<images/the_economic_argument.png, id=190, 321.6015pt x 430.0065pt>
+<images/the_economic_argument.png, id=195, 321.6015pt x 430.0065pt>
 File: images/the_economic_argument.png Graphic file (type png)
 <use images/the_economic_argument.png>
 Package pdftex.def Info: images/the_economic_argument.png  used on input line 1
@@ -1129,7 +1129,7 @@ Package pdftex.def Info: images/the_economic_argument.png  used on input line 1
 [13
 
 ]
-<images/dunning_kruger.png, id=197, 442.65375pt x 352.31625pt>
+<images/dunning_kruger.png, id=202, 442.65375pt x 352.31625pt>
 File: images/dunning_kruger.png Graphic file (type png)
 <use images/dunning_kruger.png>
 Package pdftex.def Info: images/dunning_kruger.png  used on input line 24.
@@ -1180,11 +1180,11 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 115.
  ) 
 Here is how much of TeX's memory you used:
- 19034 strings out of 494923
- 347393 string characters out of 6180742
+ 19037 strings out of 494923
+ 347430 string characters out of 6180742
  412796 words of memory out of 5000000
- 21956 multiletter control sequences out of 15000+600000
- 10587 words of font info for 37 fonts, out of 8000000 for 9000
+ 21957 multiletter control sequences out of 15000+600000
+ 10895 words of font info for 38 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  55i,9n,61p,1002b,615s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
@@ -1196,10 +1196,10 @@ onts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmtt12.pfb>
-Output written on main.pdf (17 pages, 224337 bytes).
+Output written on main.pdf (17 pages, 228146 bytes).
 PDF statistics:
- 265 PDF objects out of 1000 (max. 8388607)
- 229 compressed objects within 3 object streams
- 51 named destinations out of 1000 (max. 500000)
+ 269 PDF objects out of 1000 (max. 8388607)
+ 233 compressed objects within 3 object streams
+ 53 named destinations out of 1000 (max. 500000)
  196 words of extra memory for PDF output out of 10000 (max. 10000000)
 
