@@ -28,7 +28,7 @@ using std::unordered_map;
 class DomEvaluator{
     public:
     std::vector<game> evaluate(const Domineering&);
-    void print_evaluation(game);
+    void print_evaluation(game&);
     static unordered_map<rectangle, game> hmap;
 
     private:

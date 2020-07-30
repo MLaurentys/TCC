@@ -11,16 +11,13 @@ std::vector<game> DomEvaluator::evaluate(const Domineering& G){
     vector<semi_board> sbs;
     std::tie(mat, sbs) = break_configuration(G);
     std::vector<game> ret;
-    for (auto& sb : sbs) {
-        int a = 0;
+    for (auto& sb : sbs)
         ret.push_back(evaluate_game_fixed(mat,sb));
-        int b = 1;
-    }
     return ret;
 }
 
 tuple<vector<move>, vector<move>>
-DomEvaluator::get_moves(const int_mat& mat, const semi_board& sb) {
+DomEvaluator::get_moves (const int_mat& mat, const semi_board& sb) {
     vector<move> left,right;
     //left moves verticaLLy
     for (int i = std::max(1,sb.bottom); i < sb.height; ++i)
@@ -36,7 +33,7 @@ DomEvaluator::get_moves(const int_mat& mat, const semi_board& sb) {
 }
 
 tuple<int_mat, vector<semi_board>>
-DomEvaluator::break_configuration(const Domineering& G) {
+DomEvaluator::break_configuration (const Domineering& G) {
     auto rems = G.get_sorted_removes();
     int n = G.wid(), m = G.hei(), g_ind = 0, g_amt;
     int_mat mat;
@@ -126,7 +123,7 @@ std::string build_eval_string (game& G) {
     return s;
 }
 
-void DomEvaluator::print_evaluation(game G){
+void DomEvaluator::print_evaluation (game& G) {
     cout << build_eval_string(G);
 }
 

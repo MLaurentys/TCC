@@ -41,7 +41,6 @@ vector<b_pos> Domineering::get_sorted_removes() const {
             return p1.y < p2.y;
         return p1.x < p2.x;
     };
-
     auto rems(removed);
     std::sort(rems.begin(), rems.end(), comp);
     return rems;
