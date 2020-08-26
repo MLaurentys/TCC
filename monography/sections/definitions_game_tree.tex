@@ -1,0 +1,161 @@
+\begin{figure} [H]
+\begin{tikzpicture}
+[
+	sibling distance=150pt,
+	level distance=100pt,
+	level 1/.style={sibling distance=6cm},
+	level 2/.style={sibling distance=3cm},
+	every node/.style = {
+			shape=rectangle,
+			rounded corners,
+			draw,
+			align=center,
+			top color=white,
+			bottom color=blue!20
+		},
+	every child/.style = {
+		ultra thick
+	}
+]
+\node[] (title) at (0, 3) {Game Tree};
+\coordinate (p1) at (0.5,0);
+\coordinate (p2) at (2.5,0) {};
+\node {
+	\begin{tikzpicture}
+	[
+		every node/.style = {
+			scale=0.4,
+			circle,
+			draw,
+			fill=black
+		},
+		ultra thick
+	]
+			\node (p3) at (1,0) {};
+			\node (p4) at (1,1) {};
+			\node (p5) at (1,2) {};
+			\node (p6) at (2,0) {};
+			\node (p7) at (2,1) {};
+			\draw (p1) -- (p2);
+			\draw[blue] (p3) -- (p4);
+			\draw[red, densely dashed] (p4) -- (p5);
+			\draw[red, densely dashed] (p6) -- (p7);
+	\end{tikzpicture}
+}
+child [draw=blue] {node [thin, black]{
+	\begin{tikzpicture}
+	[	
+		every node/.style = {
+			scale=0.4,
+			circle,
+			draw,
+			fill=black
+		},
+		ultra thick
+	]
+	\node (p6) at (2,0) {};
+	\node (p7) at (2,1) {};
+	\draw (p1) -- (p2);
+	\draw[red, densely dashed] (p6) -- (p7);
+	\end{tikzpicture}
+} 
+	child [draw=red, dashed] {node [thin, solid, black] {} } }
+	child [draw=red, dashed] {node [thin, solid, black] {
+		\begin{tikzpicture}
+		[	
+		every node/.style = {
+			scale=0.4,
+			circle,
+			draw,
+			fill=black
+		},
+		ultra thick
+		]
+		\node (p3) at (1,0) {};
+		\node (p4) at (1,1) {};
+		\node (p5) at (1,2) {};
+		\draw (p1) -- (p2);
+		\draw[blue] (p3) -- (p4);
+		\draw[red, densely dashed] (p4) -- (p5);
+		\end{tikzpicture}
+}
+	child [draw=blue, solid] {node [thin, black] {} }
+	child [draw=red, dashed] {node [thin, solid, black] {
+			\begin{tikzpicture}
+			[	
+			every node/.style = {
+				scale=0.4,
+				circle,
+				draw,
+				fill=black
+			},
+			ultra thick
+			]
+			\node (p3) at (1,0) {};
+			\node (p4) at (1,1) {};
+			\draw (p1) -- (p2);
+			\draw[blue] (p3) -- (p4);
+			\end{tikzpicture}
+	}
+	child [draw=blue, solid] {node [thin, black] {} }
+	}
+}
+child [draw=red, dashed] {node [thin, solid, black] {
+		\begin{tikzpicture}
+		[	
+		every node/.style = {
+			scale=0.4,
+			circle,
+			draw,
+			fill=black
+		},
+		ultra thick
+		]
+		\node (p3) at (1,0) {};
+		\node (p4) at (1,1) {};
+		\node (p6) at (2,0) {};
+		\node (p7) at (2,1) {};
+		\draw (p1) -- (p2);
+		\draw[blue] (p3) -- (p4);
+		\draw[red, densely dashed] (p6) -- (p7);
+		\end{tikzpicture}
+} 
+	child [draw=blue, solid] {node [thin, solid, black] {
+			\begin{tikzpicture}
+			[	
+			every node/.style = {
+				scale=0.4,
+				circle,
+				draw,
+				fill=black
+			},
+			ultra thick
+			]
+			\node (p6) at (2,0) {};
+			\node (p7) at (2,1) {};
+			\draw (p1) -- (p2);
+			\draw[red, densely dashed] (p6) -- (p7);
+			\end{tikzpicture}
+}
+child [draw=red, dashed] {node [thin, solid, black] {} } }
+	child [draw=red, dashed] {node [thin, solid, black] {
+			\begin{tikzpicture}
+			[	
+			every node/.style = {
+				scale=0.4,
+				circle,
+				draw,
+				fill=black
+			},
+			ultra thick
+			]
+			\node (p3) at (1,0) {};
+			\node (p4) at (1,1) {};
+			\draw (p1) -- (p2);
+			\draw[blue] (p3) -- (p4);
+			\end{tikzpicture}
+}
+	child [draw=blue, solid] {node [thin, black] {} } }};
+\end{tikzpicture}
+\caption{}
+\end{figure}

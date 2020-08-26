@@ -4,3 +4,13 @@ out
 .temp
 build
 *.gz
+*.log
+*.toc
+*.lot
+*.aux
+*.out
+*.bbl
+*.blg
+*.dvi
+*.lof
+
