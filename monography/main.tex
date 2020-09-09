@@ -3,6 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{listings}
 \usepackage{graphicx}
+\usepackage{mathdots}
 \usepackage{tikz}
 \usepackage{pgffor} 
 \usepackage{float}
@@ -14,6 +15,8 @@
 \usepackage{epigraph}
 \usepackage{ragged2e}
 \usepackage{blindtext}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{tabto}
 \graphicspath{{images/}}
 
 \definecolor{mycolor}{RGB}{30,75,180}
@@ -41,12 +44,14 @@
 \newcommand{\defi}[1]{\textbf{#1}}
 \newcommand{\naming}[1]{\textbf{#1}}
 \newcommand{\todo}[1]{\textbf{\color{red} TODO: #1}}
+\newcommand{\num}[2]{$\{#1\:|\:#2\}$}
+\newcommand{\Gm}{\mbox{$G$}}
+\newcommand{\Hm}{\mbox{$H$}}
 %----------------------------------------------------------------------------------------------------%
 
 %--------------------------------------------- DOCUMENT ---------------------------------------------%
 \begin{document}
 %\fancyhead[RO,LE]{}
-
 % Title page
     \input{sections/title}
 
@@ -70,17 +75,17 @@
     \input{sections/introduction}
     
 % Definitions
-    \chapter{What to do with Pen, Paper and a Friend}
+    \chapter{What to do with pen, paper and a friend}
     %\chapter{Pen, Paper, a Friend and the Rules}
     \input{sections/definitions}
 
 % Theory
-    \chapter{Theory}
-    \input{sections/theory}
+    \chapter{Numbers are games. The reals, the cardinals and many others.}
+    \input{sections/numbers}
     
 % Data
-    \chapter{Data}
-    \input{sections/data}
+    \chapter{Heating things up}
+    \input{sections/temperature}
     
 % Methods
     \chapter{Methods}

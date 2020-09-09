@@ -108,9 +108,25 @@ In \textbf{hot} positions, opposed to \textbf{cold} position, the next moves are
 
 It is correct to imagine that when putting a hot game $G$ in the notation \mbox{$G = \{ X \mid Y\}$}, then, $\exists x_i, y_j \mid x_i \ge y_j$, making it obvious that $G$ is not a number. On the closed position, the game might be cooler, but it will definitely heat up after a few moves. The endgame position above however, is becoming a number after the next move. Because it is becoming a number, it receives the special name \defi{switch}.
 
-Switches are the most basic non-numbers.
+Switches are the most basic non-numbers. A switch is a non-numbers $G$ that both left's and right's best moves are numbers, but $G^L >= G^R$. It is extremely easy to find the \defi{temperature} and \defi{bias} of such games. 
 
+\begin{figure} [!ht]
+	\begin{center}
+		\begin{tikzpicture}
+			\node[draw] (title) at (0.5, 0.9) {A Simple Switch in Domineering};
+			\node (title) at (-0.6, 0) {G = };
+			\draw[] (0.3,-0.3) rectangle ++(0.3,0.3);
+			\draw[] (0.3, 0) rectangle ++(0.3,0.3);
+			\draw[] (0.6, 0) rectangle ++(0.3,0.3);
+			\draw[] (0,-0.3) rectangle ++(0.3,0.3);
+		\end{tikzpicture}
+	\end{center}
+	\caption{}
+\end{figure}
 
+In this game left has a move that leads to a zero position and right has two moves that lead to the same game with value -1. Therefore, $G = \{0 | -1\}$. The bias is the average of $G^L, G^R$ that is equal to -0.5 in this case. The temperature is how much the game differs from the bias that is 0.5 in this case. A better way of writing this switch is $G = -0.5 \pm 0.5$. In general, a switch $H = \{x| y\}$ can be written as $H = (x+y)/2 \pm (x-y)/2$.
+
+Calculating these values for general non-numbers is not simple enough to be completely conveyed at this point; Not because it is too hard or that describing it does not fit in the introductory pages, but because better understanding of numbers and arithmetic is required.
 
 
 
