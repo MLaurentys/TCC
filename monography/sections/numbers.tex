@@ -19,8 +19,8 @@ What about \Hm\ = \begin{tikzpicture}
 \end{tikzpicture} ?\\
 
 
-We can find that by calculating G + H + H. To do that, one would usually find the game tree of 
-$G + H + H = $
+We can find that by calculating \Gm{ + H + H}. To do that, one would usually find the game tree of 
+\Gm{ + H + H}
 \begin{tikzpicture}
 	\draw[] (-0.4,-0.3) rectangle ++(0.3,0.3);
 	\draw[] (-0.7,-0.3) rectangle ++(0.3,0.3);
@@ -32,15 +32,15 @@ $G + H + H = $
 	\draw[] (0.7,-0.3) rectangle ++(0.3,0.3);
 	\draw[] (0.7,0) rectangle ++(0.3,0.3);
 	\draw[] (0.7,0.3) rectangle ++(0.3,0.3);
-\end{tikzpicture}, and fill the known values bottom-up. However, it is simpler in this case. G + 2H = 0, because whoever starts loses. Since G = 1, H = 1/2. Therefore $H = \{-1, 0 | 1\} = \{0 | 1\} = 1/2$. It might seem weird that a player may be half a move up in a game, if he or she only plays a move, but it is true. It might be valuable to reiterate that H is definitely positive because left wins no matter who starts, but $H < 1$, as left does not have remaining move at the end of the game.
+\end{tikzpicture}, and fill the known values bottom-up. However, it is simpler in this case. \Gm{ + 2H = 0}, because whoever starts loses. Since \Gm{= 1,\,H = 1/2}. Therefore $H = \gam{{-}1, 0}{1} = \gam{0}{1} = 1/2$. It might seem weird that a player may be half a move up in a game, if he or she only plays a move, but it is true. It might be valuable to reiterate that H is definitely positive because left wins no matter who starts, but $H < 1$, as left does not have remaining move at the end of the game.
 
-As one gets used to this area of mathematics, it becomes clear that analyzing the game \{1 $|$ \} is the same as analyzing 
+As one gets used to this area of mathematics, it becomes clear that analyzing the game \gam{1}{} is the same as analyzing 
 \begin{tikzpicture}
 	\draw[] (0.3,-0.3) rectangle ++(0.3,0.3);
 	\draw[] (0.3,0) rectangle ++(0.3,0.3);
 	\draw[] (-0.1,0) rectangle ++(0.3,0.3);
 	\draw[] (-0.1,-0.3) rectangle ++(0.3,0.3);
-\end{tikzpicture}, but the former is not reliant on a specific game. Rather, any combinatorial game has an instance equal to \{1 $|$ \}. However, the rules, which have not been presented yet, come from the the mathematical plays. The first practical rule in this text is finding the value of $\{n|\}$ and $\{|{-}n\}$, with n natural.
+\end{tikzpicture}, but the former is not reliant on a specific game. Rather, any combinatorial game has an instance equal to \gam{1}{}. However, the rules, which have not been presented yet, come from the the mathematical plays. The first practical rule in this text is finding the value of \gam{n}{} and \gam{}{{-}n}, with n natural.
 
 Of course 
 $\underbrace{
@@ -67,7 +67,7 @@ In the last line of the proof above, the addition $(\{k-1 |\}) + 1$ was used. Th
 
 In the case of $\frac{1}{2} = \{0 | 1\}$, it is true that $G^L < G < G^R$. Is that always true? Think of moves made in numbers: if left makes a move from $G$ to $G^L$, is it true that left has fewer spare moves in $G$ than in $G^L$? Before, as a side note, it was said that all possible RB-Hackenbush games numbers, and the reason may help explain that.
 
-Suppose a game $G = \{x_1, x_2,... | y_1, y_2, ...\}$ in which $\forall x \in X$ x  is a number and $\forall y \in Y$ y is a number. Assume that $x_i$ and $y_j$ are best moves for left and right respectively. Suppose that G is not a number, than $x_i \ge y_j$. A move in G corresponds to removing a colored edge from a tree and all the edges that become disconnected to the floor. That means that $x_i$ = 
+Suppose a game $G = \{x_1, x_2,... | y_1, y_2, ...\}$ in which $\forall x \in X$ x  is a number and $\forall y \in Y$ y is a number. Assume that $x_i$ and $y_j$ are best moves for left and right respectively. Suppose that \Gm{} is not a number, than $x_i \ge y_j$. A move in \Gm corresponds to removing a colored edge from a tree and all the edges that become disconnected to the floor. That means that $x_i$ = 
 \begin{tikzpicture}
 	\draw[blue, very thick] (0,0) -- (0,0.5);
 	\node at (0, 0.9) {$\vdots$};
@@ -103,7 +103,7 @@ $
 
 \subsection*{Other Numbers}
 
-The formula above only allows G to have an infinite amount of values, but it is not closes to what was stated in the beginning of the section. The remaining numbers are hidden in the end of infinite games, in the sense that the board size is infinite, because, as explained before, it is extremely unpleasant to play something that does not end. 
+The formula above only allows \Gm{} to have an infinite amount of values, but it is not closes to what was stated in the beginning of the section. The remaining numbers are hidden in the end of infinite games, in the sense that the board size is infinite, because, as explained before, it is extremely unpleasant to play something that does not end. 
 
 \input{sections/infinite_hackenbush}
 

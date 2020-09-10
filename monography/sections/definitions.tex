@@ -57,13 +57,13 @@ As noted previously, the game tree contains all the information required in orde
 
 The model Conway, Berlekamp and Guy created to analyze games is based on finding the advantage a player has over the other. The calculation, in this model, of this advantage is given in terms of spare moves. For now, the reader may found this weird because the advantage might actually rely on the ability of the players, but when analyzing games it is important to expect both players play perfectly. Since a player loses if he or she cannot move, counting spare moves is counting how many sequential moves a player can make before reaching \defi{equity} in the position.
 
-Equity is found in \defi{zero positions}. Zero position are those in which the first player to move loses. The idea to call such positions zero made sense for Conway, and, therefore, in his new set of numbers, if a game $G$ is in a zero position, $G = 0$. If left \textbf{can win} regardless of who starts, we call it positive, and, in the other way around, negative. In more special positions, a hint on the topic of this text, in which the first to play can win, we call them fuzzy.
+Equity is found in \defi{zero positions}. Zero position are those in which the first player to move loses. The idea to call such positions zero made sense for Conway, and, therefore, in his new set of numbers, if a game \Gm is in a zero position, \Gm{=0}. If left \textbf{can win} regardless of who starts, we call it positive, and, in the other way around, negative. In more special positions, a hint on the topic of this text, in which the first to play can win, we call them fuzzy.
 
 \input{sections/figure_2_3}
 
-Although all games have the same value, the games are not the same. The  way to represent a game derives from its game tree. The game is composed of two sets of games and $\mid$ is used as delimiter. The game (a) is one where neither player has available moves and, because of that, the game $(a) = 0 = \{\,\mid\,\}$. (c), on the other had, is \{ \{ $\mid$ \{ $\mid$ \} \} $\mid$  \{ \{ $\mid$ \} $\mid$  \} \}, that simplifies to \{ \{ $\mid$ 0 \} $\mid$  \{ 0 $\mid$  \} \}. The games that form each of left and right sets are the configurations reachable by left and right, in a recursive definition.
+Although all games have the same value, the games are not the same. The  way to represent a game derives from its game tree. The game is composed of two sets of games and $\mid$ is used as delimiter. The game (a) is one where neither player has available moves and, because of that, the game $(a) = 0 = \gam{0}{0}$. (c), on the other had, is \gam{\gam{}{\gam{}{}}}{\gam{\gam{}{}}{}}, that simplifies to \gam{\gam{}{0}}{\gam{0}{}}. The games that form each of left and right sets are the configurations reachable by left and right, in a recursive definition.
 
-The notations is exactly the same for numbers, but they should not be confused. For a game  $G = \{x_1, ..., x_n \mid y_1, ..., y_m\}$ to be a number, it must be true that:
+The notations is exactly the same for numbers, but they should not be confused. For a game  \Gm{= \{x_1, \ldots, x_n \mid y_1, \ldots, y_m\}} to be a number, it must be true that:
 $$\forall x_i \in X, \forall y_j \in Y, x_i < y_j$$
 
 The process of finding the number a game is equal to is the theme of the next section. With that said, some new number already showed up in the figure above. The number \{ 0 $\mid$ \}, for example. What would be a pleasant real number for it? 1, because in this game, left has exactly one move to spare.
@@ -106,9 +106,9 @@ In \textbf{hot} positions, opposed to \textbf{cold} position, the next moves are
 	\includegraphics[scale=0.15]{images/chess_hot} 
 \end{center}
 
-It is correct to imagine that when putting a hot game $G$ in the notation \mbox{$G = \{ X \mid Y\}$}, then, $\exists x_i, y_j \mid x_i \ge y_j$, making it obvious that $G$ is not a number. On the closed position, the game might be cooler, but it will definitely heat up after a few moves. The endgame position above however, is becoming a number after the next move. Because it is becoming a number, it receives the special name \defi{switch}.
+It is correct to imagine that when putting a hot game \Gm{} in the notation \Gm{= \gam{X}{Y}}, then, $\exists x_i, y_j \mid x_i \ge y_j$, making it obvious that \Gm{} is not a number. On the closed position, the game might be cooler, but it will definitely heat up after a few moves. The endgame position above however, is becoming a number after the next move. Because it is becoming a number, it receives the special name \defi{switch}.
 
-Switches are the most basic non-numbers. A switch is a non-numbers $G$ that both left's and right's best moves are numbers, but $G^L >= G^R$. It is extremely easy to find the \defi{temperature} and \defi{bias} of such games. 
+Switches are the most basic non-numbers. A switch is a non-numbers \Gm{} that both left's and right's best moves are numbers, but $G^L \ge G^R$. It is extremely easy to find the \defi{temperature} and \defi{bias} of such games. 
 
 \begin{figure} [!ht]
 	\begin{center}
@@ -124,7 +124,7 @@ Switches are the most basic non-numbers. A switch is a non-numbers $G$ that both
 	\caption{}
 \end{figure}
 
-In this game left has a move that leads to a zero position and right has two moves that lead to the same game with value -1. Therefore, $G = \{0 | -1\}$. The bias is the average of $G^L, G^R$ that is equal to -0.5 in this case. The temperature is how much the game differs from the bias that is 0.5 in this case. A better way of writing this switch is $G = -0.5 \pm 0.5$. In general, a switch $H = \{x| y\}$ can be written as $H = (x+y)/2 \pm (x-y)/2$.
+In this game left has a move that leads to a zero position and right has two moves that lead to the same game with value -1. Therefore, \Gm{= \gam{0}{{-}1}}. The bias is the average of $G^L, G^R$ that is equal to -0.5 in this case. The temperature is how much the game differs from the bias that is 0.5 in this case. A better way of writing this switch is $G = -0.5 \pm 0.5$. In general, a switch $H = \{x| y\}$ can be written as $H = (x+y)/2 \pm (x-y)/2$.
 
 Calculating these values for general non-numbers is not simple enough to be completely conveyed at this point; Not because it is too hard or that describing it does not fit in the introductory pages, but because better understanding of numbers and arithmetic is required.
 
