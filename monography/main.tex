@@ -18,6 +18,9 @@
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{tabto}
 \usepackage{pgfplots}
+\usepackage{changepage}
+\usepackage{subcaption}
+\usetikzlibrary{patterns}
 \usetikzlibrary{arrows.meta}
 
 \graphicspath{{images/}}
@@ -50,6 +53,26 @@
 \newcommand{\gam}[2]{\mbox{$\{#1\:|\:#2\}$}}
 \newcommand{\Gm}[1]{\mbox{$G#1$}}
 \newcommand{\Hm}{\mbox{$H$}}
+
+\pgfplotsset{style thermograph/.style={
+		axis x line*=none, axis y line*=none,
+		axis line style={draw=none},
+		y label style={rotate=-90,at={(current axis.north west)}, right=5mm},
+		ylabel = \textbf{t},
+	}
+}
+\lstset{
+	columns=fullflexible,
+	mathescape=true,
+	numbers=none,
+	stepnumber=1,
+	morekeywords={return, if, else,  while, vector, using, include, class,
+		true, false, function, or, public, private},
+	xleftmargin=4.0ex,
+	tabsize=4,
+	frame = single
+}
+
 %----------------------------------------------------------------------------------------------------%
 
 %--------------------------------------------- DOCUMENT ---------------------------------------------%
@@ -83,20 +106,20 @@
     \input{sections/definitions}
 
 % Theory
-    \chapter{Numbers are games. The reals, the cardinals and many others.}
+    \chapter{Numbers are games. The reals, the ordinals and many others.}
     \input{sections/numbers}
     
 % Data
     \chapter{Heating things up}
-    \input{sections/temperature}
+    \input{sections/temperature/temperature}
     
 % Methods
-    \chapter{Methods}
-    \input{sections/methods}
+    \chapter{It's all About Finding the Calm in the Chaos}
+    \input{sections/examples/examples}
     
 % Empirical Analysis
-    \chapter{Empirical Analysis}
-    \input{sections/empirical_analysis}
+    \chapter{An Amazing Result and a Dive into Algebra}
+    \input{sections/strong_placement_games/strong_placement_games}
     
 % Conclusion
     \chapter{Conclusion}

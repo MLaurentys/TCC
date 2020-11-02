@@ -1,0 +1,31 @@
+\begin{figure} [H]
+\begin{center}
+\begin{tikzpicture}
+	[
+	level distance=30pt,
+	level 1/.style={sibling distance=4cm},
+	level 2/.style={sibling distance=1.7cm},
+	every node/.style = {
+	},
+	every child/.style = {
+		ultra thick
+	}
+	]
+{
+\node{num (3)}
+	child{node{left}
+		child[->]{node{num(2)}
+			child[-]{node{left}
+				child[->]{node{num(1)}
+					child[-]{node{left}
+						child[->]{node{num(0)}
+							child[-]{node{left}}
+							child[-]{node{right}}}}
+						child[-]{node{right}}}}
+				child[-]{node{right}}
+	}}
+	child{node{right}};
+}
+\end{tikzpicture}
+\end{center}
+\end{figure}

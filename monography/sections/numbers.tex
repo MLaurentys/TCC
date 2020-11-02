@@ -1,10 +1,14 @@
+\epigraph{``And behold! When the numbers had been created for infinitely many days, the universe itself appeared. And the evening and the morning were the $\aleph$ day. And Conway looked over the rules he had made for numbers, and saw that they were very, very good. And he commanded them to be for signs, and series, and quotients, and root. Then there sprang up an infinite number less than infinity. And infinities of days brought forth multiple orders of infinities"}{Donal Ervin Knuth, Surreal Numbers \footnotemark}
+
+\footnotetext{\todo{styke}}
+
 
 Conway, by counting the advantage, a player has over the other in a combinatorial game, unveiled a new way to discover numbers. It is clear at this point that numbers are not enough to represent games, but it should in no way discourage anyone interested on them. Until this point, the text showed some instances of the zero and hinted at 1 and -1, and the reader may also know how to build any integer in RB-Hackenbush and Domineering. This chapter shows that knowing that is no more than scratching the surface of surreal numbers.
 
 For the first parts of this section a number \gam{x_1, x_2, ...}{y_1, y_2,...} might be called like a real number: $2, 5, 100000, \frac{1}{3}, \sqrt{10}, \pi$, but there is no reason believe this equality yet. There is also no reason to believe that $1 < 3$ or that 1 + 1 = 2 yet. However, first some numbers will be labeled and only then the proofs are shown.
 
 
-\subsection*{Finitely Defined Numbers}
+\subsection*{Numbers Generated in Finite Steps}
 
 It is known that \Gm\ =
 \begin{tikzpicture}
@@ -92,26 +96,53 @@ It is very recommended to understand that the \defi{simplicity principle} is ind
 G = 
 $
 \begin{cases}
-	&0, \text{ if $G^L < 0 < G^R$}\\
-	&n+1, \text{ if G = \{n $|$\}}\\
-	&-n-1, \text{ if G = \{$|$-n\}}\\
-	&\frac{2p + 1}{2^{q+1}}, \text{if G = $\{\frac{p}{2^q} | \frac{p+1}{2^q}\}$}
+	0, &\text{if } G^L < 0 < G^R\\
+	n+1, &\text{if } \Gm{= \gam{n}{}}\\
+	-n-1, &\text{if } \Gm{= \gam{}{{-}n}}\\
+	\frac{2p + 1}{2^{q+1}}, &\text{if } \Gm{= \gam{\frac{p}{2^q}}{ \frac{p+1}{2^q}}}
 \end{cases}
 $
 
-\vspace{0.6em}Some examples are $\frac{1}{4} = \{0.1 | 0.3\}$, $\frac{1}{8} = \{\frac{1}{9} | 0.2\}$, $\frac{-3}{4} = \{-1 | -0.6\}$.
+\vspace{0.6em}Some examples are $\frac{1}{4} =$ \gam{0.1}{0.3}, $\frac{1}{8} =$ \gam{\frac{1}{9}}{0.2}, $\frac{-3}{4} =$ \gam{-1}{{-}0.6}.
 
-\subsection*{Other Numbers}
+\subsection*{Numbers Generated After Infinite or More Steps}
 
 The formula above only allows \Gm{} to have an infinite amount of values, but it is not closes to what was stated in the beginning of the section. The remaining numbers are hidden in the end of infinite games, in the sense that the board size is infinite, because, as explained before, it is extremely unpleasant to play something that does not end. 
 
 \input{sections/infinite_hackenbush}
 
-In the game above, left has an infinite number of possible moves, but \todo{his/her} move always leads to an integer. What is the value of this game? $G = \{\mathbb{N} | \}$, the number ``the largest integer plus one". It happens that this number has been baptized much earlier in mathematics of $\omega$.
+In the game above, left has an infinite number of possible moves, but \todo{his/her} move always leads to an integer. What is the value of this game? \gam{1,2,...}{}, It happens that this number has been baptized much earlier in mathematics of $\omega$, the first ordinal number. It might not be as straight forward as finitely generated numbers, but the principle to calculate the value is the same.
 
+For any finite number of red edges in \Gm{}, if you add the game above to \Gm{}, the result will be positive. However, it is also very simple to verify that $\omega$ is by far not the largest possible advantage. One simple  example of that is the following.
 
+\input{sections/infinite_hackenbush_two}
 
+The game above is an infinite stack of blue edges with another one on the top. One could wrongly argue that this additional edge on the top is simply part of the infinite stack. This is a wrong argument because this additional edge on the top allows Left to move to $\omega$, and therefore, has the value of $\omega+1$, making the games different. This detail is paramount to understanding the statement found on the epigraph of this section.
 
+A hypothetical John Horton Conway wrote that phrase near a cave close to the edge of the Indian Ocean, where a couple of future mathematicians went to find themselves. The words attributed to Conway by Knuth say that in the $\aleph$th day the universe appeared. That is because Knuth realizes that in that specific days all real numbers are generated.
+
+However, again, accordingly to the hypothetical Conway, days kept passing by and more numbers were generated. The number $\omega+1$ is one of the infinitely many surreal numbers that are not real numbers. However, this is not in the slightest the end of story. In fact, even considering that $\omega + \omega + ...$  is also generated in the same format, the important part might again be missed. That is because only looking at large numbers is not way forward.
+
+As seem before $\frac{1}{2} = \gam{0}{1}, \frac{1}{4} = \gam{0}{\frac{1}{2}}, \cdots, \frac{1}{2^{n+1}} = \gam{0}{\frac{1}{2^n}}$. Therefore, the same way that $\omega=\gam{1,2,...}{}$, $\epsilon=\gam{0}{1,\frac{1}{2},\frac{1}{4},\cdots}$. A game with value $\epsilon$ may be simply the game of RB-Hackenbush starting with a blue edge and following with an infinite number of red edges. First notice that $\epsilon$ still have positivity, because Left wins no matter who starts, and then notice that its positivity is smaller than that of any real number. Now that $\epsilon$ and $\omega$ are known members of the $\aleph$ day, only the remaining real numbers remain.
+
+The fact that real numbers are generated in the $\aleph$th day and how to generate them with possible games is part of the section 5. The reason for that is that although it is easy generating reals with RB-Hackenbush games, it might also be worth it to know how to generate them with other games, and in fact, any other games.
+
+\subsection*{The Surreal Numbers}
+
+This text presents only few characteristics of the surreal numbers as they are not the focus. It is also not necessary to know every algebraic property of numbers to go forward with the study of temperature this text focus on. However, it so happens that with very few construction rules, the numbers contain all the real, ordinal and infinitesimal numbers.
+
+Because of its extremely simple definition and big expressiveness, it is an extremely interesting topic. The idea that the number os spare moves a player has might not be a real number might not be confusing, but it should be somewhat hard to accept. It is true that this fact is based on the construction Conway made and it is not necessarily true for all ways to analyze games, but the straight forward way of using game trees to build numbers lead to this characteristic.
+
+Because the creation/discovery of surreals is very recent, it definitely makes people apprehensive as it is not clear if its properties are good or bad. The mathematician Phillip Ehrlich is an eloquent participant in this discussion. He makes the point that the surreals do not have an intrinsic problem and that they show an unifying nature between paths in mathematics. In one of his papers, Ehrlich proposes that, while the real numbers form, on his words, an arithmetic continuum, the surreals form the absolute arithmetic continuum.
+
+However, it is still a problem converting the domain of typical studies, such as calculus, from the reals to the surreals. Integrals of functions in the surreals are particularly hard to define. The 2015 revision of the paper ANALYSIS ON SURREAL NUMBERS, by SIMON RUBINSTEIN-SALZEDO AND ASHVIN SWAMINATHAN, for example, gave a definition of integration that solved a problem with previous integration but it is clear that others persist.
+
+As Salzedo and Swaminathan point-out: ``The `Conway-Norton'\footnote{In ONAG 2nd edition page 228, Conway  tells that Norton's definition of integrals do not have desired properties.}
+integral failed to have standard properties of real integration, however, such as translation
+invariance: $\int_a^bf(x)dx = \int_{a-t}^{b-t}f(x+t)dx$, for any surreal function f and $a,b,t\in$ \textbf{No}. While Fornasiero fixed this issue in [For04]\footnote{Antongiulio Fornasiero Phd. Thesis: \textit{Integration on surreal numbers.}}, the new integral, like its predecessor, yields
+$exp(\omega)$ instead of the desired $exp(\omega)-1$ for $\int_0^{\omega}exp(x)dx$". In the ``Open Questions" section of  the paper, the authors tell that there are still problems with their definition, meaning that the conversion of domains in integral studies is not completed, at least by 2015.
+
+While many questions remain open, however, it is still possible to work with a subset of the surreals that only contain the reals for example. The remaining of the text does not require profound knowledge of anything that is not mentioned in regards to numbers.
 
 
 

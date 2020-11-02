@@ -1,0 +1,60 @@
+
+\begin{center}
+\begin{tikzpicture}
+	\node[] at (2.2, 6.6) {\textbf{Freezing point}};
+	\node[scale=0.5, circle, draw, fill=black] at (4.2, 6.6) {};
+	\begin{axis}
+		[
+		title = \Gm{=}\gam{\gam{3}{1}}{\gam{0}{{-}4}},
+		xmin=-4.5,xmax=3.5, x dir=reverse, xtick={-2, -4, 0, 1, 2, 3},
+		ymax=2.5, ytick={0, 0.5, 1, 2},
+		axis x line*=none, axis y line*=none,
+		axis line style={draw=none},
+		y label style={rotate=-90,at={(current axis.north west)}, right=5mm},
+		ylabel = \textbf{t},
+		scale=1.4
+		]
+		
+		\addplot[black] coordinates {
+			(-4.5,0)(3.5,0)
+		};
+		\addplot[ultra thick] coordinates {
+			(0.9,-0.1)(2,1)
+		};
+		\addplot[black] coordinates {
+			(3.1,-0.1)(2,1)
+		};
+		\addplot[-{Latex[length=3mm]}, ultra thick] coordinates {
+			(2,1)(2,2.5)
+		};
+		\addplot[ultra thick] coordinates {
+			(0.1,-0.1)(-2,2)
+		};
+		\addplot[] coordinates {
+			(-4.1,-0.1)(-2,2)
+		};
+		\addplot[-{Latex[length=3mm]}, ultra thick] coordinates {
+			(-2,2)(-2,2.5)
+		};
+		\addplot[black, dashed, ultra thick] coordinates {
+			(1,-0.1)(1,1)
+		};
+		\addplot[black, dashed, ultra thick] coordinates {
+			(0,-0.1)(0,2)
+		};
+		\addplot[black, dashed, ultra thick] coordinates {
+			(1,1)(0,2)
+		};
+		\addplot[black, dashed] coordinates {
+			(0,2)(-1,3)
+		};
+		\addplot[black, dashed] coordinates {
+			(0,2)(0.5,2.5)
+		};
+		\addplot[black, dashed, ultra thick, -{Latex[length=3mm]}] coordinates {
+			(0,2)(0,2.5)
+		};
+	\end{axis}
+\end{tikzpicture}
+\end{center}
+

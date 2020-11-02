@@ -1,0 +1,34 @@
+\begin{lstlisting}
+// CombinarotialGame.hpp
+#include "everything_required.hpp"
+using namespace std;
+
+class CombinatorialGame {
+  public:
+	CombinatorialGame (vector<CombinatorialGame*> l,
+					     vector<CombinatorialGame*> r);
+	...
+  private:
+  	vector<CombinatorialGame*> left;
+  	vector<CombinatorialGame*> right;
+  	bool isSurreal;
+  	bool isSwitch;
+  	float realValue;
+  	float bias;
+  	float temperature;
+};
+
+\end{lstlisting}
+
+\begin{lstlisting}
+//CombinatorialGame.cpp
+#include "path/to/CombinatorialGame.hpp"
+
+CombinatorialGame::CombinatorialGame (
+                    vector<CombinatorialGame*> l,
+                    vector<CombinatorialGame*> r) {
+	float maxL, minR;
+	bool lFlag, rFlag;           
+}
+	
+\end{lstlisting}

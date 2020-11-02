@@ -42,7 +42,8 @@
 			\draw[red, densely dashed] (p6) -- (p7);
 	\end{tikzpicture}
 }
-child [draw=blue] {node [thin, black]{
+child [draw=blue] {
+	node [thin, black] {
 	\begin{tikzpicture}
 	[	
 		every node/.style = {
@@ -57,8 +58,7 @@ child [draw=blue] {node [thin, black]{
 	\node (p7) at (2,1) {};
 	\draw (p1) -- (p2);
 	\draw[red, densely dashed] (p6) -- (p7);
-	\end{tikzpicture}
-} 
+	\end{tikzpicture}} 
 	child [draw=red, dashed] {node [thin, solid, black] {} } }
 	child [draw=red, dashed] {node [thin, solid, black] {
 		\begin{tikzpicture}

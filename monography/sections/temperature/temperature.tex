@@ -1,6 +1,8 @@
 
 \definecolor{purple2}{RGB}{218,112,214}
 
+This sections will provide new tools and ideas to analyze games and to do that, the same strategy of the previous section will be followed. Initially, the reader is presented with an intuitive idea and preliminary formulation of the problem. The first part contains many examples and its intent is to provide the reader enough to use the more mathematical heavy part to in fact gain advantage in any game played.
+
 Now that enough is known about numbers, it is possible to work with non-numbers. The only known non-numbers at this point are the switches. But is knowing what they are enough to playing them? The game simpler cashing cheques will tell.
 
 In this game there is a table with purple cheques. Each cheque has two numbers written on top, and, in each player's turn they will either pay one coin or cash a cheque that will grant him a number of coins equal to the correspondent associated integer. What is the best move for Left?
@@ -104,50 +106,64 @@ To decrease the confusion that builds up in complicated positions, there is the 
 
 The temperature $t(G)$ is equal to $t'$. Now that both axes are defined, some examples of thermographs:
 
-\input{temp_examples}
+\input{sections/temperature/temp_examples}
 
 Some characteristics might be immediately apparent. The first is that the x-axis is reversed. The reason for that is to keep Right's movements to the right and Left's to the left. The second characteristic may be that all the thermographs end with a vertical \defi{mast}. The mast begins at $t'$ and indicates that \Gm{} is a number from that point forward. The last one is that the graphic continues past the $y=0$ line. It is worth noticing that the difference between the last two thermographs is below the $y=0$ line.
 
-Toenails, the segments below the $y=0$ line, are important, but they are actually simple extensions of the graphic. The reason for the last two toenails to be different is that cooling is applied to all the Left and Right alternatives, but in opposite directions. It is important to remember \Gm{_t} = \gam{\Gm{^L_t} - t}{\Gm{^R_t} + t}, because it explains the difference. Both Left's and the first Right's toenail came from cooling 0, but the second Right's toenail came from cooling \gam{0}{0}.
+Toenails, the segments below the $y=0$ line, are important and may seem different, but they are actually simple extensions of the graphic. The reason for the last two toenails to be different is that cooling is applied to all the Left and Right alternatives, but in opposite directions. It is important to remember \hbox{\Gm{_t} = \gam{\Gm{^L_t} - t}{\Gm{^R_t} + t}}, because it explains the difference. Both Left's and the first Right's toenail came from cooling 0, but the second Right's toenail came from cooling \gam{0}{0}.
 
-The next example, the first of non-switch hot games, shows how cooling $L$ and $R$ alternatives work.\\
-\begin{center}
-\begin{tikzpicture}
-	\begin{axis}
-		[
-		title = \Gm{=}\gam{\gam{3}{1}}{\gam{0}{{-}4}}
-		xmin=-4.5,xmax=3.5, x dir=reverse, xtick={-2, -4, -1, 0, 1, 2, 3},
-		ymax=2.5, ytick={0, 0.5, 2},
-		axis x line*=none, axis y line*=none,
-		axis line style={draw=none},
-		y label style={rotate=-90,at={(current axis.north west)}, right=5mm},
-		ylabel = \textbf{t},
-		scale=2
-		]
-		\addplot[black] coordinates {
-			(-4.5,0)(3.5,0)
-		};
-		\addplot[black, ultra thick] coordinates {
-		(0.9,-0.1)(2,1)
-		};
-		\addplot[black] coordinates {
-			(3.1,-0.1)(2,1)
-		};
-		\addplot[black,-{Latex[length=3mm]}, very thick] coordinates {
-			(2,1)(2,2)
-		};
-		\addplot[black, ultra thick] coordinates {
-		(-0.1,-0.1)(-2,2)
-		};
-		\addplot[black] coordinates {
-			(-4.1,-0.1)(-2,2)
-		};
-		\addplot[black,-{Latex[length=3mm]}, ultra thick] coordinates {
-			(-2,2)(-2,2.5)
-		};
-	\end{axis}
-\end{tikzpicture}
-\end{center}
+The next example, the second of non-switch hot games, shows how cooling $L$ and $R$ alternatives work.\\
+
+\input{sections/temperature/temp_nexample}
+
+In the example above, the thick dashed thermograph is the thermograph of G. The light dashed segments are illustrative extensions of the cooling of L and R. The bold lines were used to show what part of L and R are taken into consideration: Right's slant is used to build Left's slant and vice-versa. The reason for this is that after either player makes a move, it will be the opponent's turn to move, and, this way, the opposing slant is the important one.
+
+It is also worth mentioning that a freezing point will always be reached after an equal amount of move by each player. In the example above, the freezing point is the same as the junction point where the right slant bends, but that is not always the case. Before visiting \todo{siegel}'s formulation of the problem, one that brings good notation and formalism, an example of a real scenario is due. In a fun game each player has more than one option for their moves and that has not been addressed yet.
+
+What is the thermograph of the game \Gm{=}
+	\begin{tikzpicture}
+		\draw[] (0.6,-0.6) rectangle ++(0.3,0.3);
+		\draw[] (0.3,-0.6) rectangle ++(0.3,0.3);
+		\draw[] (0.9,-0.6) rectangle ++(0.3,0.3);
+		\draw[] (0,-0.6) rectangle ++(0.3,0.3);
+		\draw[] (0,-0.3) rectangle ++(0.3,0.3);
+		\draw[] (0.3,-0.3) rectangle ++(0.3,0.3);
+		\draw[] (0.6,-0.3) rectangle ++(0.3,0.3);
+		\draw[] (0.9,-0.3) rectangle ++(0.3,0.3);
+	\end{tikzpicture} ? 
+
+\input{sections/temperature/game_tree_temp}
+
+\input{sections/temperature/thermo_tree_temp}
+
+\input{sections/temperature/thermo_tree_result}
+
+The thermograph of \Gm{} and \gam{\gam{0}{0}}{0} are the same, although they are different games. From the steps taken to build that thermograph one can see that not all available moves contribute to build the temperature. Because we can calculate that some moves are strictly worse than others it makes sense that they should be ignored, but the thermograph shows exactly why.
+
+When Left moves, he/she should avoid giving Right greater advantage over getting him/herself a possible better outcome. In the first thermograph, it is clear that $2$ is greater, meaning it is more positive, or better for Left, than \gam{1}{{-}1} The reason for that is because the red right slant is more to the right than $2$, not because the left slant is more to the right than $2$.
+
+The comment that \Gm{}'s thermograph is the same as that of the game \gam{\gam{0}{0}}{0}, but they are different games is surprisingly paramount to playing games well. It is so important that games of the form \gam{\gam{x}{0}}{0}$=-_x$ and \gam{0}{\gam{0}{{-x}}}$=+_x$ receive special names, minies an tinies, respectively. The game above is negative, of course, but Right's advantage really small.
+
+In the game above, \Gm{=-_2}, Right's advantage is much smaller than that of $-_1$. In fact, for any number $x,y | x > y \ge 0$, any multiple of $-_x$ is less negative than $-_y$. It may come of as a surprise because usually multiplication is only made between numbers, but, in fact, this observation makes sense when a real example is provided.
+
+One should think of minies and tinies as late fees. In the case of tinies, if Left makes a move, he/she is fine. However, if he/she does not, Right may send a warning e-mail that tells Left to do so. If, after the e-mail, Left makes the move, he/she is fine again, but if Left does not, Right can charge a late fee from Left.
+
+The reason for any multiple of $+_x$ remain smaller than $+_y$ is just that. Since there is the warning phase in the game, players will always be in time to reply. The only case where a reply is not worth is when there are more important moves to make. Because, the only factor, in this case, that makes a move more or less worth is the value of x, it does not matter how many $+_x$ there are. When playing situations where one can choose between quantity of minies/tinies over quality, the choice for quality is always the correct one.
+
+One important situation, however, did not happen in the game above. There will be cases where there is no clear best move for a component $C$, and that will depend on the ambient temperature of the game. The reader can see that if \Gm{=C}, then there are best first move to make. In the example above, \Gm{^L = \gam{2}{0}} and \Gm{^R = 0}.
+
+However, if other components are added together with $C$, the best first move in $C$ may change. The reader can imagine the situation where it Left turn to play, but Right has an important move to make next. Knowing that, Left makes a greedy move, that allows the opponent to acquire more advantage than other options, but allows him/herself more advantages if Right does not capitalize. Right is cornered between making the previous important move and this new option Left allowed.
+
+For example, check the following game of extended simpler cashing cheques, where the previous rules apply, but the players may also play on yellow squares. The yellow squares allows players to select any purple correspondent purple cheque before disappearing. Purple cheques might also show negative values, indicating the opponent receives the promised coins.
+
+\input{sections/temperature/extended_simp_c}
+
+It is a good thing now to consider the game above as the sum of three components, $A,B,C$ from top to bottom. It is completely clear what the best moves for left and right are in each of the components. However, from the thermograph of the components, one will find that no moves are dominated, they all influence the resulting thermograph. As seen before, this mean that depending on the ambient temperature the best move in each component will vary.
+
+In the last example, the best move for Left is actually to play in $B$ and make the move to \gam{9}{{-}5}. In this case, the reader should notice that $A + B - 5$ is less negative than the original game, but also that Right will not necessarily move in \gam{9}{{-}5}. Left's move, is an example of taking advantage of the fact the opponent will be distracted moving elsewhere to make the best of, in this case, a bad situation.
+
+
+
 
 
 

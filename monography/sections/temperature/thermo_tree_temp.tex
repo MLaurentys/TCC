@@ -1,0 +1,58 @@
+\hspace{-1cm}
+\begin{tikzpicture}
+\begin{axis}
+	[
+		title = \gam{\gam{1}{{-}1},2}{0},
+		xmin=-1.5,xmax=2.5, x dir=reverse, xtick={-1,0, 1, 2},
+		ymax=2, ytick={0, 1, 1},
+		scale=0.5,
+		style thermograph
+	]
+	\addplot[] coordinates {(3.5,0)(-1.5,0)};
+	\addplot[-{Latex[length=3mm]}] coordinates { (2,-0.1)(2,1.5)};
+	\addplot[-{Latex[length=3mm]}] coordinates { (0,-0.1)(0,1.5)};
+	\addplot[ultra thick] coordinates { (-0.1,-0.1)(1,1)};
+	\addplot[ultra thick] coordinates { (2.1,-0.1)(1,1)};
+	\addplot[-{Latex[length=3mm]}, ultra thick] coordinates { (1,1)(1,1.9)};
+	\addplot[] coordinates {(1.1,-0.1)(0,1)};
+	\addplot[red, densely dashed] coordinates {(-1.1,-0.1)(0,1)};
+\end{axis}
+\begin{axis}
+	[
+	title = \gam{2,\gam{1}{{-}1}}{{-}\frac{1}{2}},
+	xmin=-1.5,xmax=2.5, x dir=reverse, xtick={-0.5, 1.25,2},
+	ymax=2.3, ytick={0, 1.25},
+	scale=0.5,
+	at={(4cm,0)},
+	style thermograph
+	]
+	\addplot[] coordinates {(2.5,0)(-1.5,0)};
+	\addplot[-{Latex[length=3mm]}] coordinates { (2,-0.1)(2,1.5)};
+	\addplot[-{Latex[length=3mm]}] coordinates { (-0.5,-0.1)(-0.5,1.5)};
+	\addplot[ultra thick] coordinates { (-0.6,-0.1)(0.75,1.25)};
+	\addplot[ultra thick] coordinates { (2.1,-0.1)(0.75,1.25)};
+	\addplot[-{Latex[length=3mm]}, ultra thick] coordinates { (0.75,1.25)(0.75,2.2)};
+	\addplot[] coordinates {(1.1,-0.1)(0,1)};
+	\addplot[red, densely dashed] coordinates {(-1.1,-0.1)(0,1)};
+	\addplot[-{Latex[length=3mm]}] coordinates { (0,1)(0,1.5)};
+\end{axis}
+\node[] at (9.3,2) {\gam{{-}\frac{1}{2}}{2, \gam{0}{0}}};
+\node[] at (9.3,1.5) {$=0$};
+\begin{axis}
+	[
+	title = \gam{{-}\frac{1}{2}, 0}{{-}2},
+	xmin=-2.5,xmax=0.5, x dir=reverse, xtick={-2,-1,0},
+	ymax=2.5, ytick={0, 1, 1.75},
+	scale=0.5,
+	at={(12cm,0)},
+	style thermograph
+	]
+	\addplot[] coordinates {(-3.5,0)(1.5,0)};
+	\addplot[-{Latex[length=3mm]}] coordinates { (0,-0.1)(0,1.5)};
+	\addplot[-{Latex[length=3mm]}] coordinates { (-0.5,-0.1)(-0.5,1.5)};
+	\addplot[-{Latex[length=3mm]}] coordinates { (-2,-0.1)(-2,1.5)};
+	\addplot[ultra thick] coordinates {(0.1,-0.1)(-1,1)};
+	\addplot[ultra thick] coordinates { (-2.1,-0.1)(-1,1)};
+	\addplot[-{Latex[length=3mm]}, ultra thick] coordinates { (-1,1)(-1,1.75)};
+\end{axis}
+\end{tikzpicture}
