@@ -297,11 +297,11 @@ $$
 
 Therefore, if $\ell(G) \leq 3$ then the confusion interval of both option are also smaller than 3. To prove that $G^L - G - 2 \leq 0$ it is shown a winning strategy for right in $G^L - G - 2$, which shows that the position is negative. First notice that $-G$ is \Gm{} flipped so that it fits in a $n\times 2$ board, but a useful way, that is used in this proof, to consider $-G$ is Left playing on the horizontal and Right playing on the vertical.
 
-To help visualize the strategy for this case, let the `shadow' of a move be the same cells that the move occupied, but in the opposing board. For instance:
+To help visualize the strategy for this case, let the `shadow' of a move be the same cells that the move occupied, but in the opposing board. Also the board resultant from play in $G^L$ is called the original board and the board resultant from play in $-G$ is called the opposing board. For instance:
 
 \begin{figure}[h]
 	\centering
-	\begin{subfigure}{0.3\linewidth} \centering
+	\begin{subfigure}{0.17\linewidth} \centering
 		\begin{tikzpicture}
 			\node (title) at (0.45,1) {\Gm{^{L/R}}};
 			\draw[] (0,0) rectangle ++(0.3,0.3);
@@ -311,9 +311,10 @@ To help visualize the strategy for this case, let the `shadow' of a move be the 
 			\node[] at (1.3,0.3){$\cdots$};
 			\node[] at (-0.4,0.3){$\cdots$};
 		\end{tikzpicture}
-		\caption*{Orginal move}
+		\caption*{\hspace{0.1cm}Orginal move\newline Original board}
 	\end{subfigure}
-	\begin{subfigure}{0.3\linewidth} \centering
+	\hspace{1cm}
+	\begin{subfigure}{0.17\linewidth} \centering
 		\begin{tikzpicture}
 			\node (title) at (0.45,1) {-$G$};
 			\draw[] (0,0) rectangle ++(0.3,0.3);
@@ -323,13 +324,21 @@ To help visualize the strategy for this case, let the `shadow' of a move be the 
 			\node[] at (1.3,0.3){$\cdots$};
 			\node[] at (-0.4,0.3){$\cdots$};
 		\end{tikzpicture}
-		\caption*{Shadow move}
+		\caption*{\hspace{0.15cm}Shadow move\newline Opposing board}
 	\end{subfigure}
 \end{figure}
 
 In the game $G^L -G -2$, if Right plays first, he/she simply has to mimic each and every move Left made by playing the shadow move, maintaining $-2$ intact, starting with the move already played in \Gm{^L}. If, instead Left goes first, he/she can play one of two options. The first is to play a move that does not intersect the shadow of the previous move. In this case, right must play the shadow of either the first or the second move.
 
-Essentially, this first case maintains the original conditions while reducing the board size. This case leads $G^{L_*} -G -2$ to $G^{L_*L} -G^{L_*} -2$, which, by taking $H = G^{L_*}$, is $H^{L} -H -2$. Therefore the only worrisome Left move is one that intersects the shadow of the initial move.
+Essentially, this first case maintains the original conditions while reducing the board size. This case leads $G^{L_*} -G -2$ to $G^{L_*L} -G^{L_*} -2$, which, by taking $H = G^{L_*}$, is $H^{L} -H -2$. Therefore the only worrisome Left move is one that intersects the shadow of the initial move. This move is not exactly the shadow move because in the opposing board Left moves in another orientation. After Left's move, Right must move on the $-2$ component, taking it to $-1$.
+
+Now, Left can, again, play a move that does not intersect any of the shadows, but this would be met by the same strategy as before, so Left must play a move that intersects a shadow. However, Left cannot move intersecting the shadow of the previous move, because the initial move would be adjacent to this third move and since the mover are both vertical, a $2\times 2$ subgrid would have to exist. The only shadow Left can intersect is that of the first move, playing on the opposing component again. After Left's third move, right plays on the $-1$ component.
+
+At this time, Left can no longer play on any shadows, so he/she cannot avoid Right's strategy and will eventually lose. Therefore, if \Gm{} is a snake fitting in a $2\times n$ grid, then $G^L - G -2 < 0$. This means that $\ell(G),\ell(G^L),\ell(G^R) \leq 2$. By using the bound result, in turn, it means that $t(G) \leq 3$. 
+
+This result from the 2019 paper is different, as stated before, from the 2018 thesis because the first part of the proof, that shows the cases $H=G^L,G^R$ can be reduced to the case $H=G$, was missing. Instead the original text only showed that the confusion intervals of $G^L,G^R$ were smaller than 4. This second result is clear because both $G^L$ and $G^R$ are made of two components that are snakes fitting in $2\times n$ grids. As the text shows that such a snake has the confusion interval smaller or equal to 2, then two snakes have that interval smaller or equal to 4.
+
+
 
 
 
