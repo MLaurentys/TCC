@@ -20,7 +20,7 @@ What about \Hm\ = \begin{tikzpicture}
 \draw[] (0,-0.3) rectangle ++(0.3,0.3);
 \draw[] (0,0) rectangle ++(0.3,0.3);
 \draw[] (0,0.3) rectangle ++(0.3,0.3);
-\end{tikzpicture} ?\\
+\end{tikzpicture} ?\\ If it were to be labeled by a real number, which one should it be?
 
 
 We can find that by calculating \Gm{ + H + H}. To do that, one would usually find the game tree of 
@@ -88,8 +88,6 @@ Suppose a game $G = \{x_1, x_2,... | y_1, y_2, ...\}$ in which $\forall x \in X$
 Other phrasing for ``all RB-Hackenbush games are numbers" is ``it is not possible to make a move that improves your position in  RB-Hackenbush", or, ``left cannot make a movement that increases the value of G". Now, it may be clearer why, in numbers, $G^L < G < G^R$. Knowing this, however, is not enough to find the value of G.
 
 If $G = \{3 | 10\}$, it is clear that $3 < G < 10$ but what is the value of G? The \defi{simpler} number that fits the interval, 4. There are some equivalent ways to check which number is simpler. A good one is figuring out which one require less effort to write in their recursive and simplified form. For example, the simplified, recursive form for 4 is $\{\{\{\{\{|\}|\}|\}|\} | \}$. Another good way is deciding which one is younger in the number tree represented below.
-
-\include{sections/numbers_tree}
 
 It is very recommended to understand that the \defi{simplicity principle} is indeed finding the simplest number from a range of possibilities. An integer with smallest modulo is simple than one with greater modulo, and an irreducible fraction with denominator 2 is simpler than one with denominator 4. The formula for the simplicity principle, however, is 
 

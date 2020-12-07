@@ -9,7 +9,7 @@
 \usepackage{float}
 \usepackage{graphics} 
 \usepackage{fancyhdr}
-\usepackage[round, numbers,authoryear]{natbib}
+\usepackage[square, sort, numbers]{natbib}
 \usepackage{color}
 \usepackage{indentfirst}
 \usepackage{epigraph}
@@ -38,7 +38,8 @@
 \usetikzlibrary{calc}
 
 \captionsetup{belowskip=2pt,aboveskip=2pt}
-\bibliographystyle{abbrvnat}
+
+\bibliographystyle{abstract}
 
 \renewcommand{\chaptername}{}
 
@@ -72,6 +73,7 @@
 	tabsize=4,
 	frame = single
 }
+
 
 %----------------------------------------------------------------------------------------------------%
 
@@ -125,19 +127,14 @@
     \chapter{Conclusion}
     \input{sections/conclusion}
     
+    
 % Bibliography
     \phantomsection
+    \cite{GONC}
+    \nocite{*}
     \addcontentsline{toc}{chapter}{References}%
     \bibliography{bibliography}
     
-    \vspace{2.0cm}
-    \textcolor{red}{Refer to \href{http://libguides.lub.lu.se/plagiarism}{LUSEM’s Harvard referencing guidelines} in the Teaching and Learning platform. \url{Lusem.lu.se/asks}}
-    % The template provides \hcite and \mcite commands to present hyperlinked references in the 
-    % Harvard referencing style '(Author, Year)'  and 'Author (Year)'
-    % The template has an automated bibliography section based on references 
-    % consistent with entries in the 'bibliography.bib' file 
-
-% Appendices
     \appendix
     \chapter{(Appendix A title)}
     \input{sections/appendix_A}
