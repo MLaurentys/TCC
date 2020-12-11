@@ -6,15 +6,99 @@
 
 
 
-It is no surprise that avid players of games that resemble logical or mathematical puzzles, like checkers, develop an intuition that allows them to calculate faster. This intuition comes in many forms like asserting bad moves fast and recognizing losing, drawing and winning patterns. A most essential, and sometime very hard, component of playing well any of these mathematical games is being able to know if you are ahead or behind in a given position.
+It is no surprise that avid players of games that resemble logical or
+mathematical puzzles, like checkers, develop an intuition that allows
+them to calculate faster. This intuition comes in many forms like
+asserting bad moves fast and recognizing losing, drawing and winning
+patterns. A most essential, and sometime very hard, component of
+playing well any of these mathematical games is being able to know if
+you are ahead or behind in a given position.
 
-While evaluating which player a position favors is already a hard task, this ability is not enough to play well in the games this text showcases. Consider the following variant of the game of chess: each player is given a set of board positions, and each should choose one board to play as white. During this game, play will take place in each board in parallel, and, whoever checkmates the opponent faster, wins the game. If one wants to be a great player of this variant, asserting if a position is winning or loosing in a regular chess game is not enough, nor is the ability to play regular chess perfectly.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% mensagem caso 1 jogo não é suficiente para caso n jogos
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+While asserting which player a position favors is already a hard task,
+this ability is not enough to play well in the games this text
+showcases. Consider the following variant of the game of chess: each
+player is given a set of board positions, and each should choose one
+board to play as white. During this game, play will take place in each
+board in parallel, and, whoever checkmates the opponent faster, wins
+the game. If one wants to be a great player of this variant, asserting
+if a position is winning or loosing in a regular chess game is not
+enough, nor is the ability to play regular chess perfectly.
 
-The most important ability for this variant and for the games that will follow in this text is to score each position. Scoring a position is different from spotting which one is better from a range of options. To simplify, for these first few pages, the reader should assume that scoring a position is the same as labeling it with a real number. If one can label different position in chess, playing the proposed variation becomes easy. In this day and age, making a classifier that performs well is chess, or the proposed variant, and many other games of this sort is reality and that is largely undisputed. However, a method to make a perfect classifier or at least proving a position is better than another is not widespread.
+The most important ability for this ``parallel'' variant, 
+and for the games that this text focus on, is
+to score each position.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Scoring a position is different from spotting which one
+is better from a range of options.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+To simplify, for these first few pages, the reader can
+regard scoring as labeling a position with a real number.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+If one can label different position in chess, and
+these labels reflect advantage, 
+then playing the proposed variation becomes easy.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In this day and age, making a 
+classifier that performs well is chess,
+or the proposed variant, and
+many other games of this sort is a reality.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+However, a method to perfectly classify, or at least proving
+a position is better than another, is not widespread.
+ 
+The ability to precisely calculate the advantage a player has in a
+position is the object of interest of Combinatorial Game Theory.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+This theory provides means of labeling all positions in games, not
+just in chess, but in all combinatorial games.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+A position in Go and a position Checkers, two different games,
+might have the same label and that means they are both equally
+good or bad. The modern approach to combinatorial games
+was inaugurated in~1976 in the book
+\textit{On Numbers And Games}, but there are studies that date
+back from the 1930s~\cite{CGT}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The author of that book, Jonh Horton Conway, as
+found in the epigraph that starts this text, was, as many, an avid
+player of such games.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In fact, Conway tells that the event that led to
+him invent, or discover, this theory was watching two Go players
+playing an endgame.
 
-The ability to precisely calculate the advantage a player has in a position is the object of interest of Combinatorial Game Theory. This theory provides a means of labeling all positions in games, not just in chess, but in all combinatorial games. A position in Go and a position Checkers, two different games, might have the same label and that means they are both equally good or bad. The modern approach to combinatorial games was inaugurated in 1976 in the book \textit{On Numbers And Games}, but there are studies that date back from the 1930s \cite{CGT}. The author of that book, Jonh Horton Conway, as found in the epigraph that starts this text, was, as many, an avid player of such games. In fact, Conway tells that the event that led to him invent, or discover, this theory was watching two Go players playing an endgame.
+Conway realized that some positions
+behaved like numbers, in every aspect.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+While, initially, that seems very useful to evaluate games,
+Conway went ahead and proposed that some positions \textbf{are}
+numbers.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+There is a  difference between label an object
+as a number and an the object \textit{being} that number.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The key point in Conway's ideia is
+that one can define operations as addition
+such that the sum of two games
+\textit{is} the sum of the numbers they are equal to.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The beautiful thing about games is that the sum is defined
+in the most natural way.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+PARAMOS AQUI
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Conway realized that some positions behaved like numbers, in every aspect. While, initially, that seems very useful to evaluate them, Conway went ahead and proposed that some positions \textbf{are} numbers. Later the reader will be presented to the idea that all numbers are games, not just the reals. This \todo{match} is further explained in the following chapters and is the main topic in this field of study.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Later the reader will be presented to the  idea that
+integer numbers are games, fractions are games, reals games,
+and many more numbers are also games.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+This match is further explained in the
+following chapters and is the main topic in this
+field of study.
 
 As stated before, there are games that are numbers, but not real. In fact the games that are numbers formed a new set, to be analyzed in the next sections. These numbers will not look like numbers at first. However, after visiting how they add up together in the most natural way, how they form an enormous set from extremely simple rules and other great characteristics the reader might start appreciating them. The Surreal Numbers\footnote{Originally Conway only called them numbers, but greatly appreciated the name given by Knuth}, name given by Donald Knuth in \textit{Surreal Numbers: How Two Ex-Students Turned on to Pure Mathematics and Found Total Happiness}.
 
