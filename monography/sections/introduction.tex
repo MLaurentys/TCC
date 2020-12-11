@@ -4,37 +4,43 @@
 
 \footnotetext{Fields medalist commenting on John H. Conway's passing}
 
-It is no surprise that avid players of games that resemble a logical or mathematical puzzle, like checkers, develop an intuition that allows them to calculate faster, by asserting bad moves fast, recognizing winning and losing patterns ahead of time or many other strategies. Many times, it is not easy to understand or explain how does it work, while others, after seeing a move being played, it is easily possible to explain it by the principles that rule the game. A most essential, and sometime very hard, component of playing well any of these mathematical games is being able to know if you are ahead or behind in a given position.
 
-While evaluating whether a position is winning or losing is already a hard task, with, for example, modern chess engines not agreeing in some positions, it is possible take this problem to higher standards. Imagine you are playing a variant of the game of chess. In this variant, each player is given a set of board positions, and each should choose one board to play as white. During this game, play will take place in each board in parallel, and, whoever checkmates the opponent faster, wins the game. If one wants to be a great player of such game, the knowledge of asserting if a position is winning or loosing in a regular chess game is not enough, nor is the ability to play regular chess perfectly.
 
-The most important ability for this game and for the games that will follow in this paper is to score each position. The ability to calculate the precise advantage a player has over the other is the object of interest of the field called Combinatorial Game Theory, inaugurated in \todo{1970} by the paper \todo{ONAG}. The author of that paper, Jonh H. Conway, as found in the epigraph that starts this text, was, as many, an avid player of such games, however, unlike all others, was one of the brightest minds in the history of mathematics.
+It is no surprise that avid players of games that resemble logical or mathematical puzzles, like checkers, develop an intuition that allows them to calculate faster. This intuition comes in many forms like asserting bad moves fast and recognizing losing, drawing and winning patterns. A most essential, and sometime very hard, component of playing well any of these mathematical games is being able to know if you are ahead or behind in a given position.
 
-Dr. Conway realized that some games, to be defined in the next chapter, behave like numbers in every aspect. While, initially, that seems very useful to calculate the advantages, and win in the presented variation of chess, this realization means much more than this tool. It is true that some way of modeling the problem of assigning values to positions was the initial challenge and this would be a great step towards it; however, what came out from Conway's work was a \todo{match} between positions and numbers, not a measure of the position.
+While evaluating which player a position favors is already a hard task, this ability is not enough to play well in the games this text showcases. Consider the following variant of the game of chess: each player is given a set of board positions, and each should choose one board to play as white. During this game, play will take place in each board in parallel, and, whoever checkmates the opponent faster, wins the game. If one wants to be a great player of this variant, asserting if a position is winning or loosing in a regular chess game is not enough, nor is the ability to play regular chess perfectly.
 
-This \todo{match}, that is further explained in the following chapters and the main topic in this field of study, is built upon a new set of numbers. This special set of numbers was created, or discovered, when piecing together the necessary element to analyze any particular game: its game tree. Of course a computer program could traverse a game tree and tell who is winning the game, but it would not be able to easily tell who would be winning if two game trees were added. \todo{citation!} Even defining how to meaningfully merge game trees is problematic.
+The most important ability for this variant and for the games that will follow in this text is to score each position. Scoring a position is different from spotting which one is better from a range of options. To simplify, for these first few pages, the reader should assume that scoring a position is the same as labeling it with a real number. If one can label different position in chess, playing the proposed variation becomes easy. In this day and age, making a classifier that performs well is chess, or the proposed variant, and many other games of this sort is reality and that is largely undisputed. However, a method to make a perfect classifier or at least proving a position is better than another is not widespread.
 
-Not only does the \todo{system} created by the \todo{magical genius}\footnote{blabla}, Conway, gives the ability to add, but it also defines a method to multiply games. However, in order to define such methods, the definition of that new set of numbers was necessary. The Surreal Numbers, name given by Donald Knuth\footnote{The original name was...}, \todo{for starters}, were required as, in this \todo{system}, the number \todo{matching} a position might not belong to the set of real numbers.
+The ability to precisely calculate the advantage a player has in a position is the object of interest of Combinatorial Game Theory. This theory provides a means of labeling all positions in games, not just in chess, but in all combinatorial games. A position in Go and a position Checkers, two different games, might have the same label and that means they are both equally good or bad. The modern approach to combinatorial games was inaugurated in 1976 in the book \textit{On Numbers And Games}, but there are studies that date back from the 1930s \cite{CGT}. The author of that book, Jonh Horton Conway, as found in the epigraph that starts this text, was, as many, an avid player of such games. In fact, Conway tells that the event that led to him invent, or discover, this theory was watching two Go players playing an endgame.
 
-As some might understand from the title alone, however, the focus of this text are in the non-numbers. It is possible for games to be \todo{unwritable} as a surreal number, although every surreal number has correspondent\footnote{Any surreal number is \todo{matched} by an infinite number of games} games. The concept of temperate, by consequence the concepts of hotness and coolness, however, does not forego the understanding of numbers.
+Conway realized that some positions behaved like numbers, in every aspect. While, initially, that seems very useful to evaluate them, Conway went ahead and proposed that some positions \textbf{are} numbers. Later the reader will be presented to the idea that all numbers are games, not just the reals. This \todo{match} is further explained in the following chapters and is the main topic in this field of study.
 
-The rest of this chapter relies on the next chapters. Skipping for now.
+As stated before, there are games that are numbers, but not real. In fact the games that are numbers formed a new set, to be analyzed in the next sections. These numbers will not look like numbers at first. However, after visiting how they add up together in the most natural way, how they form an enormous set from extremely simple rules and other great characteristics the reader might start appreciating them. The Surreal Numbers\footnote{Originally Conway only called them numbers, but greatly appreciated the name given by Knuth}, name given by Donald Knuth in \textit{Surreal Numbers: How Two Ex-Students Turned on to Pure Mathematics and Found Total Happiness}.
 
----------------------------------------------------------\\
-History of field of study
-- Quem inaugurou
--  Conway. Onag (paper que iniciou a area)
-- Conway. WW (winning ways – referencia canonica). Morreu esse ano
-- Combinatorial game theory
-- Aron S. (abordagem diferente – coisas q n  tem no WW; especialmente em relacao a classificacao dos jogos)
-- Principais nomes da area
-- Conway + 2 
-- dialogar com titulo: hot (nao eh conceito inicial da area) / games (nao eh definicao obvia)
-- hot: temperatura/topico avancado: Conway.
-- Traduzir intuicao em definicoes matematicas
-- Definir o que eh games: games = mathematical play. Especificar.
-- Numbers
+As some might understand from the title alone, however, the focus of this text are in the non-numbers. It is possible for games to not behave like surreal number, although every surreal number has correspondent\footnote{There are infinite games that are equal to any Surreal Number} games. The concept of temperature, and by consequence all the simpler concepts like hotness and coolness, however, does not forego the understanding of numbers. The reader will find that all games become numbers after some moves, so understanding them is paramount.
 
-\textcolor{red}{(The Introduction chapter should contain background information as appropriate, plus definitions of all special and general terms. Your topic should be: clearly stated and defined; have a clear overall purpose; and have clear, relevant and coherent aims and objectives. It is also informative to give a brief description of the contents of the remaining chapters of the thesis. This alerts the reader and prepares them for the rest of the thesis.)}
+After a vista on both numbers and non-numbers, this text has two chapters targeted on exercising the concepts learned, visiting fun games to play and proofs on classes of games, including a new result from 2019 which is the first of its kind. The text as a whole will make the case that Combinatorial Game Theory is built upon extremely simple but powerful concepts. The few concepts are considered powerful because they not only provide a vast field of problems but allow simple proofs for them as well.
+
+The next three sections will present the basics of Combinatorial Game Theory, describing numbers and non-numbers. The style of these sections will be similar to that of the book \textit{Winning Ways for your Mathematical Plays}\cite{WW}. It means that concepts, notation and theorems are not highlighted or enumerated and, instead, their meaning are present in the text. This style fits well a text in Combinatorial Game Theory because most most of them are extremely simple and few of them are abstract. In this field, it is easy to write examples of the concepts so there is no necessity of abstracting as much as other areas of algebra or combinatorics.
+
+The style of the book is also widely known for being non-rigorous where it does not have to be. The book will commonly use images of games that satisfy assertion and provide, or not, a logic why other examples also satisfy that. This is not followed as much in this text, justifications may be provided where not required. 
+
+On the other side of the spectrum there is \textit{Combinatorial Game Theory}\cite{CGT}. Siegel is likely the most active researcher of the field nowadays and created the most developed tool used to analyze them, CGSuite. Unlike the authors of \textit{Winning Ways for your Mathematical Plays}, he gave a great deal of form to the field. The book contains hundreds of definitions, notations, theorems and lemmas which are all numerated and highlighted. One of the results is that his standards became widely used and that helps reading current papers. In general the book is more advanced and is the primary reference for chapters 5 and 6.
+
+Between the two there is the book \textit{On Numbers and Games}\cite{ONAG1}\cite{ONAG2}, and possibly all others. The first edition of the book, as stated before, gave birth to the modern approach of Combinatorial Game Theory. The book is much more theoretic, containing much more algebra and number theory, than the successors but is also extremely descriptive. There are other great books, but the content of this text references only to those books.
+
+Lastly, it may be worth observing that the text does not contain, nor does it intend to, everything there is in the field. In fact, it does not even shows everything there is about hot games. It may, however, serve as reference to short games and will bring all the fundamental concepts of this class of games. There is a list of content that was omitted and approaches that were not discussed in the final chapter. Notice, however, that short games form a massive class of games and many of the fun games are short, so studying them first is typical and hopefully, it sparks interest in the remaining areas of the field.
+
+
+
+
+
+
+
+
+
+
+
 
 

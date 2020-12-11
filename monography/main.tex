@@ -20,6 +20,8 @@
 \usepackage{pgfplots}
 \usepackage{changepage}
 \usepackage{subcaption}
+\usepackage{fancyvrb}
+
 \usetikzlibrary{patterns}
 \usetikzlibrary{arrows.meta}
 
@@ -83,12 +85,7 @@
 % Title page
     \input{sections/title}
 
-% Optional Chapters
-
-    %\chapter*{Dedication}
-    %\chapter*{Declaration}
-    \chapter*{Acknowledgements}
-    \textcolor{red}{It is usual, but not compulsory, to thank those who have been of particular help to you in completing the thesis.}
+    \input{sections/abstract}
 
 % Table of contents, list of figures, and list of tables
     {\hypersetup{linkcolor=black}
@@ -116,21 +113,20 @@
     \input{sections/temperature/temperature}
     
 % Methods
-    \chapter{It's all About Finding the Calm in the Chaos}
+    \chapter{It's all about finding the calm in the chaos}
     \input{sections/examples/examples}
     
 % Empirical Analysis
-    \chapter{An Amazing Result and a Dive into Algebra}
+    \chapter{An amazing result and a dive into algebra}
     \input{sections/strong_placement_games/strong_placement_games}
     
 % Conclusion
-    \chapter{Conclusion}
+    \chapter{Unexplored games and final remarks}
     \input{sections/conclusion}
     
     
 % Bibliography
     \phantomsection
-    \cite{GONC}
     \nocite{*}
     \addcontentsline{toc}{chapter}{References}%
     \bibliography{bibliography}
