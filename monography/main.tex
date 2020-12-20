@@ -21,6 +21,7 @@
 \usepackage{changepage}
 \usepackage{subcaption}
 \usepackage{fancyvrb}
+\usepackage{caption}
 
 \usetikzlibrary{patterns}
 \usetikzlibrary{arrows.meta}
@@ -47,6 +48,9 @@
 
 \renewcommand{\figureautorefname}{figure} % lower case default ref
 \renewcommand{\tableautorefname}{table} % lower case default ref
+\let\oldchapter\chapter% Store \section in \oldsection
+\renewcommand{\chapter}{\cleardoublepage\oldchapter}% Prepend new \section with \cleardoublepage
+
 \newcommand{\latex}{\LaTeX\xspace}
 \newcommand{\mcite}[1]{\textcolor{mycolor}{\citeauthor{#1} (\citeyear{#1})}}
 \newcommand{\hcite}[1]{(\textcolor{mycolor}{\citeauthor{#1}, \citeyear{#1}})}
@@ -91,7 +95,6 @@
     {\hypersetup{linkcolor=black}
         \tableofcontents
         \listoffigures
-        \listoftables
     }
         {\hypersetup{linkcolor=mycolor}}
     
@@ -132,7 +135,7 @@
     \bibliography{bibliography}
     
     \appendix
-    \chapter{(Appendix A title)}
+    \chapter{CGSuite}
     \input{sections/appendix_A}
     
      \chapter{(Appendix B title)}
