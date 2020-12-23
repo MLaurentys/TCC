@@ -14,17 +14,17 @@ It is known that \Gm\ =
 \begin{tikzpicture}
 	\draw[] (0.3,-0.3) rectangle ++(0.3,0.3);
 	\draw[] (0,-0.3) rectangle ++(0.3,0.3);
-\end{tikzpicture} = \{ $|$ \{ $|$ \}\} = \{ $|$ 0\} = -1.
-What about \Hm\ = \begin{tikzpicture}
+\end{tikzpicture} = \{ $|$ \{ $|$ \}\} = \{ $|$ 0\} was labeled $-1$.
+What would be a good label for \Hm\ = \begin{tikzpicture}
 \draw[] (0.3,-0.3) rectangle ++(0.3,0.3);
 \draw[] (0,-0.3) rectangle ++(0.3,0.3);
 \draw[] (0,0) rectangle ++(0.3,0.3);
 \draw[] (0,0.3) rectangle ++(0.3,0.3);
-\end{tikzpicture} ?\\ If it were to be labeled by a real number, which one should it be?
+\end{tikzpicture}, given that it must be meaningful like described previously?\\ If it were to be labeled by a real number, which one should it be?
 
 
-We can find that by calculating \Gm{ + H + H}. To do that, one would usually find the game tree of 
-\Gm{ + H + H}
+It is possible to find out a candidate by calculating \Gm{ + \Hm + \Hm}. To do that, one would usually find the game tree of 
+\Gm{ + \Hm + \Hm}
 \begin{tikzpicture}
 	\draw[] (-0.4,-0.3) rectangle ++(0.3,0.3);
 	\draw[] (-0.7,-0.3) rectangle ++(0.3,0.3);
@@ -36,7 +36,7 @@ We can find that by calculating \Gm{ + H + H}. To do that, one would usually fin
 	\draw[] (0.7,-0.3) rectangle ++(0.3,0.3);
 	\draw[] (0.7,0) rectangle ++(0.3,0.3);
 	\draw[] (0.7,0.3) rectangle ++(0.3,0.3);
-\end{tikzpicture}, and fill the known values bottom-up. However, it is simpler in this case. \Gm{ + 2H = 0}, because whoever starts loses. Since \Gm{= 1,\,H = 1/2}. Therefore $H = \gam{{-}1, 0}{1} = \gam{0}{1} = 1/2$. It might seem weird that a player may be half a move up in a game, if he or she only plays a move, but it is true. It might be valuable to reiterate that H is definitely positive because left wins no matter who starts, but $H < 1$, as left does not have remaining move at the end of the game.
+\end{tikzpicture}, and fill the known values bottom-up. However, it is simpler in this case. \Gm{ + 2\Hm = 0}, because whoever starts loses. Since \Gm{= -1,\,\Hm = \frac{1}{2}}. Therefore $H = \gam{{-}1, 0}{1} = \gam{0}{1} = 1/2$. The second equality is true because Left would not move to $-1$ since it is a strictly worse move than moving the game to $0$. It might not seem natural for a player to be half a move up in a game, if he/she always plays one move at a time, but it if it is desired that $\frac{1}{2} + \frac{1}{2} = 1$, that label makes sense. It might be valuable to reiterate that \Hm is definitely positive because left wins no matter who starts, but $H < 1$, as left does not have remaining move at the end of the game.
 
 As one gets used to this area of mathematics, it becomes clear that analyzing the game \gam{1}{} is the same as analyzing 
 \begin{tikzpicture}
@@ -44,48 +44,52 @@ As one gets used to this area of mathematics, it becomes clear that analyzing th
 	\draw[] (0.3,0) rectangle ++(0.3,0.3);
 	\draw[] (-0.1,0) rectangle ++(0.3,0.3);
 	\draw[] (-0.1,-0.3) rectangle ++(0.3,0.3);
-\end{tikzpicture}, but the former is not reliant on a specific game. Rather, any combinatorial game has an instance equal to \gam{1}{}. However, the rules, which have not been presented yet, come from the the mathematical plays. The first practical rule in this text is finding the value of \gam{n}{} and \gam{}{{-}n}, with n natural.
+\end{tikzpicture}, but the former is not reliant on a specific game. Rather, any combinatorial game has an instance equal to \gam{1}{}. However, the rules used calculate the value of \Gm{=\gam{X}{Y}}, which are presented in the remaining of this section, help understand it better. The first practical rule in this text is finding the value of \gam{n}{} and \gam{}{{-}n}, with $n$ a natural number.
 
-Of course 
+Since \begin{tikzpicture}
+	\draw[] (0.3,-0.3) rectangle ++(0.3,0.3);
+	\draw[] (0.3,0) rectangle ++(0.3,0.3);
+	\draw[] (-0.1,0) rectangle ++(0.3,0.3);
+	\draw[] (-0.1,-0.3) rectangle ++(0.3,0.3);
+\end{tikzpicture} $= \gam{1}{}$, is it correct to assume that
 $\underbrace{
-	\begin{tikzpicture}
-		\draw[] (1.2,-0.3) rectangle ++(0.3,0.3);
-		\draw[] (1.2,0) rectangle ++(0.3,0.3);
-		\draw[] (-0.1,0) rectangle ++(0.3,0.3);
-		\draw[] (-0.1,-0.3) rectangle ++(0.3,0.3);
-		\draw[] (0.3,0) rectangle ++(0.3,0.3);
-		\draw[] (0.3,-0.3) rectangle ++(0.3,0.3);
-		\node at (0.95, 0) {$\cdots$};
-	\end{tikzpicture}}_{n+1} = n+1 = \{n |\}$. Although this is very simple looking at domineering boards, one could achieve the result through other means.
+\begin{tikzpicture}
+	\draw[] (1.2,-0.3) rectangle ++(0.3,0.3);
+	\draw[] (1.2,0) rectangle ++(0.3,0.3);
+	\draw[] (-0.1,0) rectangle ++(0.3,0.3);
+	\draw[] (-0.1,-0.3) rectangle ++(0.3,0.3);
+	\draw[] (0.3,0) rectangle ++(0.3,0.3);
+	\draw[] (0.3,-0.3) rectangle ++(0.3,0.3);
+	\node at (0.95, 0) {$\cdots$};
+\end{tikzpicture}}_{n+1} = \gam{n}{}$? Yes, it is correct and the recursive nature of combinatorial games tell why. A $2\times 1$ board is equal to $1$ since Left has a move to spare. Therefore, two $2\times 1$ boards is equal to $2$ since Left has a move to spare before reaching $1$. It is simple enough to visualize it in domineering boards. The fact is it should be simple to vizualise it in any combinatorial game. A game \gam{k}{} has the same value of the sum $1+\gam{k-1}{}$ if Left's option is positive. If Left's best option is zero, then the game is equal to $1$, as already shown.
 
-	Proving that $n + 1 = \{n|\}, \forall n \in \mathbb{N}$:
-\begin{align*}
-	\text{if } n = 0:&\\
-	&1 = \{0|\}, \text{already shown}.\\
-	\text{if } n = k&:\\
-	&\text{Suppose it is valid until } n = k - 1. \\
-	&k + 1 = (k) + 1 = (\{k-1 |\}) + 1 = \{k|\}.
-\end{align*}
+Every point discussed for \gam{X}{} is valid for \gam{}{Y}, through a similar argument.
 
-In the last line of the proof above, the addition $(\{k-1 |\}) + 1$ was used. The notation was not defined yet, but that is a simple game addition showed multiple times already. Up until this point, the integers and $1/2$ are defined. The remaining numbers fall into two categories: the multiples of powers of two and the rest. Of course the integers and 1/2 fall into the first category as well, but the process to find integers is different \todo{and 1/2 was a good example}.
+In the last line of the proof above, the addition $(\{k-1 |\}) + 1$ was used. The notation is not the one used before, but it is possible replace $1$ with \gam{0}{}, as seems before. $\gam{k-1}{} + \gam{0}{}$ is an instance of addition described in the previous chapter. Up until this point, the integers and $\pm 1/2$ are defined. The remaining numbers fall into three categories: the multiples of powers of two, the numbers created in exactly infinite, $\aleph$, amount of steps, and the ones generated after more than infinite amount of steps. Of course the integers and 1/2 fall into the first category.
 
-In the case of $\frac{1}{2} = \{0 | 1\}$, it is true that $G^L < G < G^R$. Is that always true? Think of moves made in numbers: if left makes a move from $G$ to $G^L$, is it true that left has fewer spare moves in $G$ than in $G^L$? Before, as a side note, it was said that all possible RB-Hackenbush games numbers, and the reason may help explain that.
+In the case of $\frac{1}{2} = \gam{0}{1}$, it is true that $G^L < G < G^R$. Is that always true? That is restricted for moves made in numbers, since in non-numbers \Gm{^R > G^L}. If left makes a move from $G$ to $G^L$, is it true that left has fewer spare moves in $G^L$ than in $G$? Before, as a side note, it was said that all possible RB-Hackenbush games are numbers, and the reason may help explain that it is true.
 
-Suppose a game $G = \{x_1, x_2,... | y_1, y_2, ...\}$ in which $\forall x \in X$ x  is a number and $\forall y \in Y$ y is a number. Assume that $x_i$ and $y_j$ are best moves for left and right respectively. Suppose that \Gm{} is not a number, than $x_i \ge y_j$. A move in \Gm corresponds to removing a colored edge from a tree and all the edges that become disconnected to the floor. That means that $x_i$ = 
+Suppose a game \Gm{ = \gam{X}{Y}} in which for all $x$ in $X$, $x$  is a number and for all $y$ in $Y$, $y$ is a number. Assume that $x_0$ and $y_0$ are best moves for left and right respectively. If \Gm{} is not a number, than $x_0 \ge y_0$. Now consider \Hm an instance of RB-Hackenbush. A move in \Hm corresponds to removing a colored edge from a tree and all the edges that become disconnected to the floor. Assume again for \Hm that $x_0$ and $y_0$ are edges correspondent to the best moves for left and right respectively. That means that $x_0$ is similar to  
 \begin{tikzpicture}
 	\draw[blue, very thick] (0,0) -- (0,0.5);
 	\node at (0, 0.9) {$\vdots$};
 	\node at (-0.3, 0.9) {$\ddots$};
 	\node at (0.3, 0.9) {\reflectbox{$\ddots$}};
-\end{tikzpicture} and $y_j$ =
+\end{tikzpicture} and $y_0$ is similar to 
 \begin{tikzpicture}
 	\draw[red, dash pattern=on 3pt off 0.8pt, very thick] (0,0) -- (0,0.5);
 	\node at (0, 0.9) {$\vdots$};
 	\node at (-0.3, 0.9) {$\ddots$};
 	\node at (0.3, 0.9) {\reflectbox{$\ddots$}};
-\end{tikzpicture}. Is it possible that $x_i \ge y_j$? A careful reader spotted immediately that $x_i > 0 \land y_j < 0$. That means that $G^{x_i} < G < G^{y_j}$, which is a contradiction with the statement that $x_i \ge y_j$.
+\end{tikzpicture}. Is it possible that $G^{x_i} \ge G^{y_j}$?
 
-Other phrasing for ``all RB-Hackenbush games are numbers" is ``it is not possible to make a move that improves your position in  RB-Hackenbush", or, ``left cannot make a movement that increases the value of G". Now, it may be clearer why, in numbers, $G^L < G < G^R$. Knowing this, however, is not enough to find the value of G.
+Consider the game built by connecting $x_0$ to the floor. The game is definitely positive, as Left wins no matter who starts. If Right starts, he/she may have an available move in a edge above the one connected to the floor. Whether it is Left playing second or first, he/she may simply remove the blue edge connected to the floor, then Right has no moves remaining and loses the game. An analogous argument shows that $y_0$ in negative. Since $x_0$ is positive, the game $\Hm^{x_0}$ resulting from removing this positive branch is less positive, or more negative, than \Hm. The same way, $\Hm^{y_0}$ is more positive or less negative that \Hm. It, in turns means that \Hm is a number.
+
+Other phrasing for ``all RB-Hackenbush games are numbers" is ``it is not possible to make a move that improves your position in  RB-Hackenbush", or, ``left cannot make a movement that increases the value of G". Now, it may be clearer why, in numbers, $G^L < G < G^R$. A more general approach is that if neither \Gm{^L} nor \Gm{^R} have effect on the remaining moves in $G$, then it is clear that \Gm{^L} < \Gm{}. Consider the sum $\Gm{} - \Gm{^L}$. Before proceeding, the subtraction in this field means adding the negation. The negation in turns means the same game but with roles reversed. In the case of RB-Hackenbush for example, in ${-}\Gm{^L}$, Left plays the red edges.
+
+In the sum $\Gm{} - \Gm{^L}$.
+
+Knowing this, however, is not enough to find the value of G.
 
 If $G = \{3 | 10\}$, it is clear that $3 < G < 10$ but what is the value of G? The \defi{simpler} number that fits the interval, 4. There are some equivalent ways to check which number is simpler. A good one is figuring out which one require less effort to write in their recursive and simplified form. For example, the simplified, recursive form for 4 is $\{\{\{\{\{|\}|\}|\}|\} | \}$. Another good way is deciding which one is younger in the number tree represented below.
 
