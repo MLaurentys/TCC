@@ -24,7 +24,6 @@ What would be a good label for \Hm = \begin{tikzpicture}
 \draw[] (0,0.3) rectangle ++(0.3,0.3);
 \end{tikzpicture}, given that it must be meaningful like described previously?\\ If it were to be labeled by a real number, which one should it be?
 
-
 It is possible to find out a candidate by calculating \Gm{ + \Hm + \Hm}. To do that, one would usually find the game tree of 
 \Gm{ + \Hm + \Hm} = 
 \begin{tikzpicture}
@@ -38,9 +37,11 @@ It is possible to find out a candidate by calculating \Gm{ + \Hm + \Hm}. To do t
 	\draw[] (0.7,-0.3) rectangle ++(0.3,0.3);
 	\draw[] (0.7,0) rectangle ++(0.3,0.3);
 	\draw[] (0.7,0.3) rectangle ++(0.3,0.3);
-\end{tikzpicture}, and fill the known values bottom-up. However, it is simpler in this case. \Gm{ + 2\Hm = 0}, because whoever starts loses. Since \Gm{= -1}, a good label for \Hm is~$\frac{1}{2}$. Therefore:
-$$H = \gam{{-}1, 0}{1} = \gam{0}{1} = 1/2$$
- The second equality is true because Left would not move to $-1$ since it is a strictly worse move than moving the game to $0$. It might not seem natural for a player to be half a move up in a game, if he/she always plays one move at a time, but it if it is desired that $\frac{1}{2} + \frac{1}{2} = 1$, that label makes sense for addition. It might be valuable to reiterate that \Hm is definitely positive because left wins no matter who starts, but $H < 1$, as Left does not have any spare moves, because \Hm $- 1 < 0$.
+\end{tikzpicture}, and fill the known values bottom-up. However, it is simpler in this case. \Gm{ + 2\Hm = 0}, because whoever starts loses. Because \Gm{= -1}, a good label for \Hm is~$\frac{1}{2}$. Therefore:
+
+$$H = \gam{{-}1, 0}{1} = \gam{0}{1} = \frac{1}{2}$$
+
+ The second equality is true because Left would not move to $-1$ since it is a strictly worse move than moving the game to $0$. It might not seem natural for a player to be half a move up in a game, if he/she always plays one move at a time, but if it is desired that $\frac{1}{2} + \frac{1}{2} = 1$, that label makes sense for addition. It might be valuable to reiterate that \Hm is definitely positive because left wins no matter who starts, but $H < 1$, as Left does not have any spare moves, because $\Hm + \Gm = \Hm - 1 < 0$.
 
 As one gets used to this kind of reasoning, it becomes clear that analyzing the game \gam{1}{} is the same as analyzing the game 
 \begin{tikzpicture}
@@ -48,7 +49,7 @@ As one gets used to this kind of reasoning, it becomes clear that analyzing the 
 	\draw[] (0.3,0) rectangle ++(0.3,0.3);
 	\draw[] (-0.1,0) rectangle ++(0.3,0.3);
 	\draw[] (-0.1,-0.3) rectangle ++(0.3,0.3);
-\end{tikzpicture}, but the former is not reliant on a specific ruleset. Rather, any combinatorial game has an instance equal to \gam{1}{}. However, the rules used calculate the value of \Gm{=\gam{X}{Y}}, which are presented in the remaining of this section, help understand it better. The first practical rule in this text is finding the value of \gam{n}{} and \gam{}{{-}n}, with $n$ a natural number.
+\end{tikzpicture}, but the former is not reliant on a specific ruleset. Rather, any combinatorial game has an instance equal to \gam{1}{}. However, the rules used to calculate the value of \Gm{=\gam{X}{Y}}, which are presented in the remaining of this section, help understand it better. The first practical rule in this text is finding the value of \gam{n}{} and \gam{}{{-}n}, for any natural number $n$.
 
 Since \begin{tikzpicture}
 	\draw[] (0.3,-0.3) rectangle ++(0.3,0.3);
@@ -65,7 +66,7 @@ $\underbrace{
 	\draw[] (0.3,0) rectangle ++(0.3,0.3);
 	\draw[] (0.3,-0.3) rectangle ++(0.3,0.3);
 	\node at (0.95, 0) {$\cdots$};
-\end{tikzpicture}}_{n+1} = \gam{n}{}$? Yes, it is correct and the recursive nature of combinatorial games tell why. A $2\times 1$ board is equal to $1$ since Left has a move to spare. Therefore, two $2\times 1$ boards is equal to~$2$ since Left has a move to spare before reaching $1$. It is simple enough to visualize it in domineering boards. The fact is it should be simple to vizualise it in any combinatorial game. A game \gam{k}{} has the same value of the sum $1+\gam{k-1}{}$ if Left's best option $k$ is positive. If Left's best option is zero, then the game is equal to $1$, as already shown. If Left's best option is negative the result is zero, because Left's move would result in the game $k$, which is negative, and Right cannot play, showing that whoever starts loses.  
+\end{tikzpicture}}_{n+1} = \gam{n}{}$? Yes, it is correct and the recursive nature of combinatorial games tell why. A $2\times 1$ board is equal to $1$ since Left has a move to spare. Therefore, two $2\times 1$ boards is equal to~$2$ since Left has a move to spare before reaching $1$. It is simple enough to visualize it in domineering boards. The fact is it should be simple to vizualise it in any combinatorial game. For any integer $k$, the game \gam{k}{} has the same value of the sum $\gam{k-1}{}+1$ if Left's best option $k$ is positive. If Left's best option is zero, then the game is equal to $1$, as already shown. If Left's best option is negative the result is zero, because Right cannot play, and  Left's move would result in the game $k$, which is negative, showing that whoever starts loses.  
 
 In the case $k$ is positive, the addition $\gam{k-1}{} + 1$ was used. The notation is not the one used before, but it is possible replace $1$ with \gam{0}{}, as seen before. $\gam{k-1}{} + \gam{0}{}$ is an instance of addition described in the previous chapter. 
 
@@ -81,11 +82,11 @@ In the case $k$ is positive, the addition $\gam{k-1}{} + 1$ was used. The notati
 	&=\gam{k}{} = k + 1
 \end{align*}
 
-Every point discussed for \gam{X}{} is valid for \gam{}{Y}, through a similar argument. Up until this point, the integers and $\pm 1/2$ are defined. The remaining numbers fall into three categories: the dyadic rationals, the numbers created in exactly infinite, $\aleph$, amount of steps, and the ones generated after more than infinite amount of steps. Of course the integers and 1/2 fall into the first category.
+Every point discussed for \gam{X}{} is valid for \gam{}{Y}, through a similar argument. Up to this point, the integers and $\pm \frac{1}{2}$ are defined. The remaining numbers fall into three categories: the dyadic rationals - numbers of the form $\frac{a}{2^k}$, the numbers created in exactly infinite, $\aleph$, amount of steps, and the ones generated after more than infinite amount of steps. Of course the integers and $\frac{1}{2}$ fall into the first category.
 
-In the case of $\frac{1}{2} = \gam{0}{1}$, it is true that $G^L < G < G^R$. Is that always true? That is restricted for moves made in numbers, since in non-numbers \Gm{^R > G^L}. If left makes a move from $G$ to $G^L$, is it true that left has fewer spare moves in $G^L$ than in $G$? Before, as a side note, it was said that all possible RB-Hackenbush games are numbers, and the reason may help explain that it is true.
+In the case of $\Gm{} = \frac{1}{2} = \gam{0}{1}$, it is true that $G^L < G < G^R$. Is that always true? That is restricted for numbers, since in non-numbers \Gm{^R > G^L}. If Left makes a move from $G$ to $G^L$, is it true that Left has fewer spare moves in $G^L$ than in $G$? Before, as a side note, it was said that all possible RB-Hackenbush games are numbers, and the reason may help explain that it is true.
 
-Suppose a game \Gm{ = \gam{X}{Y}} in which for all $x$ in $X$, $x$  is a number and for all $y$ in $Y$, $y$ is a number. Assume that $x_0$ and $y_0$ are best moves for left and right respectively. If \Gm{} is not a number, than $x_0 \ge y_0$. Now consider \Hm an instance of RB-Hackenbush. A move in \Hm corresponds to removing a colored edge from a tree and all the edges that become disconnected to the floor. Assume again for \Hm that $x_0$ and $y_0$ are edges correspondent to the best moves for left and right respectively. That means that $x_0$ is similar to  
+Suppose a game \Gm{ = \gam{X}{Y}} in which for all $x$ in $X$, $x$  is a number and for all $y$ in $Y$, $y$ is a number. Assume that $x_0$ in $X$ and $y_0$ in $Y$ are best moves for Left and Right respectively. If \Gm{} is not a number, than $x_0 \ge y_0$. Now consider \Hm an instance of RB-Hackenbush. A move in \Hm corresponds to removing a colored edge from a tree and all the edges that become disconnected to the floor. Assume again for \Hm that $x_0$ and $y_0$ are edges correspondent to the best moves for Left and Right respectively. That means that $x_0$ is similar to  
 \begin{tikzpicture}
 	\draw[blue, very thick] (0,0) -- (0,0.5);
 	\node at (0, 0.9) {$\vdots$};
@@ -101,9 +102,9 @@ Suppose a game \Gm{ = \gam{X}{Y}} in which for all $x$ in $X$, $x$  is a number 
 
 Consider the game built by connecting $x_0$ to the floor. The game is definitely positive, as Left wins no matter who starts. If Right starts, he/she may have an available move in a edge above the one connected to the floor. Whether it is Left playing second or first, he/she may simply remove the blue edge connected to the floor, then Right has no moves remaining and loses the game. An analogous argument shows that $y_0$ in negative. Since $x_0$ is positive, the game $\Hm^{x_0}$ resulting from removing this positive branch is less positive, or more negative, than \Hm. The same way, $\Hm^{y_0}$ is more positive or less negative that \Hm. This fact, in turn, means that \Hm is a number.
 
-Other phrasing for ``all RB-Hackenbush games are numbers" is ``it is not possible to make a move that improves your position in  RB-Hackenbush", or, ``left cannot make a movement that increases the value of \Gm{}". Visualizing it brings the general idea why, in numbers, $G^L < G < G^R$. A more general approach is to consider, by induction, that $\Gm{^{LL}} < \Gm{^L} < \Gm{^{LR}}$ and $\Gm{^{RL}} < \Gm{^R} < \Gm{^{RR}}$. \Gm{^{LL}} translates to any possible left move in \Gm{^L} and the others are defined similarly.
+Other phrasing for ``all RB-Hackenbush games are numbers" is ``it is not possible to make a move that improves your position in  RB-Hackenbush", or, ``Left cannot make a movement that increases the value of \Gm{}". Visualizing it brings the general idea why, in numbers, $G^L < G < G^R$. A more general approach is to consider, by induction, that $\Gm{^{LL}} < \Gm{^L} < \Gm{^{LR}}$ and $\Gm{^{RL}} < \Gm{^R} < \Gm{^{RR}}$. \Gm{^{LL}} translates to any possible Left move in \Gm{^L} and the others are defined similarly.
 
-Consider the sum $\Gm{} - \Gm{^L}$. Before proceeding, the subtraction in this field means adding the negation. The negation of \gam{X}{Y} is \gam{Y}{X}. A good way to think of negation of a game \Gm{} as the same game \Gm{}, but with roles reversed. In the case of RB-Hackenbush for example, in ${-}\Gm{^L}$, Left plays the red edges. If Left starts, he/she can move to $\Gm{^L} - \Gm{^L} = 0$ and win the game. If Right starts, the game may be move to $\Gm{^R} - \Gm{^L}$ or $\Gm{} - \Gm{^{LR}}$. In the first case, it is clear that $\Gm{^R} - \Gm{^L} > 0$ because, from the definition of numbers, \Gm{^R} $>$ \Gm{^L}.
+Consider the sum $\Gm{} - \Gm{^L}$. Before proceeding, the subtraction in this field means adding the negation. The negation of \gam{X}{Y} is \gam{-Y}{-X}. A good way to think of negation of a game \Gm{} as the same game \Gm{}, but with roles reversed. In the case of RB-Hackenbush for example, in ${-}\Gm{^L}$, Left plays the red edges. If Left starts, he/she can move to $\Gm{^L} - \Gm{^L} = 0$ and win the game. If Right starts, the game may be move to $\Gm{^R} - \Gm{^L}$ or $\Gm{} - \Gm{^{LR}}$. In the first case, it is clear that $\Gm{^R} - \Gm{^L} > 0$ because, from the definition of numbers, \Gm{^R} $>$ \Gm{^L}.
 In the second case Left can move to $\Gm{^L} - \Gm{^{LR}}$, which is positive due to the induction hypothesis. Therefore, regardless who starts in $\Gm{} - \Gm{^L}$, Left wins, so the game is positive, meaning \Gm{>\Gm{^L}}. A similar argument shows that \Gm{<\Gm{^R}}.
 
 Knowing this, however, is not enough to find the value of G. If $G = \{3 | 10\}$, it is clear that $3 < G < 10$ but what is the value of G? The simpler number that fits this interval, 4. What is called simpler is the minimal-birthday number that fits the interval. The word birthday comes from the initial analogy used to describe the creation of all the numbers. Before visiting the birthday tree and finishing explaining the simplicity principle, it is necessary to visit the definition of the comparison $\leq$.
