@@ -114,7 +114,7 @@ RB-Hackenbush is an extremely good example to understand numbers, as finding dya
 	\draw[] (0,0.3) rectangle ++(0.3,0.3);
 \end{tikzpicture} = $\frac{1}{2}$, but how would one build an instance of $\frac{1}{4}$, or $\frac{1}{2^n}$, for $n\in\mathbb{N}$? It turns out that it is not trivial at all.
 
-In fact, only in 1996 a partial solution was given. One of the results of \todo{ref} was the existence of arbitrarily small values of domineering games, before that, it was unknown whether or not they existed. It was only in 2015 \todo{ref} that a method to create all dyadic rationals was introduced. Following the strategy presented in 1996, the so-called Yonghoan Kim's snakes were create, named after the author. The snake's representation is found below, copied from \todo{gong 477}:
+In fact, only in 1996 a partial solution was given. One of the results of the paper ``New Values in Domineering" \cite{10} was the existence of arbitrarily small values of domineering games. Before that, it was unknown whether or not they existed. It was only in 2015 \cite{11} that a method to create all dyadic rationals was introduced. Following the strategy presented in 1996, the so-called Yonghoan Kim's snakes were created, named after the author. The snake's representation is found below, copied from Richard K. Guy's list of unresolved problems in \textit{Games of no Chance} \cite{GONC}:
 
 \vspace{1cm}\hspace{-2cm}
 \includegraphics[scale=0.9]{../images/kims_snakes.png}
@@ -234,7 +234,7 @@ The second problems is that of making sure ever component will not share an edge
 
 \subsection*{The non-numbers}
 
-When the topic changed from numbers to non-numbers, an example of ambient temperature, and how it affected play, was required. In order to keep the results to the boundaries of the literature, an instance of this game was showed. This instance was made by reverse engineering the example of the same topic found in \todo{WW} in this convenient game. Normally, it is extremely hard to generate a configuration with any temperature value, but ESCC allows it, and this is why its creation in this text was important.
+When the topic changed from numbers to non-numbers, an example of ambient temperature, and how it affected play, was required. In order to keep the results to the boundaries of the literature, an instance of this game was showed. This instance was made by reverse engineering the example of the same topic found on \textit{Winning Ways} \cite{WW} in this convenient game. Normally, it is extremely hard to generate a configuration with any temperature value, but ESCC allows it, and this is why its creation in this text was important.
 
 ESCC allows an easy conversion from a \gam{X}{Y} to a configuration, mainly because any switch is trivial to write down. The thermograph found in domineering is copied below:
 
@@ -260,9 +260,9 @@ The game from last section could, then, be converted to the following:
 \includegraphics[scale=0.3]{../images/resulting_thermographs.png}
 \end{center}
 
-Therefore the game from last section is indeed the same as the one featured in \todo{WW}. The steps taken to reverse engineer the games whose thermographs were the ones indicated in the book, might be of useful to speed up the process of calculating and exercising the process of building thermographs by head. This process uses a theorem not yet mentioned.
+Therefore the game from last section is indeed the same as the one featured in the book. The steps taken to reverse engineer the games whose thermographs were the ones indicated in the book, might be of useful to speed up the process of calculating and exercising the process of building thermographs by head. This process uses a theorem not yet mentioned.
 
-This theorem is about the structure of thermographs. It states that every line in a thermograph has slope equals to ${-}1$, $0$ or $1$ and masts have slope 0. Using the same notation as \todo{CGT}, let $G$ be a game and $\lambda_t(G), \rho_t(G)$ its thermograph's left and right trajectories, respectively. It means that:
+This theorem is about the structure of thermographs. It states that every line in a thermograph has slope equals to ${-}1$, $0$ or $1$ and masts have slope 0. Using the notation created by Aaron \cite{CGT}, let $G$ be a game and $\lambda_t(G), \rho_t(G)$ its thermograph's left and right trajectories, respectively. It means that:
 
 \begin{align*}
 \overset{\sim}{\lambda}_t(G) =&\; \underset{G^L}{max}(\rho_t(G^L)- t)\\

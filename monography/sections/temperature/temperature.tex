@@ -47,7 +47,7 @@ The result of this sum is obvious if all components are also numbers or switches
 
 The second is that such a sum is actually a sum of non-numbers, added together with a number after they cool out. The sum of general non-numbers is thoroughly discussed in the remaining of the chapter, however, it worth noticing what the goal of this discussion is.
 
-By the end of this section it will be thought how to convert any game in a 2D graphic composed of two \todo{curves} that collapse to one line at some point, whose axes is number x cooling factor. The purpose of all this is that if the ending point falls in the positive side, Left gets an advantage, and if it falls in the positive, right does.
+By the end of this section it will be thought how to convert any game in a 2D graphic composed of two trajectories that collapse to one line at some point, whose axis are number and cooling factor. The purpose of all this is that if the ending point falls in the positive side, Left gets an advantage, and if it falls in the positive, right does.
 
 To build this graphic one is required to traverse the game tree, so the effort may seem fruitless as the game tree itself provides the winning strategy by itself. However, in cases where the game tree resulting from the sum of games is too large or expensive for a computer to run, there is a good strategy to playing this sum without knowing the complete game tree. In order to build the thermograph and play the \defi{thermostrat}\footnote{This text will not present the thermostrat} correctly, there are a lot of minor concepts not discussed yet.
 
@@ -116,7 +116,7 @@ The next example, the second of non-switch hot games, shows how cooling $L$ and 
 
 In the example above, the thick dashed thermograph is the thermograph of G. The light dashed segments are illustrative extensions of the cooling of L and R. The bold lines were used to show what part of L and R are taken into consideration: Right's slant is used to build Left's slant and vice-versa. The reason for this is that after either player makes a move, it will be the opponent's turn to move, and, this way, the opposing slant is the important one.
 
-It is also worth mentioning that a freezing point will always be reached after an equal amount of move by each player. In the example above, the freezing point is the same as the junction point where the right slant bends, but that is not always the case. Before visiting \todo{siegel}'s formulation of the problem, one that brings good notation and formalism, an example of a real scenario is due. In a fun game each player has more than one option for their moves and that has not been addressed yet.
+It is also worth mentioning that a freezing point will always be reached after an equal amount of move by each player. In the example above, the freezing point is the same as the junction point where the right slant bends, but that is not always the case. Before visiting Siegel's formulation of the problem, one that brings good notation and formalism, an example of a real scenario is due. In a fun game each player has more than one option for their moves and that has not been addressed yet.
 
 What is the thermograph of the game \Gm{=}
 	\begin{tikzpicture}
