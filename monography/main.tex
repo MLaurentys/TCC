@@ -61,6 +61,8 @@
 \newcommand{\Gm}[1]{\mbox{$G#1$}}
 \newcommand{\Hm}{\mbox{$H\,$}}
 
+\definecolor{purple2}{RGB}{218,112,214}
+
 \pgfplotsset{style thermograph/.style={
 		axis x line*=none, axis y line*=none,
 		axis line style={draw=none},
@@ -85,8 +87,7 @@
 
 %--------------------------------------------- DOCUMENT ---------------------------------------------%
 \begin{document}
-%\fancyhead[RO,LE]{}
-% Title page
+\newpage
     \input{sections/title}
 
     \input{sections/abstract}
@@ -138,8 +139,6 @@
     \chapter{CGSuite}
     \input{sections/appendix_A}
     
-     \chapter{(Appendix B title)}
-    \input{sections/appendix_B}
 
 \end{document}
 %----------------------------------------------------------------------------------------------------%

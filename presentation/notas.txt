@@ -1,0 +1,20 @@
+
+Apresentacao: Ola, tema geral, jogos curtos e com temperatura (jogos quentes)
+
+jogo combinatorio
+
+DOIS JOGADORES, ALTERNADAMENTE, SEM ALEATORIO, INFORMACAO COMPLETA
+
+ESQUERDA vs DIREITA
+
+jogo curto
+
+1o exemplo eh um numero. E eh o numero 1. E todos os numeros sao jogos
+
+novo elemento no jogo. O que eh temperatura. Sempre jogar onde a temperature eh maxima
+
+O melhor movimento na componente muda
+
+Qual o parametro?
+
+termografico

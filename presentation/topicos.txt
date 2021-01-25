@@ -1,0 +1,29 @@
+Introducao:
+
+Ola Nina, Coelho, oi pessoal. Eu sou o Matheus e trabalhei com o Coelho esse ano. Nosso tema foi Teoria Combinatoria dos Jogos, mais especificamente os jogos chamados curtos e focamos maior parte do tempo em jogos com temperatura, chamados Jogos Quentes, ou Hot Games como esta no titulo.
+
+Recorte do que sera feito na apresentacao
+
+Nos livros que utilizamos, e tambem na minha monografia ha um longo caminho percorrido antes de se comecar a falar de jogos quentes. Na apresentacao porem, minha estrategia sera fazer uma simplificacao grande dos assuntos principais e chegar em um dos resultados bacanas. Ao longo do caminho vou mencionar outros resultados que estudamos, porem nao vou dar mais detalhes. Tudo que vou apresentar esta na monografia.
+
+Primeiro vou tratar rapidamente do que eh um jogo, depois vou apresentar um exemplo de um jogo. Esse exemplo sera extendido durante a apresentacao. Esse exemplo vai servir para mostrar como jogos sao representados, usnado simbolos matematicos, ira mostrar que certos jogos sao numeros, e depois vai ser o objeto de estudo para a analise termica de jogos. No final da apresentacao vou mostrar um termografico e ele mostra como existem pontos criticos em jogos e o significado deles. 
+
+1min 20s
+
+Corpo:
+
+Um jogo combinatorio tem algumas restricoes porem eh facil de entender. Xadrez, por exemplo, eh um jogo combinatorio. Um jogo desse tipo eh sempre entre dois jogadores, que jogam de maneira alternada. Esses jogos sempre tem informacao completa e nunca tem elementos de aleatoriedade. Tipicamente se joga ate que um deles nao tenha movimentos restantes. Quando o jogo eh jogado normalmente que nao pode jogar perde. Os jogadores sao tipicamente chamados de Esquerda e Direita.
+
+Como eu disse xadrez eh um jogo combinatorio porem ele nao eh curto. Isso porque tem posicoes empatadas e podem se repetir posicoes. Jogos curtos nao tem nenhuma dessas
+
+Vou mostrar agora um exemplo de um jogo curto: !!!!![mostrar primeira pagina]!!!!!!!. Esse jogo tem dois circulos azuis e um vermelho. Caso voce nao consiga perceber, os dois azuis sao os de baixo e o vermelho esta com esse padrao diagonal. Esse jogo funciona assim. Na vez do jogador da esquerda ele joga um ciculo azul fora e na vez do jogador da direita ele joga um circulo vermelho fora. Nada de muito interessante por hora. Vou adicionar aqui alguns detalhes. Esse jogo que voces estao vendo eh um numero positivo. Sem entrar em detalhes, esse jogo eh um numero por que todos os movimentos pioram a posicao de ambos os jogadores. Ele eh um numero positivo por que o jogador da esquerda sempre vence, independentemente de que comecar. O valor de um jogo eh o numero de lances que um jogador esta na frente. No caso, esse eh jogo eh igual ao numero 1.
+
+Um fato importante e que motivou muito o matematico Conway, que eh o criador da analise moderna desses jogos, a seguir os estudos e que todos os numeros sao jogos. Nao so os inteiros, mas todos os reais. Todos os numeros ordinais tambem sao jogos, e nao so eles. Tem muitos numeros que sao pertencem exclusivamente a esse novo conjunto de numeros que ele criou, ou descobriu como ele diz.
+
+Bom esse jogo nao eh muito interessante. Isso por que ele eh um jogo frio. Todos os numeros sao jogos frios. Vou adicionar um elemento ao jogo. !!!![proxima pagina]!!!!
+
+2min 30a TOTAL: 3min 50s
+
+O novo elemento eh esse circulo roxo. Na vez de qualquer um dos jogadores eles podem escolher jogar nele. O resultado depende de quem jogar. Se a pessoa da esquerda jogar, ela ganha um numero de fichas azuis iguais ao numero da esquerda e a direita ao contrario. Nesse jogo aqui, quem comecar vai querer jogar nesse circulo roxo e, alem disso, quem comecar ganhar. Essa eh uma forma de reconhecer um nao-numero, como sao chamados os jogos que nao sao numeros. Vou adicionar apenas mais um elemento [proxima pagina]
+
+Esse novo elemento, o retangulo amarelo, funciona assim. Qualquer um dos jogadores pode jogar nele. O jogador da esquerda vai substituir esse retangulo por um dos circulos roxos que estao na parte esquerda, e o jogador da diretia subtitui ele por um circulo roxo da parte direita. Nesse jogo seria possivel ir acrescentando elementos de maneira analoga, mas nao vai ser necessario. Nesse jogo, e supondo que o jogador da esquerda comece, qual seria o melhor movimento? Seria jogar no retangulo, e substitui-lo pelo circulo roxo 1,1. Por que na proxima jogada o jogador da direita vai transformar o circulo roxo em um pedra vermelha. Se ele pegasse o 4,2 o jogador da direita ganharia dois circulos vermelhos.

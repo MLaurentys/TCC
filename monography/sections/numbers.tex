@@ -136,7 +136,19 @@ $
 
 The remaining problematic example is $1 =$ \gam{\frac{1}{2}}{}. Consider the games, which happen to be numbers, \Gm{= \gam{0}{}} and $H = \gam{\frac{1}{2}}{}$. $G = 1$, directly from the simplicity rules. It is said that $H = 1$, but that is not a direct implication. It is possible, however, to show $G \leq H \leq G$. $H \leq G$, because $0.5$ is the only Left option of $H$, there are no Right options in $G$ and $0.5 < G = 1$. $G \leq H$, because $0$ is the only Left option of $G$, there are no Right options in $H$ and $0 < H$. The last inequality, $0 < H$, is true because in the game $H$, Left wins no matter who starts, and this means the game is positive.
 
-It is possible to think of many other cases that require other manipulations to fall into the precisely defined rules. The reality is that the first four rules and the $\leq$ comparison are enough to label all the numbers. The fuzzy notion of simplicity brought in the last few paragraphs helps finding and understanding the reason for labels given but it is not necessary. Simplicity is actually the first four rules.
+It is possible to think of many other cases that require other manipulations to fall into the precisely defined rules. The reality is that the first four rules and the $\leq$ comparison are enough to label all the numbers. The fuzzy notion of simplicity brought in the last few paragraphs helps finding and understanding the reason for labels given but it is not necessary. The `Simplicity Rules' are actually just the first four rules.
+
+\begin{center}
+	\Gm{ =} 
+	$
+	\begin{cases}
+		0, &\text{if } G^L < 0 < G^R\\
+		n+1, &\text{if } \Gm{= \gam{n}{}}\\
+		-n-1, &\text{if } \Gm{= \gam{}{{-}n}}\\
+		\frac{2p + 1}{2^{q+1}}, &\text{if } \Gm{= \gam{\frac{p}{2^q}}{ \frac{p+1}{2^q}}}
+	\end{cases}
+	$
+\end{center}
 
 \subsection*{Numbers generated after infinite steps}
 
@@ -144,41 +156,41 @@ The formula above only allows \Gm{} to have an infinite amount of values, but th
 
 \input{sections/infinite_hackenbush}
 
-In the game above, Left has an infinite number of possible moves, but his/her move always leads to an integer. What is the value of this game? \gam{1,2,...}{}, however, this number, one more than the largest natural number, has been baptized much earlier in mathematics. It was called $\omega$, the first ordinal number, and the label is kept in the surreal numbers. It might not be as straight forward as finitely generated numbers, but the principle to calculate the value is the same.
+In the game above, Left has an infinite number of possible moves, but his/her move always leads to an integer. What is the value of this game? \gam{1,2,...}{}, the one more than the largest natural number. This number has been baptized much earlier in mathematics. It was called $\omega$, the first ordinal number, and the label is kept in the surreal numbers. It might not be as straight forward as finitely generated numbers, but the principle to calculate the value is the same.
 
 For any finite number of red edges in \Gm{}, if you add the game above to \Gm{}, the result will be positive. However, it is also very simple to verify that $\omega$ is by far not the largest possible advantage. One simple  example for that is the following section.
 
 $\omega$ is one of numbers generated in the $\aleph$ generation. Another is the number \gam{0}{\frac{1}{1}, \frac{1}{2}, \ldots}, labeled $\epsilon$. This number is positive, as Left wins no matter who starts, but it is smaller than any positive real number. A game with value $\epsilon$ may be simply the game of RB-Hackenbush starting with a blue edge and following with an infinite number of red edges.
 
-These numbers are special in the sense that they are the first non-real numbers to show up, but they are not the only non-reals and they are not the only members of their generation. A integers and dyadic rationals show up in earlier generations, but the remaining reals all show up in this $\aleph$ generation. Chapter 5 will develop this topic a little further but in general it is not paramount to the topic of temperature.
+These numbers are special in the sense that they are the first non-real numbers to show up, but they are not the only non-reals and they are not the only members of their generation. The integers and dyadic rationals show up in earlier generations, but the remaining reals all show up in the $\aleph$ generation. Chapter 5 will develop this topic a little further but, in general, it is not paramount to the topic of temperature.
 
 \subsection*{Numbers generated after more than infinite steps}
 
 \input{sections/infinite_hackenbush_two}
 
-The game above is an infinite stack of blue edges with another one on the top. One could wrongly argue that this additional edge on the top is simply part of the infinite stack. This is a wrong argument because this additional edge on the top allows Left to move to $\omega$, and therefore, has the value of $\omega+1$, making the games different. This detail is paramount to understanding the statement found on the epigraph of this section.
+The game above is an infinite stack of blue edges with another one on the top. One could wrongly argue that this additional edge on the top is simply part of the infinite stack. This is a wrong argument because this additional edge on the top allows Left to move to $\omega$, and therefore, has the value of $\omega+1$, making the games different. The reason why in this case you can move to $\omega$ is that you can move on the top-most edge, while before, there was no top-most edge. This detail is paramount to understanding the statement found on the epigraph of this section.
 
-A hypothetical John Horton Conway wrote that phrase near a cave close to the edge of the Indian Ocean, where a couple of future mathematicians went to find themselves. The words attributed to Conway by Knuth say that in the $\aleph$th day the universe appeared. That is because Knuth realizes that in that specific days all real numbers are generated.
+A hypothetical John Horton Conway wrote the paragraph found on the epigraph near a cave close to the edge of the Indian Ocean, where a couple of future mathematicians went to find themselves. The words attributed to Conway by Knuth say that in the $\aleph$th day the universe appeared. That is because Knuth realizes that in that specific days all real numbers are generated.
 
-However, again, accordingly to the hypothetical Conway, days kept passing by and more numbers were generated. The number $\omega+1$ is one of the infinitely many surreal numbers that are not real numbers. However, this is not in the slightest the end of story. In fact, even considering that $\omega + \omega + ...$  is also generated in the same format, the important part might again be missed. That is because only looking at large numbers is not way forward.
+However, again, accordingly to the hypothetical Conway, days kept passing by and more numbers were generated. The number $\omega+1$ is one of the infinitely many surreal numbers that are not real numbers. However, this is not the end of the story. In fact, even considering that $\omega + \omega + ...$ and $\omega^\omega$ are also generated in the same format, the important part might again be missed. That is because looking at large numbers is not the only way forward.
 
-As seem before $\frac{1}{2} = \gam{0}{1}, \frac{1}{4} = \gam{0}{\frac{1}{2}}, \cdots, \frac{1}{2^{n+1}} = \gam{0}{\frac{1}{2^n}}$. Therefore, the same way that $\omega=\gam{1,2,...}{}$, $\epsilon=\gam{0}{1,\frac{1}{2},\frac{1}{4},\cdots}$. . First notice that $\epsilon$ still have positivity, because Left wins no matter who starts, and then notice that its positivity is smaller than that of any real number. Now that $\epsilon$ and $\omega$ are known members of the $\aleph$ day, only the remaining real numbers remain.
+Now that $\epsilon$ is a known members of the $\aleph$ generation, it is possible to make numbers like \gam{0}{\epsilon} and \gam{-\epsilon}{0} and also games like \gam{1}{1 + \epsilon} and \gam{1-\epsilon}{1}. As the generations keep getting created it is easy to see that there are infinite numbers that are positive but less than any positive real number. In fact if taking the example around 1, it is possible to notice that between any two real numbers there are infinite non-real numbers. These non-real numbers are called infinitesimals.
 
-The fact that real numbers are generated in the $\aleph$th day and how to generate them with possible games is part of the section 5. The reason for that is that although it is easy generating reals with RB-Hackenbush games, it might also be worth it to know how to generate them with other games, and in fact, any other games.
+There are still more non-real number that are not infinitesimals nor cardinals. A good example is the number $\sqrt{\omega} = \gam{1,2,3,\ldots}{\omega, \frac{\omega}{2},\frac{\omega}{4},\ldots}$. To verify that the label $\sqrt{\omega}$ is proper one would need to learn the definition of multiplication and verify that $\sqrt{\omega} \cdot \sqrt{\omega} = \omega$. As this text makes no use of multiplication this is not going to be verified. This example serves only to contribute to the point that there are truly many numbers originating from the simplicity rules.
 
 \subsection*{The Surreal Numbers}
 
-This text presents only few characteristics of the surreal numbers as they are not the focus. It is also not necessary to know every algebraic property of numbers to go forward with the study of temperature this text focus on. However, it so happens that with very few construction rules, the numbers contain all the real, ordinal and infinitesimal numbers.
+This text presents only few characteristics of the surreal numbers as they are not the focus. It is also not necessary to know every algebraic property of numbers to go forward with the study of temperature this text focus on. However, it so happens that with very few construction rules, the numbers contain all the reals, the ordinals, the infinitesimals numbers.
 
-Because of its extremely simple definition and big expressiveness, it is an extremely interesting topic. The idea that the number os spare moves a player has might not be a real number might not be confusing, but it should be somewhat hard to accept. It is true that this fact is based on the construction Conway made and it is not necessarily true for all ways to analyze games, but the straight forward way of using game trees to build numbers lead to this characteristic.
+Because of its extremely simple definition and big expressiveness, it is an extremely interesting topic. The idea that the number of spare moves a player has might not be a real number might not be confusing, but it should be somewhat hard to accept. It is true that this fact is based on the construction Conway made and it is not necessarily true for all ways to analyze games, but the straight forward way of using game trees to build numbers lead to this characteristic.
 
-Because the creation/discovery of surreals is very recent, it definitely makes people apprehensive as it is not clear if its properties are good or bad. The mathematician Phillip Ehrlich is an eloquent participant in this discussion. He makes the point that the surreals do not have an intrinsic problem and that they show an unifying nature between paths in mathematics. In one of his papers, Ehrlich proposes that, while the real numbers form, on his words, an arithmetic continuum, the surreals form the absolute arithmetic continuum.
+Because the creation/discovery of surreals is very recent, it definitely makes people apprehensive as it is not clear if its properties are good or bad. The mathematician Phillip Ehrlich is an eloquent participant in this discussion. He makes the point that the surreals do not have an intrinsic problem and that they show an unifying nature between paths in mathematics. In one of his papers, Ehrlich proposes that, while the real numbers form, on his words, an arithmetic continuum, the surreals form the absolute arithmetic continuum\cite{7}.
 
-However, it is still a problem converting the domain of typical studies, such as calculus, from the reals to the surreals. Integrals of functions in the surreals are particularly hard to define. The 2015 revision of the paper ANALYSIS ON SURREAL NUMBERS, by SIMON RUBINSTEIN-SALZEDO AND ASHVIN SWAMINATHAN, for example, gave a definition of integration that solved a problem with previous integration but it is clear that others persist.
+However, it is still a problem converting the domain of typical studies, such as calculus, from the reals to the surreals. Integrals of functions in the surreals are particularly hard to define. In the 2015 revision of their paper \cite{8}, Salzedo and Swaminathan made important contributions. For reference, they proved the intermediate value theorem in \textbf{No}, how the class of all surreal numbers is called. However, for example, they used a definition of integration that, although solving a problem with previous definitions, they make it clear that other problems persist.
 
-As Salzedo and Swaminathan point-out: ``The `Conway-Norton'\footnote{In ONAG 2nd edition page 228, Conway  tells that Norton's definition of integrals do not have desired properties.}
+As the same authors point-out: ``The `Conway-Norton'\footnote{In ONAG 2nd edition page 228, Conway  tells that Norton's definition of integrals do not have desired properties.}
 integral failed to have standard properties of real integration, however, such as translation
-invariance: $\int_a^bf(x)dx = \int_{a-t}^{b-t}f(x+t)dx$, for any surreal function f and $a,b,t\in$ \textbf{No}. While Fornasiero fixed this issue in [For04]\footnote{Antongiulio Fornasiero Phd. Thesis: \textit{Integration on surreal numbers.}}, the new integral, like its predecessor, yields
+invariance: $\int_a^bf(x)dx = \int_{a-t}^{b-t}f(x+t)dx$, for any surreal function f and $a,b,t\in$ \textbf{No}. While Fornasiero fixed this issue \cite{9}, the new integral, like its predecessor, yields
 $exp(\omega)$ instead of the desired $exp(\omega)-1$ for $\int_0^{\omega}exp(x)dx$". In the ``Open Questions" section of  the paper, the authors tell that there are still problems with their definition, meaning that the conversion of domains in integral studies is not completed, at least by 2015.
 
 While many questions remain open, however, it is still possible to work with a subset of the surreals that only contain the reals for example. The remaining of the text does not require profound knowledge of anything that is not mentioned in regards to numbers.
