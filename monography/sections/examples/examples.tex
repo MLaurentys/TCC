@@ -334,35 +334,52 @@ Consider the following draft of a combinatorial game class declaration:
 
 \input{sections/examples/complete_draft}
 
-The draft handles some of the hard aspects of evaluation but a completed version contains solutions to many additional cases. The draft, for one, is incapable of handling infinite games, since there is no way interpretation for infinite structures. A more complete version can be found in CGSuite github repository, but the more important details are addressed.
+Implementing the draft above woulds help with space requirements and unnecessary calculations but does not completely solve any of the more complex issues. It would, for example, avoid repeated calculations, unlike the version where the GetFloat method went through the game tree calculating it on demand.
+
+However, for one, an implementation of this draft would be incapable of handling infinite games, as those cannot be stored in vectors. Again, a more complete version can be found in CGSuite github repository, but understanding and tackling the difficulties may be a worth exercise. Even that package used by many researches has it issues and does not deal well with infinity either.
 
 \subsection*{Other Games To Play}
 
 Now that vocabulary, methods and tools were introduced, this section brings some games to put your knowledge to proof.
 
-\textbf{The Amazons} is a typical game that, like domineering, is fun and only requires pen and paper. Amazons is typically played in a 10x10 chess board with each player having four initial pieces in the fixed initial position depicted below. Each piece works just like a chess queen. In each turn, the player selects one of his/her queens and moves in an arbitrarily number of squares. Every square the amazon (queen) goes through is then burned from the game, making it so that no queen can move over it. The initial position in unimportant and the players can choose any starting position they find interesting.
+\textbf{The Amazons} is a typical game that, like domineering, is fun and only requires pen and paper. Amazons is typically played in a 10x10 chess board with each player having four initial pieces in the fixed initial position depicted below. Each piece works just like a chess queen. In each turn, the player selects one of his/her queens and moves in an arbitrarily number of squares, like the regular chess queen. After moving, the amazon has to shoot an arrow in any direction however many cells desired. The arrow burns the cell. The amazon and the arrow cannot go through any burned square, and this is what makes the game interesting.
 
-\todo{image of typicall position}
+A common variation is one where every square the amazon (queen) goes through is then burned from the game, making it so that no queen can move over it. Burning the path either amazon goes through is a replacement for shooting the arrows and there are many other possibilities, like shooting two arrows or shooting and burning the path, or choosing either of those.
+
+In either variation, like in most short games, the initial position in unimportant and the players can choose any starting position they find interesting.
+
+\begin{figure} [H]
+	\begin{center}
+		\includegraphics[scale=0.5]{sections/examples/amazons.png}
+	\end{center}
+\caption{Most typical starting positions in Amazons}
+\end{figure}
 
 For example, play may take place in an 8x8, a chessboard for convenience, with each player having two queen in opposing corners. Since, in this example, player Left is a beginner an Right is a seasoned player, Left has one additional queen next to one of his/her queens. It serves to show that there are no restrictions to the initial position - games do not have to be mathematically balanced to be fun.
 
-\todo{image of given posi}
+\begin{figure} [H]
+	\begin{center}
+		\includegraphics[scale=0.5]{sections/examples/unbalanced_amazons.png}
+	\end{center}
+	\caption{Unbalanced and fun position in Amazons}
+\end{figure}
 
-\textbf{The Angel Game} is more of a mathematical challenge more than a game, because it is not meant to actually be played. This game is played in a infinite squared board, with the Angel being located in of its cells. Each turn the Angel flies over $k$ squares and lands, depending on the desired rules. When it is the devils turn to play, it possesses a square from the infinite board. The challenge is to know whether, and for what values of $k$, the devil wins, given the Angel may not lend in a possessed square.
+\textbf{The Angel Game} is more of a mathematical challenge more than a game, because it is not meant to actually be played. This game is played in a infinite squared board, with the Angel being located in of its cells. Each turn the Angel flies over $k$ squares and lands, depending on the desired rules. When it is the devils turn to play, it possesses a square from the infinite board. The challenge is to know whether, and for what values of $k$, the devil wins, given the Angel may not lend in a possessed square. It is clear that this game, depending on the parameters and variations, may not be a short game.
 
 This game led to a lot of research until it was solved. Although it may not interest someone looking for a fun game it serves to show that even games on infinite boards are part of this theory. An important aspect of this game is that the position, after every move, becomes better and better for the devil, but still, sometimes it does not improve enough for the devil to win, even after an arbitrarily large number of moves.
 
-\textbf{Snorts} is yet another fun game to be played with pen and paper. Snorts is a picture coloring game. Two herdsman, Bob that has a herd of bulls and Chad that had a herd of cows, compete to buy properties in a large open field. They are both interested in acquiring as many properties as possible, regardless of their sizes, but they respect each others space. Since cows cannot live next to bulls and vice-versa, Bob and Chad cannot buy any property next to each other.
+\textbf{Snorts} is yet another fun game to be played with pen and paper. Snorts is a picture coloring game. Two herdsman, Bob, that has a herd of bulls, and Chad, that has a herd of cows, compete to buy properties in a large open field. They are both interested in acquiring as many properties as possible, regardless of their sizes, but they respect each others space. Since cows cannot live next to bulls and vice-versa, Bob and Chad cannot buy any property next to each other.
 
-The initial position for playing snorts is a partitioned shape. The initial position is somewhat problematic to draw, because may cause the first player to have easier tie playing. However, by making a large initial open space, it is harder to make a boring game. A good method to draw the board is to make a circle-like shape a start subdividing it randomly, making sure that there are not very large partitions. The picture below is an example of a snorts game in progress.
+The initial position for playing snorts any collection of shapes. The initial position is somewhat problematic to draw, because may cause the first player to have easier time playing. However, by making a large initial open space, it is harder to make a boring game. A good method to draw the board is to make a circle-like shape and start partitioning it randomly, making sure that there are not very large partitions. The picture below is an example of a snorts game in progress.
 
-\todo{image}
+\begin{figure} [H]
+	\begin{center}
+\includegraphics[scale=0.6]{sections/examples/snorts.png}
+	\end{center}
+\caption{Ongoing match of snorts}
+\end{figure}
 
-\textbf{The Markswoman Amazons} is the first example of this section on how to create a game. This game is a variation of The Amazons, with one additional rule. After any movement is made, the Amazon that moved shoots an arrow in any direction that flies any number of squares, hitting and burning an open square. The arrow cannot hit other Amazons, but may target an already burned square. This serves to show how easy it is to adpat existing games.
-
-\textbf{The Knights} is another possible variation of Amazons. The game has the same rules but uses chess knights instead of chess queens. This game may, for experienced chess players, seem less fun that the amazons, as it is much more predictable. It may be true, but, like the markswoman amazons may be worth trying.
-
-...................
+\textbf{The Knights} is another possible variation of Amazons. The game has the same rules but uses chess knights instead of chess queens. This game may, for experienced chess players, seem less fun that the amazons, as it is much more predictable. It may be true, but, like the other variations of amazons it may be worth trying.
 
 
 
