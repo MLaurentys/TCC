@@ -4,23 +4,20 @@ The examples and code fragments also serve the purpose of showing possible reade
 
 \subsection*{The Numbers}
 
-A very important and recurrent theme in the early parts of the text is the correspondence between games and surreal numbers. It is correct to say that all real numbers are also games, but it may not be clear how to make a particular real number. For example, the reader may not be able to make a game with value equals to $\pi$. In fact, the reader may not know what numbers are easy or hard to do. For now, the first two rules of the simplicity principle should be clear enough.
+A very important and recurrent theme in the early parts of the text is the correspondence between games and surreal numbers. It is correct to say that all real numbers are also games, but it may not be clear how to make a particular real number. For example, the reader may not be able to make a game with value equals to $\pi$. In fact, the reader may not know what numbers are easy or hard to do. The first two rules of the simplicity principle should be clear enough.
 
 \begin{lstlisting}[language=C++]
-using std::max, std::floor, std::vector, std::unique_ptr;
-
-// Initial class structure
 class SurrealNumber {
   public:
-	float toFloat ();
+	float ToFloat ();
 	...
   private:
-  	vector<unique_ptr<SurrealNumber>> left;
-  	vector<unique_ptr<SurrealNumber>> right;
+  	vector<SurrealNumber*> left;
+  	vector<SurrealNumber*> right;
   	...
 };
 
-float SurrealNumber::toFloat () {
+float SurrealNumber::ToFloat () {
 	float ret;
 	if (left.empty())
 		if (right.empty())
@@ -38,25 +35,34 @@ float SurrealNumber::toFloat () {
 While easy and hard is relative, every number that is a dyadic rational, a number that is of the form $\frac{a}{2^b}, a\in\mathbb{Z}, b \in \mathbb{N}$ is easy to form. A good method to make the representation of $z = \frac{a}{2^b}, z \ge 0$ in \gam{x}{y} is:\\
 \begin{adjustwidth}{2cm}{}
 	1) Calculate $d\in \mathbb{Z}\;|\;0 \leq z-d < 1$.\\
-	2) If $z=d$ then $x = z-1,y=z+1$, stop.\\ 
-	3) Binary search for any $w = z-d \in(0,1)$\\
-	4) $x$ is $d$ added to the oldest number to the left.\\
+	2) If $z=d$ then $x = z-1$ and $y=\emptyset$, stop.\\ 
+	3) Binary search for oldest dyadic rational $w$, with $d < w < 1$\\
+	4) Save the steps taken in the search \\
+	5) $x$ is $d$ added to the oldest number to the left.\\
 	6) $y$ is $d$ added to the oldest number to the right.
 \end{adjustwidth} \vspace{0.5cm}
 
-For example, $\frac{89}{16} = 5 + \frac{9}{16} = \gam{5 + \frac{1}{2}}{5+\frac{5}{8}}$, because the binary search for $\frac{9}{16} = \frac{89-80}{16}$ follows the path $\frac{1}{2}\xrightarrow[]{R} \frac{3}{4}\xrightarrow[]{L}\frac{5}{8}\xrightarrow[]{L}\frac{9}{16}$. In RB-Hackenbush, building $\frac{89}{16}$ is now easy. Take a pile with five blue edges and add it to a blue-red-blue-blue pile. The red-blue-blue pile on top of that derives from the right-left-left path on the binary search for $\frac{9}{16}$, with a right turn corresponding to a red edge and vice-versa. Therefore, it is possible to complement the featured snippet, repeating the idea, but with the objective of finding $z = \frac{a}{2^b}$ given \gam{X}{Y}.
+For example, $\frac{89}{16} = 5 + \frac{9}{16} = \gam{5 + \frac{1}{2}}{5+\frac{5}{8}}$, because the binary search for \mbox{$\frac{9}{16} = \frac{89-80}{16}$} follows the path $(1\xrightarrow[]{L})\frac{1}{2}\xrightarrow[]{R} \frac{3}{4}\xrightarrow[]{L}\frac{5}{8}\xrightarrow[]{L}\frac{9}{16}$. In RB-Hackenbush, building~$\frac{89}{16}$ is now easy. Take a pile with five blue edges and add it to a blue-red-blue-blue pile. The red-blue-blue pile on top of that derives from the right-left-left path on the binary search for $\frac{9}{16}$, with a right turn corresponding to a red edge and vice-versa.
+
+A similar idea is used in the following featured snippet, but with the objective of finding $z = \frac{a}{2^b}$ given \gam{X}{Y}.
 
 \begin{lstlisting}[language=C++]
 	//other cases
-	else {
+	else
+		ret = FindSimplesFittingNumber();
+	...
+}
+
+float SurrealNumber::FindSimplesFittingNumber {
 		float maxL = maxLeft();
 		float minR = minRight();
 		if (maxL < 0 && 0 < minR)
 			return 0.0f;
 		float d = floor(maxL);
-		maxL -= d; minR -= d;
+		float x = maxL - d;
+		float y = minR - d;
   		float fact = 1.0f;
-		while (fact > 1.0f/4096.0f)
+		while (fact > EPSILON)
 			if (x < fact)
 				if (y > fact)
 					break;
@@ -64,11 +70,11 @@ For example, $\frac{89}{16} = 5 + \frac{9}{16} = \gam{5 + \frac{1}{2}}{5+\frac{5
 					fact *= 0.5f;
 			else
 				fact *= 1.5f;
-		ret = d + fact;
+		return d + fact;
 	}
 \end{lstlisting}
 
-All the remaining numbers are hard in the sense that they require an infinite number of steps to define. A simple code like the one above will not handle that. That is because $\frac{2}{3}$ and $\pi$ are both generated in the $\aleph$th day (section 3), like any other non-dyadic fraction. However, these are not equally hard. Because $\frac{2}{3}$ is a periodic number when using binary representation, its path in the numbers tree is well-defined.
+All the remaining numbers are hard in the sense that they require an infinite number of steps to define. A simple code like the one above will not handle that. That is because $\frac{2}{3}$ and $\pi$ are both generated in the $\aleph$th day (section 3), like any other non-dyadic fractions. However, these are not equally hard. Because $\frac{2}{3}$ is a periodic number when using binary representation, its path in the numbers tree is well-defined.
 
 It is true that both $\frac{2}{3}$ and $\pi$ are given by something equivalent to the following: $n = \gam{x \in S_*:x < n}{y \in S_*:y>n}$, where $S_*$ is the set of numbers generated until day $\aleph$. However, $\frac{2}{3}=0.\overline{10}_2$ can also be defined through the infinite right-left-right-left... path in the binary tree, because a 1 in the binary representation is a step do the right in the tree and vice-versa. One way to think of this fact is that, when doing a binary search for $x$ between the dyadics in (0,1), the starting question is $x > 1/2$. The 1 indicates a yes, so the following question is $x > 3/4$, and so on. Since numbers smaller than $x$ go on the left set and vice-versa, $\frac{2}{3} = \gam{1/2, 5/8, \ldots}{3/4,11/16,\ldots}$, showing that the numbers visited in the binary search alternate in the left and right sets. Repeating decimals, in RB-Hackenbush, are extremely easy to spot because they are always a sequence of reds and blues followed by a finite pattern repeated infinitely.
 
@@ -251,7 +257,7 @@ The game from last section could, then, be converted to the following:
 
 \begingroup
 \tikzset{every picture/.style={scale=0.5}, every node/.style={scale=0.5}}%
-\input{sections/temperature/extended_simp_c}
+\input{sections/examples/extended_simp_c}
 \endgroup
 \begin{center}
 	$\Downarrow$

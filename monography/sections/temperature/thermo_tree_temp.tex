@@ -1,4 +1,5 @@
-\hspace{-1cm}
+\begin{figure}[H]
+\begin{center}
 \begin{tikzpicture}
 \begin{axis}
 	[
@@ -15,7 +16,7 @@
 	\addplot[ultra thick] coordinates { (2.1,-0.1)(1,1)};
 	\addplot[-{Latex[length=3mm]}, ultra thick] coordinates { (1,1)(1,1.9)};
 	\addplot[] coordinates {(1.1,-0.1)(0,1)};
-	\addplot[red, densely dashed] coordinates {(-1.1,-0.1)(0,1)};
+	\addplot[] coordinates {(-1.1,-0.1)(0,1)};
 \end{axis}
 \begin{axis}
 	[
@@ -33,7 +34,7 @@
 	\addplot[ultra thick] coordinates { (2.1,-0.1)(0.75,1.25)};
 	\addplot[-{Latex[length=3mm]}, ultra thick] coordinates { (0.75,1.25)(0.75,2.2)};
 	\addplot[] coordinates {(1.1,-0.1)(0,1)};
-	\addplot[red, densely dashed] coordinates {(-1.1,-0.1)(0,1)};
+	\addplot[] coordinates {(-1.1,-0.1)(0,1)};
 	\addplot[-{Latex[length=3mm]}] coordinates { (0,1)(0,1.5)};
 \end{axis}
 \node[] at (9.3,2) {\gam{{-}\frac{1}{2}}{2, \gam{0}{0}}};
@@ -56,3 +57,6 @@
 	\addplot[-{Latex[length=3mm]}, ultra thick] coordinates { (-1,1)(-1,1.75)};
 \end{axis}
 \end{tikzpicture}
+\end{center}
+\caption{Thermographs with several left and right options.}
+\end{figure}

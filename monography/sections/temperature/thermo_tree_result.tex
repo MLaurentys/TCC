@@ -1,4 +1,4 @@
-\hspace{-1cm}
+\hspace{-2.3cm}
 \begin{tikzpicture}
 \begin{axis}
 	[
@@ -6,7 +6,7 @@
 	xmin=-2.5,xmax=2.5, x dir=reverse, xtick={-2,-1,0,1,2},
 	ymax=2.5, ytick={0, 1, 1.75},
 	scale=1,
-	at={(-2cm,-7.5cm)},
+	at={(0,-7.5cm)},
 	style thermograph
 	]
 	\addplot[] coordinates {(-2.5,0)(2.5,0)};
@@ -21,21 +21,38 @@
 	\addplot[-{Latex[length=3mm]}] coordinates { (0.75,1.25)(0.75,2.3)};
 	\addplot[-{Latex[length=3mm]}] coordinates { (1,1)(1,2.3)};
 \end{axis}
-\node[] at (5.5,-5) {$\Rightarrow$};
+\node[] at (7.5,-5) {$\underset{\text{Removing  dominated moves}}{\Rightarrow}$};
 \begin{axis}
 	[
 	title = \Gm{},
 	xmin=-0.5,xmax=2.5, x dir=reverse, xtick={2,1,0},
 	ymax=2.5, ytick={0, 1, 1.75},
 	scale=1,
-	at={(0.5*\linewidth,-7.5cm)},
+	at={(0.5*\linewidth + 2cm,-7.5cm)},
 	style thermograph
 	]
 	\addplot[] coordinates {(-2.5,0)(2.5,0)};
 	\addplot[] coordinates { (2.1,-0.1)(1,1)};
 	\addplot[] coordinates { (1,1)(-0.1,-0.1)};
-	\addplot[ultra thick] coordinates { (-0.1,-0.1)(0,0)};
-	\addplot[-{Latex[length=3mm]}, ultra thick] coordinates { (0,-0.1)(0,1.5)};
+	\addplot[] coordinates { (-0.1,-0.1)(0,0)};
+	\addplot[-{Latex[length=3mm]}] coordinates { (0,-0.1)(0,1.5)};
 	\addplot[-{Latex[length=3mm]}] coordinates { (1,1)(1,2.3)};
 \end{axis}
 \end{tikzpicture}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}
+	[
+	title = \Gm{},
+	xmin=-1.5,xmax=1.5, x dir=reverse, xtick={1,0,-1},
+	ymax=2.5, ytick={1},
+	scale=1,
+	at={(0.5*\linewidth + 1cm,-10)},
+	style thermograph
+	]
+	\addplot[] coordinates {(-1.5,0)(1.5,0)};
+	\addplot[ultra thick] coordinates { (-0.1,-0.1)(0,0)};
+	\addplot[-{Latex[length=3mm]}, ultra thick] coordinates { (0,-0.1)(0,1.5)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
