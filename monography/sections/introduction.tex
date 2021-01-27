@@ -2,15 +2,15 @@
 \setlength\epigraphwidth{.8\textwidth}
 \epigraph{``I learned very quickly that playing games and working on mathematics were closely intertwined activities for him, if not actually the same activity. His attitude resonated with and affirmed my own thoughts about math as play, though he took this attitude far beyond what I ever expected from a Princeton math professor, and I loved it."}{Manjul Bhargava \footnotemark}
 
-\footnotetext{Fields medalist commenting on John Horton Conway's passing}
+\footnotetext{Fields medalist commenting on John Horton Conway's passing.}
 
 
 
-It is no surprise that avid players of games that resemble logical or
+It is no surprise that avid players of games which resemble logical or
 mathematical puzzles, like checkers, develop an intuition that allows
 them to calculate faster. This intuition comes in many forms like
 asserting bad moves fast and recognizing losing, drawing and winning
-patterns. A most essential, and sometime very hard, component of
+patterns. A most essential, and sometimes very hard, component of
 playing well any of these mathematical games is being able to know if
 you are ahead or behind in a given position.
 
@@ -28,7 +28,7 @@ if a position is winning or loosing in a regular chess game is not
 enough, nor is the ability to play regular chess perfectly.
 
 The most important ability for this ``parallel'' variant, 
-and for the games that this text focus on, is
+and for the games that this text focuses on, is
 to score each position.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Scoring a position is different from spotting which one
@@ -42,32 +42,32 @@ these labels reflect advantage,
 then playing the proposed variation becomes easy.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 In this day and age, making a 
-classifier that performs well is chess,
+classifier that performs well in chess,
 or the proposed variant, and
 many other games of this sort is a reality.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-However, a method to perfectly classify, or at least proving
-a position is better than another, is not widespread.
+However, a method for perfectly classifying, or, at least, proving
+that position is better than another, is not widespread.
  
 The ability to precisely calculate the advantage a player has in a position is the object of interest of Combinatorial Game Theory. This theory provides means of labeling all positions in games, not just in chess, but in all combinatorial games. A position in Go and a position Checkers, two different games, might have the same label and that means they are both equally good or bad. The modern approach to combinatorial games was inaugurated in~1976 in the book \textit{On Numbers And Games}~\cite{ONAG1}, but there are studies that date back from the 1930s~\cite{CGT}. The author of that book, Jonh Horton Conway, as found in the epigraph that starts this text, was, as many, an avid player of such games. In fact, Conway tells that the event that led to him invent, or discover, this theory was watching two Go players playing an endgame.
 
-Conway realized that some positions behaved like numbers, in every aspect. While, initially, that seems very useful to evaluate games, Conway went ahead and proposed that some positions \textbf{are} numbers.
+Conway realized that some positions behaved like numbers, in every aspect. While, initially, that seems very useful to evaluate games, Conway went ahead and proposed that some positions are numbers.
 
-There is a  difference between label an object as a number and an the object \textit{being} that number. The key point in Conway's ideia is that one can define operations as addition such that the sum of two games \textit{is} the sum of the numbers they are equal to. The beautiful thing about games is that the sum is defined in the most natural way.
+There is a  difference between labeling an object as a number and an object \textit{being} that number. The key point in Conway's ideia is that one can define operations as addition such that the sum of two games \textit{is} the sum of the numbers they are equal to. The beautiful thing about games is that the sum is defined in the most natural way.
 
 Later the reader will be presented to the  idea that integer numbers are games, fractions are games, reals are games, and many more numbers are also games. This match is further explained in the following chapters and it is a fundamental topic in Combinatorial Game Theory.
 
-As stated before, there are games that are numbers, but not real numbers. In fact the games that are numbers formed a new class, to be analyzed in the next sections. These numbers will not look like numbers at first. However, after visiting how they add up together in the most natural way, how they form an enormous set from extremely simple rules and other great characteristics, like being a completely ordered set, the reader might start appreciating them. The Surreal Numbers\footnote{Originally Conway only called them numbers, but greatly appreciated the name given by Knuth}, name given by Donald Knuth in \textit{Surreal Numbers: how two ex-students turned on to pure mathematics and found total happiness}~\cite{SN}.
+As stated before, there are games that are numbers, but not real numbers. In fact the games that are numbers formed a new class, to be analyzed in the next sections. These numbers will not look like numbers at first. However, after visiting how they add up together in the most natural way, how they form an enormous class from extremely simple rules and other great characteristics, like being a completely ordered set, the reader might start appreciating them. These are the Surreal Numbers\footnote{Originally, Conway simply called them numbers, but greatly appreciated the name given by Knuth afterwards.}, name given by Donald Knuth in \textit{Surreal Numbers: how two ex-students turned on to pure mathematics and found total happiness}~\cite{SN}.
 
-As some might understand from the title \textit{Hot Games} alone, however, the focus of this text are in the non-numbers. It is possible for games to not behave like any of the surreal numbers, although every surreal number has correspondent\footnote{There are infinite games that are equal to any Surreal Number} games. The understanding of game temperature, and by consequence all the simpler concepts like hotness and cooling, however, does not forego a good grasp of numbers. The reader will find that all games either are numbers or become numbers after some moves, so understanding them is paramount.
+As some might understand from the title \textit{Hot Games} alone, however, the focus of this text are in the non-numbers. It is possible for games to not behave like any of the surreal numbers, although every surreal number has correspondent\footnote{There are infinite games that are equal to any Surreal Number.} games. The understanding of game temperature, and by consequence all the simpler concepts like hotness and cooling, however, does not forego a good grasp of numbers. The reader will find that all games either are numbers or become numbers after some moves, so understanding them is paramount.
 
 After a vista on both numbers and non-numbers, this text has two chapters targeted on exercising the concepts learned, visiting fun games to play and proofs on classes of games, including a new result from 2019 which is the first of its kind. The text as a whole will make the case that Combinatorial Game Theory is built upon extremely simple but powerful concepts. The few concepts are considered powerful because they not only provide a vast field of problems but also allow simple proofs for them as well.
 
 The next three sections will present the basics of Combinatorial Game Theory, describing numbers and non-numbers. The style of these sections will be similar to that of the book \textit{Winning Ways for your Mathematical Plays}~\cite{WW}. It means that concepts, notation and theorems are not highlighted or enumerated and, instead, their meaning are presented in the regular paragraphs. This style fits well a text in Combinatorial Game Theory because most of them are extremely simple and only a few of them are abstract. In this field, it is easy to write examples of the concepts so there is no necessity of abstracting as much as other areas of algebra or combinatorics.
 
-The style of the book is also widely known for being non-rigorous where it does not have to be. The book will commonly use images of games that satisfy assertion and provide, or not, a logic why other games also satisfy that, without a rigorous proof. This is not completely followed in this text as justifications may be provided where not required. 
+The style of the book is also widely known for being non-rigorous where it does not have to be. The book will commonly use images of games that satisfy assertion and provide, or not, a logic to why other games also satisfy that, without a rigorous proof. This is not completely followed in this text as justifications may be provided where not required. 
 
-On the other side of the spectrum there is \textit{Combinatorial Game Theory}~\cite{CGT}. Siegel is likely the most active researcher of the field nowadays and created the most developed program used to analyze them, CGSuite. CGSuite is an very useful tool and more about it may be found in appendix A. Unlike the authors of \textit{Winning Ways for your Mathematical Plays}, he gave a great deal of form to this field. The book contains hundreds of definitions, notations, theorems and lemmas which are all enumerated and highlighted. One of the results is that his standards became widely used and that helps reading current papers. In general the book is more advanced and it is the primary reference for chapters 5 and 6.
+On the other side of the spectrum there is \textit{Combinatorial Game Theory}~\cite{CGT}. Siegel is likely the most active researcher of the field nowadays and created the most developed program used to analyze them, CGSuite. CGSuite is a very useful tool and more about it may be found in appendix A. Unlike the authors of \textit{Winning Ways for your Mathematical Plays}, he gave a great deal of form to this field. The book contains hundreds of definitions, notations, theorems and lemmas which are all enumerated and highlighted. One of the results is that his standards became widely used and that helps reading current papers. In general the book is more advanced and it is the primary reference for chapters 5 and 6.
 
 Between the two there is the book \textit{On Numbers and Games}~\cite{ONAG1,ONAG2}, and possibly all others. The first edition of the book, as stated before, gave birth to the modern approach of Combinatorial Game Theory. The book is much more theoretical and focused on pure mathematics, containing much more algebra and number theory than the successors, but is also extremely descriptive. There are other great books, but almost all the content of this text references only these three books.
 
