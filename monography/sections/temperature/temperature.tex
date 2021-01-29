@@ -1,5 +1,5 @@
 
-This sections will provide new tools and ideas to analyze games and to do that, the same strategy of the previous section will be followed. Initially, the reader is presented with an intuitive idea and preliminary formulation of the problem. The first part contains many examples and its intent is to provide the reader enough to use the more mathematical heavy part to in fact gain advantage in any game played.
+This section will provide new tools and ideas to analyze games and to do that, the same strategy of the previous section will be followed. Initially, the reader is presented with an intuitive idea and preliminary formulation of the problem. The first part contains many examples and its intent is to provide the reader enough to use the more mathematical heavy part to in fact gain advantage in any game played.
 
 Now that enough is known about numbers, it is possible to work with non-numbers. The only known non-numbers at this point are the switches. But is knowing what they are enough to playing them? The game simpler cashing cheques will tell.
 
@@ -27,10 +27,10 @@ In this game there is a table with purple cheques. Each cheque has two numbers w
 \caption{A sum of switches and numbers}
 \end{figure}
 
-Definitely the move is not paying, as Left can earn money in his turn. A good thing to grasp from this example is that you should never play in a number, paying a coin in this case, if there are non-numbers, cashing a purple cheque in this case. Should Left cash 8, 5 or 1? 1, of course. The reader is encouraged to play as Left and trying to find the best possible outcome, but the answer is playing the hottest switch. Although the game above is not a switch, it is a sum of switches, and, because of that can benefit of the simplified notation discussed earlier, in chapter 2.
+Definitely the move is not paying, as Left can earn money in his turn. A good thing to grasp from this example is that you should never play in a number, paying a coin in this case, if there are non-numbers, cashing a purple cheque in this case, available. Should Left cash 8, 5 or 1? The reader is encouraged to play as Left and trying to find the best possible outcome, but the answer is playing the hottest switch. After trying different combination of moves, it is clear that caching 1 is the best move. Although the game above is not a switch, it is a sum of switches, and, because of that, it can also benefit of the simplified notation discussed earlier, in chapter 2.
 
 \begin{align*}
-	G =& \left(\frac{8-4}{2} \pm \frac{8+4}{2}\right) + \left(\frac{5-5}{2} \pm \frac{5+5}{2}\right) + \left(\frac{1-13}{2} \pm \frac{1+13}{2}\right) \\
+	\Gm{} =& \left(\frac{8-4}{2} \pm \frac{8+4}{2}\right) + \left(\frac{5-5}{2} \pm \frac{5+5}{2}\right) + \left(\frac{1-13}{2} \pm \frac{1+13}{2}\right) \\
 	  =& (2 \pm 6) + (0 \pm 5) + (-6 \pm 7)\\
 	  =& -4 \pm 7 \pm 6 \pm 5
 \end{align*}
@@ -44,7 +44,7 @@ Playing a sum of games is just like playing a game with a set of independent rul
 \begin{figure}[H]
 \begin{center}
 	\begin{tikzpicture}
-		\node at (-0.5,0.1) {G =};
+		\node at (-0.5,0.1) {\Gm{ =}};
 		\draw[] (0,0) rectangle ++(0.3,0.3);
 		\draw[] (0.3,0) rectangle ++(0.3,0.3);
 		\draw[] (0.6,0) rectangle ++(0.3,0.3);
@@ -62,20 +62,20 @@ for example, is a game where each player makes a move\footnote{There are other w
 
 The result of this sum is obvious if all components are also numbers or switches. In the case of playing numbers and general non-numbers, sensible players will always play in non-numbers first. With this in mind other facts become clear. One is that the temperature of a non-number added to a number is unaltered.
 
-The other is that such a sum of games can be seen as sum of non-numbers, added together with a number after they cool out. The sum of general non-numbers is thoroughly discussed in the remaining of the chapter, however, it worth noticing what the goal of this discussion is.
+The other is that such a sum of games can be seen as sum of non-numbers, added together with a number after they cool out. The sum of general non-numbers is thoroughly discussed in the remaining of the chapter, however, it is worth noticing what the goal of this discussion is.
 
 \subsection*{Thermographs}
 
-By the end of this section it will be thought how to convert any game in a 2D graphic composed of two trajectories that collapse to one line at some point, whose axis are number and cooling factor. The purpose of all this is that if the ending point falls in the positive side, Left gets an advantage, and if it falls in the positive, right does.
+By the end of this section it will be thought how to convert any game in a 2D graphic composed of two trajectories that collapse to one line at some point, whose axes are number and cooling factor. The thermograph condenses multiple and important information from the game tree. It is used for multiple purposes, but, in particular, it helps finding the best move to make and tells the average of a game, who the game favors regardless of who moves next.
 
 To build this graphic one is required to traverse the game tree, so the effort may seem fruitless as the game tree provides the winning strategy by itself. However, in cases where the game tree resulting from the sum of games is too large or expensive for a computer to run, there is a good strategy to playing this sum without knowing the complete game tree. In order to build the thermograph and play the thermostrat\footnote{Thermostrat is a strategy to playing sum of hot games. It provides an excellent approximation to the optimal strategy.} correctly, there are a lot of minor concepts not discussed yet.
 
-Other than the bias, playing a game like Domineering well involves the concepts of Left/Right stops, toenail, ambient temperature, freezing point, cooling, heating and a few others. To put all that together and provide a clear visualization of the best strategy, the thermograph.
+Other than the bias, playing a game like Domineering well involves the concepts of Left/Right stops, toenail, ambient temperature, freezing point, cooling, heating and a few others. To put all that together and provide a clear visualization of the best strategy, the thermograph is used.
 
 \begin{figure}[H]
 \begin{center}
 \begin{tikzpicture}
-	\node at (-1.5,0.1) {Given G =};
+	\node at (-1.5,0.1) {Given $G =$};
 	\draw[] (0,-0.6) rectangle ++(0.3,0.3);
 	\draw[] (0.3,-0.6) rectangle ++(0.3,0.3);
 	\draw[] (0.6,-0.6) rectangle ++(0.3,0.3);
@@ -100,13 +100,17 @@ G is definitely not a switch nor a sum of switches. It is possible to say the te
 
 To decrease the confusion that builds up in complicated positions, there is the idea of a cooling factor. The non-number \Gm{} cooled by $t$ degrees is represented by \Gm{_t} and is defined by:
 \begin{center}
-	\Gm{_t} = \gam{\Gm{^L_t} - t}{\Gm{^R_t} + t} $\forall t \leq t'$\\
-	\Gm{_t} = x $\forall t > t'$\\
+	$
+	\begin{aligned}
+		\Gm{_t} = &\gam{\Gm{^L_t} - t}{\Gm{^R_t} + t} & \text{ for all } t \leq t' \\
+		&\;\;\;\;\Gm{_t} = x & \text{ for all } t > t'
+	\end{aligned}
+	$\\\vspace{0.5cm}
 	Given $t'$ is the smallest cooling factor such\\
 	that \Gm{_{t'}} is infinitesimally close to a number $x$,
 \end{center}
 
-The temperature $t(G)$ is equal to $t'$. Now that both axes are defined, some examples of thermographs:
+The temperature $t(G)$ is equal to $t'$. Now that both axes are defined, some examples of thermographs are:
 
 \input{sections/temperature/temp_examples}
 
@@ -118,9 +122,9 @@ The next example, the second of non-switch hot games, shows how cooling $L$ and 
 
 \input{sections/temperature/temp_nexample}
 
-In the example above, the thick dashed thermograph is the thermograph of G. The light dashed segments are illustrative extensions of the cooling of \Gm{^L} and \Gm{^R}. The bold lines were used to show what part of L's and R's trajectories are taken into consideration: Right's slant is used to build Left's slant and vice-versa. The reason for this is that after either player makes a move, it will be the opponent's turn to move, and, this way, the opposing slant is the important one.
+In the example above, the thick dashed thermograph is the thermograph of G. The light dashed segments are illustrative extensions of the cooling of \Gm{^L} and \Gm{^R}. The bold lines were used to show what part of L's and R's trajectories are taken into consideration: Right's slant is used to build Left's slant and vice-versa. The reason for this is that after either player makes a move, it will be the opponent's turn to move, and, in this way, the opposing slant is the important one.
 
-It is also worth mentioning that a freezing point will always be reached after an equal amount of move by each player. In the example above, the freezing point is the same as the junction point where the right slant bends, but that is not always the case. Before visiting Siegel's formulation of the problem, one that brings good notation and formalism, an example of a real scenario is due. In a fun game each player has more than one option for their moves and that is addressed in the following example, using the domineering as example. 
+It is also worth mentioning that a freezing point will always be reached after an equal amount of moves by each player, but more on this will be presented later. In the example above, the freezing point is the same as the junction point where the right slant bends, but that is not always the case. Before visiting Siegel's formulation of the problem, one that brings good notation and formalism, an example of a real scenario is due. In a fun game each player has more than one option for their moves and that is addressed in the following example, using the domineering as example. 
 
 What is the thermograph of the game \Gm{=}
 	\begin{tikzpicture}
@@ -148,31 +152,31 @@ The remaining of the process consists of building the thermographs of the more c
 
 The thermograph of \Gm{} and \gam{\gam{0}{0}}{0} are the same, although they are different games. From the steps taken to build that thermograph one can see that not all available moves contribute to build the temperature. Because we can calculate that some moves are strictly worse than others it makes sense that they should be ignored, but the thermograph shows exactly why.
 
-When Left moves, he/she should avoid giving Right greater advantage over getting him/herself a possible better outcome. In the first thermograph, it is clear that $2$ is greater, meaning it is more positive, or better for Left, than \gam{1}{{-}1} The reason for that is because the red right slant is more to the right than $2$, not because the left slant is more to the right than $2$.
+When Left moves, he/she should avoid giving Right greater advantage over getting him/herself a possible better outcome. In the first thermograph, it is clear that $2$ is greater, meaning it is more positive, or better for Left, than \gam{1}{{-}1}. The reason for that is because the red right slant is more to the right than $2$, not because the left slant is more to the right than $2$.
 
-\textbf{Minies and tinies advantages}
+\subsection*{Minies and tinies advantages}
 
-The comment that \Gm{}'s thermograph is the same as that of the game \gam{\gam{0}{0}}{0}, but they are different games is surprisingly paramount to playing games well. It is so important that games of the form \gam{\gam{x}{0}}{0}$=-_x$ and \gam{0}{\gam{0}{{-x}}}$=+_x$ receive special names, minies an tinies, respectively. The game above is negative, of course, but Right's advantage really small.
+The comment that \Gm{}'s thermograph is the same as that of the game \gam{\gam{0}{0}}{0}, but they are different games is surprisingly paramount to playing games well. It is so important that a game of the form \gam{\gam{x}{0}}{0} or \gam{0}{\gam{0}{{-x}}}, with $x$ a natural number, is denoted by $-_x$ or $+_x$ and receives the special name miny or tiny, respectively. The game \gam{\gam{0}{0}}{0} is negative, of course, but Right's advantage is small. However, it is not the smallest possible.
 
-In the game \Gm{=-_2 = \gam{\gam{2}{0}}{}}, Right's advantage is much smaller than that of $-_1$. In fact, for any number $x,y | x > y \ge 0$, any multiple of $-_x$ is less negative than $-_y$. It may come of as a surprise because usually multiplication is only made between numbers, but, in fact, this observation makes sense when a real example is provided.
+In the game \Gm{=-_2 = \gam{\gam{2}{0}}{}}, Right's advantage is much smaller than that of $-_1$. In fact, for any numbers $x, y$ such that $x > y \ge 0$, any multiple of $-_x$ is less negative than $-_y$. Multiplication is usually made between numbers, but multiplying a game with an integer is just adding that many copies of the game. The observation that any multiple of $-_x$ is less negative than $-_y$ makes sense when a real example is provided.
 
 One should think of minies and tinies as late fees. In the case of tinies, if Left makes a move, he/she is fine. However, if he/she does not, Right may send a warning e-mail that tells Left to do so. If, after the e-mail, Left makes the move, he/she is fine again, but if Left does not, Right can charge a late fee from Left.
 
-The reason for any multiple of $+_x$ remain smaller than $+_y$ is just that. Since there is the warning phase in the game, players will always be in time to reply. The only case where a reply is not worth is when there are more important moves to make. Because, the only factor, in this case, that makes a move more or less worth is the value of x, it does not matter how many $+_x$ there are. When playing situations where one can choose between quantity of minies/tinies over quality, the choice for quality is always the correct one.
+The reason for any multiple of $+_x$ remain smaller than $+_y$ is just that. Since there is the warning phase in the game, players will always be in time to reply. The only case where a reply is not worth it is when there are more important moves to make. Because, the only factor, in this case, that makes a move more or less valuable is the value of $x$, it does not matter how many $+_x$ there are. When playing situations where one can choose between quantity of minies/tinies over quality, the choice for quality is always the correct one.
 
 \subsection*{Non-dominated moves}
 
-One important situation, however, did not happen in the game above. There will be cases where there is no clear best move for a component $C$, and that will depend on the ambient temperature of the game. The reader can see that if \Gm{=C}, then there are best first move to make. In the example above, \Gm{^L = \gam{2}{0}} and \Gm{^R = 0}.
+One important situation, however, did not happen in the game above. There will be cases where there is no clear best move for a component $C$, and that will depend on the ambient temperature of the game. The reader can see that if \Gm{=C}, then there are few best first moves to make and they are all equal. In the example found in \textit{Figure 4.6}, \Gm{^{L_*} = \gam{2}{0}} and \Gm{^{R_*} = 0} are the definitely best moves for Left and Right, independently of adding it to other components. In that game, the other moves are dominated.
 
-However, if other components are added together with $C$, the best first move in $C$ may change. The reader can imagine the situation where it Left turn to play, but Right has an important move to make next. Knowing that, Left makes a greedy move, that allows the opponent to acquire more advantage than other options, but allows him/herself more advantages if Right does not capitalize. Right is cornered between making the previous important move and this new option Left allowed.
+However, taking a different component $C$, where there are non-dominated options, the best first move in $C$ may change, for either player, if it is added to other components. The reader can imagine the situation where it is Left's turn to play, but Right has an important move to make next. Knowing that, Left makes a greedy move, that allows the opponent to acquire more advantage than other options, but also allows him/herself more advantages if Right does not capitalize. Right is cornered between making the previous important move and this new option Left allowed.
 
-For example, check the following game of extended simpler cashing cheques, where the previous rules apply, but the players may also play on yellow squares. The yellow rectangles allow players to select any correspondent purple cheque and then discard the yellow square.
+For example, check the following game of extended simpler cashing cheques, where the previous rules apply, but the players may also play on yellow rectangles. The yellow rectangles allow players to select any correspondent purple cheque and then discard the yellow square.
 
 \input{sections/temperature/extended_simp_c}
 
-It is a good thing now to consider the game above as the sum of three components, $A,B,C$ from top to bottom. It is completely clear what the best moves for left and right are in each of the components. However, from the thermograph of the components, one will find that no moves are dominated, they all influence the resulting thermograph. As seen before, this mean that depending on the ambient temperature the best move in each component will vary.
+It is a good thing now to consider the game above as the sum of three components, $A,B,C$ from top to bottom, as shown in \textit{Figure 4.8}. It is completely clear what the best moves for left and right are in each of the components. However, from the thermograph of the components, one will find that no moves are dominated, they all influence the resulting thermograph. As seen before, this means that depending on the ambient temperature the best move in each component will vary.
 
-In this example, the best move for Left is actually to play in $B$ and make the move to \gam{9}{{-}5}. In this case, the reader should notice that $A + B - 5$ is less negative than the original game, but also that Right will not necessarily move in \gam{9}{{-}5}. Left's move, is an example of taking advantage of the fact the opponent will be distracted moving elsewhere to make the best of, in this case, a bad situation.
+In this example, the best move for Left is actually to play in $B$ and make the move to \gam{9}{{-}5}. In this case, the reader should notice that $A + B - 5$ is less negative than the original game, but also that Right will not necessarily move in \gam{9}{{-}5}. Left's move is an example of taking advantage of the fact that the opponent will be distracted moving elsewhere to make the best of, in this case, a bad situation.
 
 Consider, now, a simpler example.
 

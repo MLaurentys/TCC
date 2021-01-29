@@ -1,10 +1,10 @@
-As the name suggests, this section has a different focus compared to the previous. This sections is concerned of classifying a few games, both in terms of gameplay and in terms of algebraic structure. This important because highlights important characteristics in underlying structure and in possible values.
+As the name suggests, this chapter has a different focus compared to the previous ones. This chapter is concerned with classifying a few games, both in terms of gameplay and in terms of algebraic structure. This is relevant because it highlights important characteristics in underlying structure and in possible values.
 
-This sections features a few theorems that end up proving an upper bound for the boiling point of classes of games.
+This sections features a few theorems that end up proving an upper bound for the boiling point of classes of games, called here \textit{the result}.
 
-\subsection*{The Result}
+\subsection*{Some more thermograph characteristics}
 
-The temperature's upper bound results from a through analysis of the thermograph. The paper \textit{Bounding Game Temperature Using Confusion
+The temperature's upper bound results from a thorough analysis of the thermograph. The paper \textit{Bounding Game Temperature Using Confusion
 Intervals} \cite{12} brings the first of such results, although the content featured first in Svenja Huntemann's PhD thesis \cite{5} in 2018, a year before. The proof of the boiling point requires a few smaller results and all the required content is summarized in the remaining of this subsection.
 
 The confusion interval of a game is the range of numbers with which it is confused. A game is confused with a number if it is neither greater, smaller nor equal to that number. Any game with temperature greater than 0 is confused with numbers. Take any instance of such cases from previous sections to verify that their confusion interval includes all numbers between the points where the thermograph intersects the $t=0$ line. Some intervals also include either one or both of the intersection points, depending on what the toenail of the thermograph looks like.
@@ -13,15 +13,15 @@ However, the reader can also verify that some non-numbers with temperature 0 are
 
 The confusion interval of \Gm{} is usually indicated by $\ell(G)$ and the intersection points are usually denoted by $LS(G)$ and $RS(G)$, and called left and right stops. Therefore $\ell(G) = LS(G)-RS(G)$. Another important definition is the thermic version of a game. The thermic version of a game \Gm{} is a game $\tilde{\Gm{}}$ with the same temperature of \Gm{} but with only one left and one right option, that are also left and right options for \Gm{}.
 
-\textit{Theorem:} If \Gm{} is hot, then there exists a \Gm{^L} and a \Gm{^R} such that $t(G) = t(\gam{\Gm{^L}}{\Gm{^R}})$. The proof is simple: the mast of \Gm{} begins where the cooled thermographs of some of the left and right options first intersect. There are possibly many left and right options that intersect on the same point. By taking any one of them, \Gm{^{L_+}} and \Gm{^{R_+}}, it is clear that the thermic version of a game exists, because $t(G) = t(\gam{\Gm{^{L_+}}}{\Gm{^{R_+}}})$.
+The existence of thermic versions follows: ff \Gm{} is hot, then there exists a \Gm{^L} and a \Gm{^R} such that \mbox{$t(G) = t(\gam{\Gm{^L}}{\Gm{^R}})$}. The proof is simple: the mast of \Gm{} begins where the cooled thermographs of some of the left and right options first intersect. There are possibly many left and right options that intersect on the same point. By taking any one of them, \Gm{^{L_+}} and \Gm{^{R_+}}, it is clear that the thermic version of a game exists, because $t(G) = t(\gam{\Gm{^{L_+}}}{\Gm{^{R_+}}})$.
 
-Finding in practice the thermic version of game is not at all simple. In fact, without additional information of \Gm{}, it would be needed to build the entire thermograph, or equivalent information, beforehand. This is an important consideration, that is also made on Dr. Huntemann thesis, but one that is not problematic. Soon, the bound will be created for \Gm{} directly, so that finding the thermic version is not necessary.
+Finding in practice the thermic version of a game is not at all simple. In fact, without additional information of \Gm{}, it would be needed to build the entire thermograph, or equivalent information, beforehand. This is an important consideration, that is also made on Huntemann's thesis, but one that is not problematic. Soon, the bound will be created for \Gm{} directly, so that finding the thermic version is not necessary.
 
 It is trivial but it is worth highlighting that the thermograph of \Gm{} and that of $\tilde{\Gm{}}$ may not be the same. In particular $\lambda_t(\tilde{\Gm{}}) \ge \lambda_t(\Gm{})$ and $\rho_t(\tilde{\Gm{}}) \leq \rho_t(\Gm{})$. If it is not clear why the observation is true: for any temperature $t$, the trajectories of the thermograph were either the maximum/minimum of all the corresponding options. The selected left and right options for the thermic version of \Gm{} are only the minimum/maximum for temperatures close to the boiling point. Therefore the initial part of the trajectory might be different, but is always lesser/greater or equal to the thermic trajectories.
 
 Using the notation described above it may be simpler. $\lambda_t(\Gm{}) = LS(\Gm{_t})$ and, by definition, $\lambda_t(\Gm{}) = max_{\Gm{^L}}(RS(\Gm{^L_t}) - t)$. Since $\Gm{^{L_+}} \in \Gm{^L}$, it is clear that $\lambda_t(\tilde{\Gm{}}) \ge \lambda_t(\Gm{})$. An equivalent statement can be made for the right trajectory.
 
-A result, when fixating $t=0$ is:
+A result, when fixating $t=0$, is:
 
 \begin{align*}
 \ell(\tilde{\Gm{}}) \leq& \ell(\Gm{})\\
@@ -53,17 +53,26 @@ Notice that the right counterpart can be done similarly. Essentially, $T^L_{\tex
 	\ell(\tilde{\Gm{}}) =& T^L_{\text{O}} + T^R_{\text{O}}.
 \end{align*}
 
-\textit{The theorem} is the following:
+\subsection*{The theorem}
+
+\textit{The theorem} discussed in the beginning of the chapter is the following:
 
 Given \Gm{} and $\tilde{\Gm{}}$ its thermic version, then
 
-$$
-t(\Gm{}) \leq \ell(\Hm) + \frac{\ell(\Gm{})}{2}
-$$
 
-where $\Hm = \tilde{\Gm{}}^L$ if $T^L_V \ge T^R_V$, otherwise $\Hm = \tilde{\Gm{}}^R$. For simplicity, the proof considers that $\Hm = \tilde{\Gm{}}^L$, but again, an equivalent procedure proves the other case.
+\begin{align*}
+	t(\Gm{}) &\leq \ell(\Hm) + \frac{\ell(\Gm{})}{2} \\
+	& \\
+	\text{Where } &\begin{cases}
+		\small
+		\Hm = \tilde{\Gm{}}^L &\text{if } T^L_V \ge T^R_V \\
+		\Hm = \tilde{\Gm{}}^R &\text{otherwise} \\
+	\end{cases}
+\end{align*}
 
-The length of $T^L_V$ is at most the length of the oblique segments of $\rho(\tilde{\Gm{}}^L)$. Notice that it could be smaller because the left and right options might intersect before the mast of $\tilde{\Gm{}}^L$. In any case, it is clear that the length of this oblique segments is at most the same size of the confusion interval of$\tilde{\Gm{}}^L$. It could be smaller in case there are oblique segments in $\lambda(\tilde{\Gm{}}^L)$.
+For simplicity, the proof considers that $\Hm = \tilde{\Gm{}}^L$, but again, an equivalent procedure proves the other case.
+
+The length of $T^L_V$ is at most the length of the oblique segments of $\rho(\tilde{\Gm{}}^L)$. Notice that it could be smaller because the left and right options might intersect before the mast of $\tilde{\Gm{}}^L$. In any case, it is clear that the length of this oblique segment is at most the same size of the confusion interval of $\tilde{\Gm{}}^L$. It could be smaller in case there are oblique segments in $\lambda(\tilde{\Gm{}}^L)$.
 
 Therefore, $T^L_V \leq \ell(\tilde{\Gm{}}^L)$
 
@@ -88,7 +97,7 @@ $$
 t(G) = T^L_V + T^L_O \leq \ell(\tilde{\Gm{}}^L) + \frac{\ell(G)}{2}
 $$
 
-Although longer than other proofs in this text, it is yet another simple proof. The equations and the many symbols might make it unclear, but the each o f the steps can be visualized. For clarification, it follows an explanation of the starting points of each sequence or equations \todo{improve clarification?}.
+Although longer than other proofs in this text, it is yet another simple proof. The equations and the many symbols might make it unclear, but the each of the steps can be visualized. For clarification, it follows an explanation of the starting points of each sequence or equations \todo{improve clarification?}.
 
 $T^L_V + T^L_O =\;T^R_V+T^R_O$ is straight forward, because what defines the height is the intersection point of left and right, which is the same for both trajectories. $2\times T^L_O \leq T^L_O + T^R_O$ is a direct result of the previous inequation. 
 
@@ -96,7 +105,7 @@ This theorem uses the thermic version of games, which, again, are hard to find i
 
 \textit{The theorem} might be re-written as:
 
-Let n, m two non-negative numbers. If $S$ is class of games such that for all $G \in S,\;\ell(G) \leq n$ and for all options $\ell(G^{L/R}) \leq m$, then:
+Let n, m be two non-negative numbers. If $S$ is class of games such that for all $G \in S,\;\ell(G) \leq n$ and for all options $\ell(G^{L/R}) \leq m$, then:
 
 $$
 BP(S) \leq \frac{n}{2} + m
@@ -104,9 +113,9 @@ $$
 
 Although immediate, deciding whether the first version implies the version above might require an explanation. $t(G) \leq \ell(\tilde{\Gm{}}^L) + \frac{\ell(G)}{2} \leq \frac{n}{2} + \ell(\tilde{\Gm{}}^L)$ is true because $\forall G \in S,\;\ell(G) \leq n$. Since $\ell(G^{L/R}) \leq m$, then $\ell(\tilde{\Gm{}}^L) \leq m$, which implies the last inequation $t(G) \leq \frac{n}{2} + \ell(\tilde{\Gm{}}^L) \leq \frac{n}{2} + m$.
 
-Using a class of games is not as straight forward as using the definitions typically used in this text. To idea to use the theorem is to first create a class, following the restrictions - therefore having a bound for the temperature. Then one should prove a game or a pattern of games belong to this class, to make use of this bound.
+Using a class of games is not as straight-forward as using the definitions typically used in this text. The idea to use the theorem is to first create a class, following the restrictions - therefore having a bound for the temperature. Then one should prove a game or a pattern of games belonging to this class, to make use of this bound.
 
-Let, for example, the class $S$ to be defined by $\{G : \ell(G)\leq100, \ell(G^L)\leq200, \ell(G^R)\leq200\}$. Since $S$ meets the requirements it has the proposed boiling point. $\forall G \in S, BP(G) \leq 250$. The maximum length of the confusion intervals are so large that, in particular, all games of this text belong to $S$. It is possible to verify that all the temperatures of games instanced in the text are indeed smaller than $250$ \todo{maybe remove this comment}. In fact the hottest game \Gm{} analyzed in this text was:
+Let, for example, the class $S$ to be defined by $\{G : \ell(G)\leq100, \ell(G^L)\leq200, \ell(G^R)\leq200\}$. Since $S$ meets the requirements it has the proposed boiling point. $\forall G \in S, BP(G) \leq 250$. The maximum length of the confusion intervals are so large that, in particular, all games of this text belong to $S$. It is possible to verify that all the temperatures of games instanced in the text are indeed smaller than $250$. In fact the hottest game \Gm{} analyzed in this text is:
 
 \begin{center}
 	\begin{tikzpicture}
@@ -126,21 +135,21 @@ With, as shown before, the thermograph:
 	\includegraphics[scale=0.5]{../images/thermA.png}
 \end{center}
 
-In this case, $\ell(G) = 10 \leq 100$ and $\ell(\Gm{^{L_1}}) = \ell(\Gm{^{R_1}}) = 0 \leq 200$ and $\ell(\Gm{^{L_2}}) = \ell(\Gm{^{R_2}}) = 24 \leq 200$. The boiling point bound the theorem provided for $S$ is loose for \Gm{}. However, it is unclear if that is because the confusion intervals that define the class are also too lose or if the bound itself is large.
+In this case, $\ell(G) = 10 \leq 100$ and $\ell(\Gm{^{L_1}}) = \ell(\Gm{^{R_1}}) = 0 \leq 200$ and $\ell(\Gm{^{L_2}}) = \ell(\Gm{^{R_2}}) = 24 \leq 200$, so \Gm{\in S}. The boiling point bound the theorem provided for $S$ is loose for \Gm{}, since $\forall H \in S, BP(H) \leq 250$ and $BP(G) = 13$. However, the size of the confusion intervals that defined the class are also loose. In general cases, specially when confusion intervals start getting large, the bound will be loose, but that is because the bound itself is large, not because the theorem is inefficient.
 
 Let $S_*$, now, be the class given by $\{G : \ell(G)\leq10, \ell(G^L)\leq24, \ell(G^R)\leq24\}$. From the analysis of the previous paragraph, \Gm{\in S_*}. However, in this case, the confusion intervals of \Gm{} are tight in respect to the ones that define the class. From the theorem $\forall G \in S_*,\; BP(G) \leq 29$. The bound is tighter for \Gm{} but is still loose, which may lead to the belief that this bound is loose in general.
 
-In order to verify whether the bound is in fact loose, it would bee needed to show the following, or something similar:
+In order to verify whether the bound is in fact loose, it would be required to show the following, or something similar:
 $$
-\forall S,\;\exists x\in SN,\; x>0\;|\; \underset{G\in S}{max}BP(G) \leq BP(S) + x
+\forall S,\;\exists x\in SN,\; x>0\;|\; \underset{G\in S}{max}BP(G) + x \leq BP(S)
 $$
 
-To dismiss the idea, however, it could be shown:
+To dismiss that idea, however, it could be shown:
 $$
 \exists G \in S_*\;|\;\not\exists x>0,\; BP(G)\leq BP(S)+x
 $$
 
-Starting out with the previous example, take $\tilde{G} = \gam{\gam{28}{4}}{\gam{2}{-22}}$. The temperature is, of course, the same as before, 13. However, the Left and Right slant may be moved, since $\ell(\tilde{G}) = 2$. Take \Gm{_+=\gam{\gam{36}{12}}{\gam{2}{-22}}}, result of shifting the left slant to the left, while maintaining the left confusion interval.
+Starting out with the previous example, take $\tilde{G} = \gam{\gam{28}{4}}{\gam{2}{-22}}$. The temperature is, of course, the same as before, 13. However, the Left and Right slant may be moved, since $\ell(\tilde{G}) = 2$. Take \Gm{_+=\gam{\gam{36}{12}}{\gam{2}{-22}}}, result of shifting the left slant to the left, which maintains the left and right confusion intervals, but increases the confusion interval for $\tilde{\Gm{}}$ while maintaining that \Gm{_+ \in S_*}.
 
 \begin{center}
 \begin{tabular}{cc}
@@ -241,7 +250,7 @@ The result that the temperature of games in this sequence increases and converge
 	\item[$\rightarrow$] Each term of the sequence increases the length of the straight segment of the right option of \Gm{^R} by $\frac{\ell(G^R)}{2^{i+1}}$.
 	\item[ ] The proof is analogous.
 	\item[$\rightarrow$] If both the left option of \Gm{^L} and the right option of \Gm{^R} have their straight length increased by $l$, then so does \Gm{}.
-	\item[ ] As seen before, $t(G) = T^L_V + T^L_O$. Since $\forall i,\; G_i = \tilde{G_i}$ and that increasing both trajectories straight segments does not affect the size of the oblique segments, it is possible to conclude that the temperature of the whole game will increase exactly $l$. Since, again, the size of the oblique segment does not change than the size of the straight segment increased by $l$.
+	\item[ ] As seen before, $t(G) = T^L_V + T^L_O$. Since $\forall i,\; G_i = \tilde{G_i}$ and that increasing both trajectories straight segments does not affect the size of the oblique segments, it is possible to conclude that the temperature of the whole game will increase exactly $l$. Since, again, the size of the oblique segment does not change and the size of the vertical segments do, then the temperature is increased by $l$.
 	\item[$\rightarrow$] The temperature of the games in this sequence converges to the proposed boiling point, while always being elements of the initial class $S$.
 	\item[ ] Notice that $RS(G^L)$ and $LS(G^R)$ remain the same across all iterations, and that $RS(G^L) - LS(G^R) = \ell(G)$, it is clear that $\forall i, \ell(G_i) = \ell(G)$.
 	\item[ ] Notice that the observation above is valid for \Gm{^L} and \Gm{^R}.
@@ -250,25 +259,26 @@ The result that the temperature of games in this sequence increases and converge
 	\item[] \hspace{-1cm} $t(G_k) = \frac{\ell(G)}{2} + \frac{\ell(G^L)}{2} + \sum\limits_{i=1}^{k} \frac{\ell(G^L)}{2^{i+1}} = \frac{\ell(G)}{2} + \sum\limits_{i=1}^{k} \frac{\ell(G^L)}{2^{i}} = \frac{\ell(G)}{2} + \ell(G^L) - \frac{\ell(G^L)}{2^k} \leq \frac{\ell(G)}{2} + \ell(G^L)$.
 \end{list}
 
-The sequence of games, then, shows that the given bound is not loose. In fact, it shows that the bound is optimal for some cases. It is worth mentioning that, although this section follows the aforementioned paper, the proof above is original. The paper does convey the strategy and the regard about the optimality of the bound but the proof of convergence is skipped. Although long and with many symbols, the proof is quite simple and might be considered trivial.
+The sequence of games, then, shows that the given bound is not loose. In fact, it shows that the bound is optimal for some cases. It is worth mentioning that, although this section follows the aforementioned paper, the proof above is original. The paper does convey the strategy and the regard about the optimality of the bound but the proof of convergence is skipped. Although long and with many symbols, the proof is quite simple and might have been considered trivial.
 
 An interesting way to complete and put to practice the analysis of the theorem is to show it can be used to characterize a pattern of domineering boards. To use the bound all games following the pattern must belong to a class, based on the confusion interval restrictions, like before.
 
-When bounding `$2\times n$ snakes' boards, the thesis and the featured papers diverge. Probably in the year between the publish of the thesis and the paper the technique was refined, resulting in the thesis bringing a bound of $5$ to the temperature and the paper reducing it to $3$. The proof brought to this text will show the point of divergence. Before showing the proof, another necessary definition and lemma are provided.
+When bounding `$2\times n$ snakes' boards, the thesis and the featured papers diverge. Probably in the year between the publication of the thesis and the paper the technique was refined, resulting in the thesis bringing a bound of $5$ to the temperature and the paper reducing it to $3$. The proof brought to this text will show the point of divergence. Before showing the proof, another necessary definition and lemma are provided.
 
 A `snake' board, same adjective used in ``Kim's snakes" from the previous chapter, is a board without any $2\times 2$ subgrid. A `$2\times n$' snake is a snake that fits in a $2\times n$ board. It is possible to use the term `snake fitting in a $2\times n$ board', and this means that the board is a snake that can be folded such that it becomes a `$2\times n$' snake with the same value.
 
-The lemma is: Let $\epsilon$ be any infinitesimal and \Gm{} be a hot game. If for all left options \Gm{^L}, $n$ is a number such that $G^L - G - n +\epsilon \leq 0$, then $\ell(G) \leq n$. The proof is simple, again.
+The lemma is: Let $\epsilon$ be any infinitesimal and \Gm{} be a hot game. If for all left options \Gm{^L}, $n$ is a number such that $G^L - G - n +\epsilon \leq 0$, then $\ell(G) \leq n$. The proof for this lemma is simple:
 \begin{align*}
-	\ell(G) =& LS(G) - RS(G) \\
-	=& RS(G^L) + LS(-G) \\
-	\leq& LS(G^L - G) \\
-	\leq& n
+	\ell(G) &= LS(G) - RS(G) \\
+	&= RS(G^L) + LS(-G) \\
+	&\leq LS(G^L - G) \\
+	&\leq LS(n)
+	&= n
 \end{align*}
 
 It is clear that $LS(G) = RS(G^L),\; RS(G) = - LS(-G)$, but the second equation is there to help visualize the first inequation. The last inequation is true because $G^L - G + \epsilon \leq n \longrightarrow LS(G^L-G)\leq n$, explained amid the discussion in the beginning of this section. The first inequation is true because $G^L - G = \gam{G^{LL}-G^L}{G^{LR}-G^R}$, meaning that $LS(G^L-G)$ derives from a game $\Hm = \Gm{^L_+} - \Gm{_-}$. In particular, it is possible to take \Gm{^L_+} to be a game that defines the right stop for \Gm{^L} and $-\Gm{_-}$ the game that defines the left stop for $-G$, and, therefore, the inequality is true.
 
-The meaning of this lemma is that if it is possible to bound the value of the game to the left, or to positive side, then it is possible to bound the confusion interval. This is a weaker result compared to the previous but it is one that connects the stops with the confusion interval so it is extremely useful.
+The meaning of this lemma is that if it is possible to bound the value of the game to the left, or to positive side, then it is possible to bound the confusion interval. This is a weaker result compared to the previous one but it is one that connects the left and right stops with the confusion interval so it is extremely useful.
 
 Now it is possible to characterize some domineering boards. \textit{The temperature of snakes fitting a $2\times n$ board is at most $3$.} The proof consists of showing that $\ell(G), \ell(G^L), \ell(G^R) \leq 2$, by the means of showing that for $\Hm = G \lor G^L \lor G^R \rightarrow H^L -H -2 \leq 0$ and using the lemma above.
 
@@ -296,7 +306,7 @@ $$
 H^L - H = G_1^L + G_2 - G_1 - G_2 = G_1^L - G_1
 $$
 
-Therefore, if $\ell(G) \leq 3$ then the confusion interval of both option are also smaller than 3. To prove that $G^L - G - 2 \leq 0$ it is shown a winning strategy for right in $G^L - G - 2$, which shows that the position is negative. First notice that $-G$ is \Gm{} flipped so that it fits in a $n\times 2$ board, but a useful way, that is used in this proof, to consider $-G$ is Left playing on the horizontal and Right playing on the vertical.
+Therefore, if $\ell(G) \leq 3$ then the confusion interval of both option are also smaller than 3. To prove that $G^L - G - 2 \leq 0$ it is shown a winning strategy for right in $G^L - G - 2$, which shows that the position is negative. First notice that $-G$ is \Gm{} flipped so that it fits in a $n\times 2$ board; but a useful way, that is used in this proof, is to consider that $-G$ is Left playing on the horizontal and Right playing on the vertical.
 
 To help visualize the strategy for this case, let the `shadow' of a move be the same cells that the move occupied, but in the opposing board. Also the board resultant from play in $G^L$ is called the original board and the board resultant from play in $-G$ is called the opposing board. For instance:
 

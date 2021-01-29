@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{float} \PYG{n}{SurrealNumber}\PYG{o}{::}\PYG{n}{FindSimplesFittingNumber} \PYG{p}{\PYGZob{}}
+	\PYG{k+kt}{float} \PYG{n}{maxL} \PYG{o}{=} \PYG{n}{maxLeft}\PYG{p}{();}
+	\PYG{k+kt}{float} \PYG{n}{minR} \PYG{o}{=} \PYG{n}{minRight}\PYG{p}{();}
+	\PYG{k}{if} \PYG{p}{(}\PYG{n}{maxL} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{0} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{l+m+mi}{0} \PYG{o}{\PYGZlt{}} \PYG{n}{minR}\PYG{p}{)}
+		\PYG{k}{return} \PYG{l+m+mf}{0.0f}\PYG{p}{;}
+	\PYG{k+kt}{float} \PYG{n}{d} \PYG{o}{=} \PYG{n}{floor}\PYG{p}{(}\PYG{n}{maxL}\PYG{p}{);}
+	\PYG{k+kt}{float} \PYG{n}{x} \PYG{o}{=} \PYG{n}{maxL} \PYG{o}{\PYGZhy{}} \PYG{n}{d}\PYG{p}{;}
+	\PYG{k+kt}{float} \PYG{n}{y} \PYG{o}{=} \PYG{n}{minR} \PYG{o}{\PYGZhy{}} \PYG{n}{d}\PYG{p}{;}
+	\PYG{k+kt}{float} \PYG{n}{fact} \PYG{o}{=} \PYG{l+m+mf}{1.0f}\PYG{p}{;}
+	\PYG{k}{while} \PYG{p}{(}\PYG{n}{fact} \PYG{o}{\PYGZgt{}} \PYG{n}{EPSILON}\PYG{p}{)}
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZlt{}} \PYG{n}{fact}\PYG{p}{)}
+			\PYG{k}{if} \PYG{p}{(}\PYG{n}{y} \PYG{o}{\PYGZgt{}} \PYG{n}{fact}\PYG{p}{)}
+				\PYG{k}{break}\PYG{p}{;}
+			\PYG{k}{else}
+				\PYG{n}{fact} \PYG{o}{*=} \PYG{l+m+mf}{0.5f}\PYG{p}{;}
+		\PYG{k}{else}
+			\PYG{n}{fact} \PYG{o}{*=} \PYG{l+m+mf}{1.5f}\PYG{p}{;}
+	\PYG{k}{return} \PYG{n}{d} \PYG{o}{+} \PYG{n}{fact}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,4 +1,4 @@
-Although the concepts and definitions of combinatorial game theory have impact in general mathematics, it is a relatively new field of study that has many open problems and not so many resources or implementations available. The purpose of this section is to bring examples, pieces of code and discuss a particular software that implements most of the theory discussed up to this point. The code fragments featured in the text follow C++ syntax, with the intent of being as simple as possible.
+Although the concepts and definitions of combinatorial game theory have impact in general mathematics, it is a relatively new field of study that has many open problems and not so many resources or implementations available. The purpose of this section is to bring examples, pieces of code and discuss a particular software that implements most of the theory discussed up to this point. The code fragments featured in the text use \texttt{C++} syntax, with the intent of being as simple as possible.
 
 The examples and code fragments also serve the purpose of showing possible readers that the theory is actually quite simple, not requiring great mathematical skills, and that applying it is also not difficult. With them, some concepts presented will become clearer and a few facts enunciated will be shown. A second part of this section will introduce a few new games so that the reader might find other interesting games to play. In this second part, the reader will also see that it is not hard to make up fun games on the spot. This section can work as a midpoint between presenting the concepts and a shift in focus to handle the problem of temperature bounding, and may serve to verify if the concepts are clear.
 
@@ -6,7 +6,7 @@ The examples and code fragments also serve the purpose of showing possible reade
 
 A very important and recurrent theme in the early parts of the text is the correspondence between games and surreal numbers. It is correct to say that all real numbers are also games, but it may not be clear how to make a particular real number. For example, the reader may not be able to make a game with value equals to $\pi$. In fact, the reader may not know what numbers are easy or hard to do. The first two rules of the simplicity principle should be clear enough.
 
-\begin{lstlisting}[language=C++]
+\begin{minted}[frame=single,framesep=10pt,tabsize=4]{c++}
 class SurrealNumber {
   public:
 	float ToFloat ();
@@ -23,14 +23,14 @@ float SurrealNumber::ToFloat () {
 		if (right.empty())
 			ret = 0.0f;
 		else
-			ret = min(floor(${-}$1 + minRight()->toFloat()), 0.0f);
+			ret = min(floor(-1 + minRight()->toFloat()), 0.0f);
 	else if (right.empty())
 		ret = max(floor(1 + maxLeft()->toFloat()), 0.0f);
 	// other cases
 	...
 	return ret;
 }
-\end{lstlisting}
+\end{minted}
 
 While easy and hard is relative, every number that is a dyadic rational, a number that is of the form $\frac{a}{2^b}, a\in\mathbb{Z}, b \in \mathbb{N}$ is easy to form. A good method to make the representation of $z = \frac{a}{2^b}, z \ge 0$ in \gam{x}{y} is:\\
 \begin{adjustwidth}{2cm}{}
@@ -46,41 +46,44 @@ For example, $\frac{89}{16} = 5 + \frac{9}{16} = \gam{5 + \frac{1}{2}}{5+\frac{5
 
 A similar idea is used in the following featured snippet, but with the objective of finding $z = \frac{a}{2^b}$ given \gam{X}{Y}.
 
-\begin{lstlisting}[language=C++]
+\begin{minted}[frame=single,framesep=10pt,tabsize=4]{c++}
 	//other cases
 	else
 		ret = FindSimplesFittingNumber();
-	...
+	return ret;
 }
-
+\end{minted}
+\newpage
+\begin{minted}[frame=single,framesep=10pt,tabsize=4]{c++}
 float SurrealNumber::FindSimplesFittingNumber {
-		float maxL = maxLeft();
-		float minR = minRight();
-		if (maxL < 0 && 0 < minR)
-			return 0.0f;
-		float d = floor(maxL);
-		float x = maxL - d;
-		float y = minR - d;
-  		float fact = 1.0f;
-		while (fact > EPSILON)
-			if (x < fact)
-				if (y > fact)
-					break;
-				else
-					fact *= 0.5f;
+	float maxL = maxLeft();
+	float minR = minRight();
+	if (maxL < 0 && 0 < minR)
+		return 0.0f;
+	float d = floor(maxL);
+	float x = maxL - d;
+	float y = minR - d;
+	float fact = 1.0f;
+	while (fact > EPSILON)
+		if (x < fact)
+			if (y > fact)
+				break;
 			else
-				fact *= 1.5f;
-		return d + fact;
-	}
-\end{lstlisting}
+				fact *= 0.5f;
+		else
+			fact *= 1.5f;
+	return d + fact;
+}
+\end{minted}
 
 All the remaining numbers are hard in the sense that they require an infinite number of steps to define. A simple code like the one above will not handle that. That is because $\frac{2}{3}$ and $\pi$ are both generated in the $\aleph$th day (section 3), like any other non-dyadic fractions. However, these are not equally hard. Because $\frac{2}{3}$ is a periodic number when using binary representation, its path in the numbers tree is well-defined.
 
 It is true that both $\frac{2}{3}$ and $\pi$ are given by something equivalent to the following: $n = \gam{x \in S_*:x < n}{y \in S_*:y>n}$, where $S_*$ is the set of numbers generated until day $\aleph$. However, $\frac{2}{3}=0.\overline{10}_2$ can also be defined through the infinite right-left-right-left... path in the binary tree, because a 1 in the binary representation is a step do the right in the tree and vice-versa. One way to think of this fact is that, when doing a binary search for $x$ between the dyadics in (0,1), the starting question is $x > 1/2$. The 1 indicates a yes, so the following question is $x > 3/4$, and so on. Since numbers smaller than $x$ go on the left set and vice-versa, $\frac{2}{3} = \gam{1/2, 5/8, \ldots}{3/4,11/16,\ldots}$, showing that the numbers visited in the binary search alternate in the left and right sets. Repeating decimals, in RB-Hackenbush, are extremely easy to spot because they are always a sequence of red and blue edges followed by a finite pattern repeated infinitely.
 
-Other than some real numbers being hard to draw, drawing non-reals is also not trivial. It was shown that there are infinitely many numbers between any two real numbers, in section 3. This might seem hard to understand or accept initially, because the reals form the complete ordered field. However, at least based on Conway surreal numbers, the fact that it is possible to build a game in which the advantage a player has is strictly between two real numbers gives some light to the fact. To do that, simply add an infinitesimal to a real number, as seen before.
+Other than some real numbers being hard to draw, drawing non-reals is also not trivial. It was shown that there are infinitely many numbers between any two real numbers, in section 3. This might seem hard to understand or accept initially, because the reals form the complete ordered field. However, at least based on Conway's surreal numbers, the fact that it is possible to build a game in which the advantage a player has is strictly between two real numbers gives some light to the fact. To do that, simply add an infinitesimal to a real number, as seen before.
 
 \begin{figure}[H]
+	\vspace{-1cm}
 \begin{center}
 	\begin{tikzpicture} 
 		\begin{scope} [every node/.style={scale=0.3, style=circle, draw, fill=black}]
@@ -123,14 +126,19 @@ RB-Hackenbush is an extremely good example to understand numbers, as finding dya
 	\draw[] (0,0.3) rectangle ++(0.3,0.3);
 \end{tikzpicture} = $\frac{1}{2}$, but how would one build an instance of $\frac{1}{4}$, or $\frac{1}{2^n}$, for $n\in\mathbb{N}$? It turns out that it is not trivial at all.
 
-In fact, only in 1996 a partial solution was given. One of the results of the paper ``New Values in Domineering" \cite{10} was the existence of arbitrarily small values of domineering games. Before that, it was unknown whether or not they existed. It was only in 2015 \cite{11} that a method to create all dyadic rationals in a single component was introduced. Following the strategy presented in 1996, the so-called Yonghoan Kim's snakes were created, named after the author. The snake's representation is found below, copied from Richard K. Guy's list of unresolved problems in \textit{Games of no Chance} \cite{GONC}:
+In fact, only in 1996 a partial solution was given. One of the results of the paper ``New Values in Domineering" \cite{10} was the existence of arbitrarily small values of domineering games. Before that, it was unknown whether or not they existed. It was only in 2015 \cite{11} that a method to create all dyadic rationals in a single component was introduced. Following the strategy presented in 1996, the so-called Yonghoan Kim's snakes were created, named after the author. The snake's representation is found in \textit{Figure 5.2}, copied from Richard K. Guy's list of unresolved problems in \textit{Games of no Chance} \cite{GONC}.
 
-\vspace{1cm}\hspace{-2cm}
-\includegraphics[scale=0.9]{../images/kims_snakes.png}
+\hspace{-1cm}
+\begin{figure}[H]
+	\begin{center}
+\includegraphics[scale=0.7]{../images/kims_snakes.png}
+\end{center}
+\caption{Kim's snakes}
+\end{figure}
 
-In this method of finding dyadics, there is a initial structure, that is not marked by a dashed rectangle. To this structure, additional ones are appended. As shown, each additional structure alternated between two others. Of course that the resulting game is not the only game with the given values.
+In this method of finding dyadic rationals, there is a initial structure, that is not marked by a dashed rectangle. To this structure, additional ones are appended. As shown, each additional structure alternated between two others. Of course that the resulting game is not the only game with the given values.
 
-In fact, there are special games with the same value as the snakes. The 2015 paper is based on these special games. The special games are based on concatenating and imploding bridges in domineering games. Bridges are cells that do not change the value of a game, and are also called explosives squares. For example, 
+In fact, there are special games with the same value as the snakes. The 2015 paper is based on these special games. These special games are based on concatenating and imploding bridges in domineering games. Bridges are cells that do not change the value of a game, and are also called explosives squares. For example, 
 \begin{tikzpicture}
 	\draw[] (0.3,0) rectangle ++(0.3,0.3);
 	\draw[] (0,0) rectangle ++(0.3,0.3);
@@ -144,7 +152,7 @@ and
 \end{tikzpicture}
 have the same value, so one of the extremities is a bridge. The strategy is built upon two theorems that are beautiful because they are powerful yet very simple.
 
-The \textit{Bridge Splitting Theorem for Domineering} was introduced by Conway's. It reads:
+The \textit{Bridge Splitting Theorem for Domineering} was introduced by Conway. It reads:
 If the value of \Gm{}\begin{tikzpicture}\draw[] (0.1,0) rectangle ++(0.3,0.3);\end{tikzpicture} is the same as \Gm{}, then the value of \Gm{}\begin{tikzpicture}\draw[] (0.1,0) rectangle ++(0.3,0.3);\end{tikzpicture}\Hm{} is the sum of the values of \Gm{} and \begin{tikzpicture}\draw[] (0.1,0) rectangle ++(0.3,0.3);\end{tikzpicture}\Hm{}, given \Gm{} and \Hm{} do not intersect. The proof is:
 
 $$
@@ -153,7 +161,7 @@ $$
 \Gm{}\begin{tikzpicture}\draw[] (0.1,0) rectangle ++(0.3,0.3);\end{tikzpicture}\Hm{}
 $$
 
-The first inequality since splitting a horizontal always favors Right, and, the second inequality is true because merging horizontal squares also always favors Left. The second important theorem was created by the authors.
+The first inequality is valid since splitting a horizontal always favors Right, and, the second inequality is true because merging horizontal squares always favors Left. The second important theorem was created by the authors of the aforementioned paper.
 
 \textit{Bridge Destroying Theorem for Domineering}
 
@@ -233,24 +241,33 @@ An example of applying this is figuring out that \begin{tikzpicture}
 	\draw[] (0,0.3) rectangle ++(0.3,0.3);
 	\draw[] (0.6,0) rectangle ++(0.3,0.3);
 	\draw[] (0.6,0.3) rectangle ++(0.3,0.3);
-\end{tikzpicture} $=1$. Another, much more beautiful example is given on 2015 paper:
+\end{tikzpicture} $=1$. Another, much more beautiful example is copied here from the same paper from 2015:
 
+\begin{figure}[H]
+\begin{center}
 \includegraphics[scale=0.5]{../images/dyadic_domineering.png}
+\caption{How to merge Kim's snakes to create other dyadic rationals}
+\end{center}
+\end{figure}
 
 By combining the two theorems with Kim's snakes, it would be possible to create any dyadic in a single connected component, if not for two problems. The first is the problem of creating a bridge. However, that is a non-problem because Kim's snakes always have explosive squares. An explosive square that is always there is a square below the two vertical squares to the left of the base configuration of Kim's snakes. Since the value of the snake is equal to the values of the sum of the bridged components, the base component may be interchanged with the one with an explosive square and the values of the snake would remain the same.
 
-The second problems is that of making sure ever component will not share an edge with the others. The solution of this second problem is fond on the aforementioned paper. The domineering discussion above serves to show how some games are good to analyse and create examples with, while other not so much. RB-Hackenbush is great for working with numbers and ``Extended Simpler Cashing Cheques" (ESCC) is provides a great ruleset to work with temperature. 
+The second problem is that of making sure that ever component will not share an edge with the others. The solution of this second problem is handled and solved in the paper. The domineering discussion above serves to show how some games are good to analyse and create examples with, while other not so much. RB-Hackenbush is a great game for working with numbers and ``Extended Simpler Cashing Cheques" (ESCC) is a great game for studying temperature. 
 
 \subsection*{The non-numbers}
 
-When the topic changed from numbers to non-numbers, an example of ambient temperature, and how it affected play, was required. In order to keep the results to the boundaries of the literature, an instance of this game was showed. This instance was made by reverse engineering the example of the same topic found on \textit{Winning Ways} \cite{WW} in this convenient game. Normally, it is extremely hard to generate a configuration with any temperature value, but ESCC allows it, and this is why its creation in this text was important.
+When the topic changed from numbers to non-numbers, an example of ambient temperature, and how it affected play, was required. In order to keep the results to the boundaries of the literature, an instance of such game was shown. This instance was made by reverse engineering the example of the same topic found on \textit{Winning Ways} \cite{WW} using a convenient game. Normally, it is extremely hard to generate a configuration with any given temperature value, but ESCC allows it, and this is why its creation in this text was important.
 
-ESCC allows an easy conversion from a \gam{X}{Y} to a configuration, mainly because any switch is trivial to write down. The thermograph found in the \textit{Winning Ways} book is copied below:
+ESCC allows an easy conversion from a \gam{X}{Y} to a configuration, mainly because any switch is trivial to write down. The original thermograph, that was reverse engineered, is found in the book \textit{Winning Ways}, $2nd$ edition, on page $160$, is copied below:
 
-\vspace{0.5cm}\hspace{-1.5cm}\includegraphics[scale=0.45]{../images/cpd_therm_ww.png}
+\vspace{0.5cm}\hspace{-1.5cm}
+\begin{figure}[H]
+\includegraphics[scale=0.45]{../images/cpd_therm_ww.png}
+\caption{Figure extracted from the book \textit{Winning Ways}}
+\end{figure}
 \vspace{0.5cm}
 
-To verify that the resulting compounded thermograph of the example featured in the previous section is indeed the one found above, it is possible to use Aaron Siegel's CGSuite. CGSuite is an implementation of almost all of the methods found in Combinatorial Game Theory. This text will not go in detail on the software package, but Appendix A brings to light some additional information.
+To verify that the resulting compounded thermograph of the example featured in the previous section is indeed the one found above, it is possible to use Aaron Siegel's \texttt{CGSuite}. \texttt{CGSuite} is an implementation of almost all of the methods found in Combinatorial Game Theory. This text will not go in detail on the software package, but Appendix A brings to light some additional information.
 
 Between other practical and interesting features, it is possible to create any games and calculate and plot their thermographs. For example:
 
@@ -265,14 +282,14 @@ The game from last section could, then, be converted to the following:
 \begin{center}
 	$\Downarrow$
 \end{center}
-\begin{figure}
+\begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.3]{../images/resulting_thermographs.png}
 \end{center}
-\caption{Thermographs of the components named A, B and C}
+\caption{Thermographs of the components from a game from previous chapter}
 \end{figure}
 
-Therefore the game from last section is indeed the same as the one featured in the book. The steps taken to reverse engineer the games whose thermographs were the ones indicated in the book, might be useful to speed up the process of calculating and exercising the process of building thermographs by head. This process uses a theorem not yet mentioned.
+Therefore the game from last section has indeed the same thermograph as the one featured in the book. The steps taken to reverse engineer the thermographs from the book, might be useful to fully grasp, speed up and exercise the process of building thermographs. To do that, first there is need for one more theorem.
 
 This theorem is about the structure of thermographs. It states that every line in a thermograph has slope equals to ${-}1$, $0$ or $1$ and masts have slope 0. Using the notation created by Aaron \cite{CGT}, let $G$ be a game and $\lambda_t(G), \rho_t(G)$ its thermograph's left and right trajectories, respectively. It means that:
 
@@ -282,13 +299,13 @@ This theorem is about the structure of thermographs. It states that every line i
 \lambda_t(G) = \overset{\sim}{\lambda}_t(G),\;\rho_t(G) =& \overset{\sim}{\rho}_t(G)\text{ if $t$ bellow the freezing point.}
 \end{align*}
 
-As seem before, for any temperature above the freezing point, the values of the left and right slants are the same and do not change. 
+As seen before, for any temperature above the freezing point, the values of the left and right slants are the same and do not change. 
 
-(a) Every segment of $\lambda_t(G)$ has slope 0 or ${-}1$.
+\hspace{1cm}(a) Every segment of $\lambda_t(G)$ has slope 0 or ${-}1$.
 
-(b) Every segment of $\rho_t(G)$ has slope 0 or $1$.
+\hspace{1cm}(b) Every segment of $\rho_t(G)$ has slope 0 or $1$.
 
-(c) Both trajectories have masts of slope 0, with the same value.
+\hspace{1cm}(c) Both trajectories have masts of slope 0, with the same value.
 
 The proof is not complicated. First the proof of (a) and (b), given via induction:
 
@@ -302,7 +319,7 @@ Now, the proof of (c), also via induction. Notice that this part proves the exis
 
 \textit{Induction Step:} Let the slopes of $\lambda_t(G^R)$ and $\rho_t(G^L)$ be zero. Therefore, the masts of $\overset{\sim}{\lambda}_t(G)$ and $\overset{\sim}{\rho}_t(G)$ are ${-}1$ and ${+}1$ respectively. Since $\overset{\sim}{\lambda}_t(G) \leq \overset{\sim}{\rho}_t(G)$, the left and right trajectory cross and, therefore, there is a freezing point. By definition, after the freezing point, the slope is zero.
 
-If the reader goes through the thermographs in this text, he/she will notice that this is indeed true for the examples. Trying to find a counter-example may help understand the proof, as inevitably, the recursive definition of the thermograph always leads to the base case of number's thermographs. Now that this rules are properly stated, it is possible to understand how to write a game \Gm{=\gam{X}{Y}} based on an existing thermograph.
+If the reader goes through the thermographs in this text, he/she will notice that this is indeed true for the examples. Trying to find a counter-example may help understand the proof, as inevitably, the recursive definition of the thermograph always leads to the base case of number's thermographs. Now that these rules are properly stated, it is possible to understand how to write a game \Gm{=\gam{X}{Y}} based on an existing thermograph.
 
 Starting by the thermograph of $C$, it is easy to spot that there is only one viable option for Left. Since the left slant, $\overset{\sim}{\lambda}_t(G)$, of that graphic has slope ${-1}$, then $\rho_T(G)$ has slope 0. Since the slant crosses the x-axis in $x={-12}$, then an option to this Left option is the number ${-12}$. The option then, is the canonical form of this number, adapted to fit the rules of the cashing cheques game. The right trajectory is a bit more complicated.
 
@@ -310,23 +327,25 @@ Starting with the inclined slant, the procedure described above helps one findin
 
 The thermograph of $B$ is more difficult. The first bent line of the left trajectory is the same as before, and, in this case, the number ${-3}$ is enough. The straight line, just like before, comes from a non-number whose right option is ${-5}$. Unlike the non-number from the previous example, however, the freezing point of this case must be exactly 7, so the distance between the right and left stops must be 14, unlike the previous example. With this information, it becomes possible to build the game \gam{9}{{-5}}. The last bent segment is the mast of the non-number.
 
-The right trajectory of $B$ is the simplest \gam{{-11}}{{-25}}, which has already been explained. The process to build the game $A$ is a repetition of the left left trajectory of $B$ for both the left and right trajectories. By going through this, hopefully it became clear that thermographs are not hard to build. Also, by using the same example as the book, the reader might also benefit from the remarks found there.
+The right trajectory of $B$ is the simplest \gam{{-11}}{{-25}}, which has already been explained. The process to build the game $A$ is a repetition of the left trajectory of $B$ for both the left and right trajectories. By going through this, hopefully it became clear that thermographs are not hard to build. Also, by using the same example as the book, the reader might also benefit from the remarks found there.
 
-Just like RB-Hackenbush is a very good game to build example of numbers, Extended Simpler Cashing Cheques is a very good game to build examples of temperature. The brief description of how to build dyadics in domineering and how long it took for the process to be created, showed that domineering is not a good game to study numbers. Up to this point domineering has been used to exemplify the study of temperature, but the truth is temperature in domineering is limited, both in numerical values and in current knowledge of the game.
+\subsection{Numbers and temperatures in Domineering}
 
-In fact, in 2005 two researches brought to light that Elwyn Berlekamp conjectured, in 2004, that the maximum temperature in domineering is 2. That is yet to be proven or disproved, although computed instances also lead to the same conclusion. It may not be all that clear yet, but many common games cannot have arbitrarily high temperatures. In a domineering position with temperature two, whoever plays first finishes with two spare moves. Before trying to create such a position, the intricacies of such a position might not be clear.
+The brief description of how to build dyadic rationals in domineering and how long it took for the process to be created, showed that domineering is not a good game to study numbers. Up to this point domineering has been used to exemplify the study of temperature, but the truth is is not so good to study temperature with. Temperature in Domineering is limited, both in already calculated instances and in current knowledge of the game.
+
+In fact, in 2005 a paper \cite{12} brought to light that Elwyn Berlekamp conjectured, in 2004, that the maximum temperature in domineering is 2. That is yet to be proven or disproved, although computed instances also lead to the same conclusion. It may not be all that clear yet, but many common games cannot have arbitrarily high temperatures. In a domineering position with temperature two, whoever plays first finishes with two spare moves. Before trying to create such a position, the intricacies of such a position might not be clear.
 
 In 2004 an instance of that position was found, and that was the only one, in a connected board of course, up to this day. While this conjecture is a typical open problem in combinatorial game theory, there are not many attempts to solve this. The next section is dedicated a PhD thesis that gave an upper bound for certain configurations in domineering, although that does not answer the question.
 
 \subsection*{It is simple but not easy}
 
-The initial code fragment of the section only dealt with simple surreal numbers, even making a lot of assumptions about left and right, without verifying anything. It might make sense to think about how one would implement, in practice, the numerical part of a library like CGSuite. Considering only the SurrealNumber class, if the only available method of defining numbers were the left and right sets, how would be the simple number $3 = \gam{2}{}$ be written?
+The initial code fragment of the section only dealt with simple surreal numbers, even making a lot of assumptions about left and right, without verifying anything. It might make sense to think about how one would implement, in practice, the numerical part of a library like \texttt{CGSuite}. Considering only the SurrealNumber class, if the only available method of defining numbers were the left and right sets, how would be the simple number $3 = \gam{2}{}$ be written?
 
 Of course that, with only that available, the recursive structure of surreal numbers \gam{\gam{\gam{\gam{}{}}{}}{}}{}. Although correct according to the theory, implementing number like that, only, would cause problems because evaluating a number would no be a trivial operation. For instance, telling whether $2.5 = \gam{2}{3} < 3 = \gam{2}{}$ would require traversing both number's left and right trees. The canonical representation of the number 3, for example, would be something like this:
 
 \input{sections/examples/basic_number_repr}
 
-Given this problems, a viable implementation of combinatorial games must look for alternative representations. Some possibilities are allowing surreal numbers to be represented with integers and floats or to store results of the tree traversals to minimize the number of times the complex tree structure must be analyzed. When looking at numbers strictly, the tree that resulted in a float or another chosen numerical representation may be discarded because it does not contain special information.
+Given this problem, a viable implementation of combinatorial games must look for alternative representations. Some possibilities are allowing surreal numbers to be represented with integers and floats or to store results of the tree traversals to minimize the number of times the complex tree structure must be analyzed. When looking at numbers strictly, the tree that resulted in a float or another chosen numerical representation may be discarded because it does not contain special information.
 
 However, when changing the domain from surreal numbers to games, the tree cannot be always discarded. The reason for that is that the game tree may contain relevant information for gameplay. One could try keeping only the best move for each position in order to save space. However, as seen before, adding games may change which move is best so not all branches can be discarded.
 
@@ -336,7 +355,7 @@ Consider the following draft of a combinatorial game class declaration:
 
 Implementing the draft above woulds help with space requirements and unnecessary calculations but does not completely solve any of the more complex issues. It would, for example, avoid repeated calculations, unlike the version where the GetFloat method went through the game tree calculating it on demand.
 
-However, for one, an implementation of this draft would be incapable of handling infinite games, as those cannot be stored in vectors. Again, a more complete version can be found in CGSuite github repository, but understanding and tackling the difficulties may be a worth exercise. Even that package used by many researches has it issues and does not deal well with infinity either.
+However, for one, an implementation of this draft would be incapable of handling infinite games, as those cannot be stored in vectors. Again, a more complete version can be found in \texttt{CGSuite}'s github repository, but understanding and tackling the difficulties may be a worth exercise. Even that package used by many researches has it issues and does not deal well with infinity either.
 
 \subsection*{Other Games To Play}
 
@@ -346,7 +365,7 @@ Now that vocabulary, methods and tools were introduced, this section brings some
 
 A common variation is one where every square the amazon (queen) goes through is then burned from the game, making it so that no queen can move over it. Burning the path either amazon goes through is a replacement for shooting the arrows and there are many other possibilities, like shooting two arrows or shooting and burning the path, or choosing either of those.
 
-In either variation, like in most short games, the initial position in unimportant and the players can choose any starting position they find interesting.
+In either variation, like in most short games, the initial position is unimportant and the players can choose any starting position they find interesting.
 
 \begin{figure} [H]
 	\begin{center}
@@ -364,13 +383,13 @@ For example, play may take place in an 8x8, a chessboard for convenience, with e
 	\caption{Unbalanced and fun position in Amazons}
 \end{figure}
 
-\textbf{The Angel Game} is more of a mathematical challenge more than a game, because it is not meant to actually be played. This game is played in a infinite squared board, with the Angel being located in of its cells. Each turn the Angel flies over $k$ squares and lands, depending on the desired rules. When it is the devils turn to play, it possesses a square from the infinite board. The challenge is to know whether, and for what values of $k$, the devil wins, given the Angel may not lend in a possessed square. It is clear that this game, depending on the parameters and variations, may not be a short game.
+\textbf{The Angel Game} is more of a mathematical challenge more than a game, because it is not meant to actually be played. This game is played in a infinite squared board, with an Angel being located in one of its cells. Each turn the Angel flies over $k$ squares and lands, depending on the desired rules. When it is the Devil's turn to play, it possesses a square from the infinite board. The challenge is to know whether, and for what values of $k$, the Devil wins, given the Angel may not lend in a possessed square. It is clear that this game, depending on the parameters and variations, may not be a short game.
 
-This game led to a lot of research until it was solved. Although it may not interest someone looking for a fun game it serves to show that even games on infinite boards are part of this theory. An important aspect of this game is that the position, after every move, becomes better and better for the devil, but still, sometimes it does not improve enough for the devil to win, even after an arbitrarily large number of moves.
+This game led to a lot of research until it was solved. Although it may not interest someone looking for a fun game it serves to show that even games on infinite boards are part of this theory. An important aspect of this game is that the position, after every move, becomes better and better for the Devil, but still, sometimes it does not improve enough for the Devil to win, even after an arbitrarily large number of moves.
 
 \textbf{Snorts} is yet another fun game to be played with pen and paper. Snorts is a picture coloring game. Two herdsman, Bob, that has a herd of bulls, and Chad, that has a herd of cows, compete to buy properties in a large open field. They are both interested in acquiring as many properties as possible, regardless of their sizes, but they respect each others space. Since cows cannot live next to bulls and vice-versa, Bob and Chad cannot buy any property next to each other.
 
-The initial position for playing snorts any collection of shapes. The initial position is somewhat problematic to draw, because may cause the first player to have easier time playing. However, by making a large initial open space, it is harder to make a boring game. A good method to draw the board is to make a circle-like shape and start partitioning it randomly, making sure that there are not very large partitions. The picture below is an example of a snorts game in progress.
+The initial position for playing snorts any collection of shapes. The initial position is somewhat problematic to draw, because may allow the first player to have easier time playing. However, by making a large initial open space, it is hard to make a boring game. A good method to draw the board is to make a circle-like shape and start partitioning it randomly, making sure that there are no very large partitions. The picture below is an example of a snorts game in progress.
 
 \begin{figure} [H]
 	\begin{center}
@@ -379,7 +398,7 @@ The initial position for playing snorts any collection of shapes. The initial po
 \caption{Ongoing match of snorts}
 \end{figure}
 
-\textbf{The Knights} is another possible variation of Amazons. The game has the same rules but uses chess knights instead of chess queens. This game may, for experienced chess players, seem less fun that the amazons, as it is much more predictable. It may be true, but, like the other variations of amazons it may be worth trying.
+\textbf{The Knights} is another possible variation of Amazons. The game has the same rules but uses chess knights instead of chess queens. This game may, for experienced chess players, seem less fun that The Amazons, as it is much more predictable. It may be true, but, like the other variations of Amazons it is worth trying.
 
 
 

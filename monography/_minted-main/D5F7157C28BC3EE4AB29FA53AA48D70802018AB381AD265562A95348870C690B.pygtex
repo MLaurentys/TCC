@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{c+c1}{//other cases}
+	\PYG{k}{else}
+		\PYG{n}{ret} \PYG{o}{=} \PYG{n}{FindSimplesFittingNumber}\PYG{p}{();}
+	\PYG{k}{return} \PYG{n}{ret}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
