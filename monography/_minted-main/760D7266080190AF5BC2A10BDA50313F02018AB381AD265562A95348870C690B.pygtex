@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{CombinatorialGame} \PYG{p}{\PYGZob{}}
+  \PYG{k}{public}\PYG{o}{:}
+	\PYG{n}{CombinatorialGame} \PYG{p}{(}\PYG{k}{const} \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{CombinatorialGame}\PYG{o}{*\PYGZgt{}\PYGZam{}} \PYG{n}{l}\PYG{p}{,}
+					     \PYG{k}{const} \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{CombinatorialGame}\PYG{o}{*\PYGZgt{}\PYGZam{}} \PYG{n}{r}\PYG{p}{);}
+
+	\PYG{n}{CombinatorialGame} \PYG{p}{(}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{CombinatorialGame}\PYG{o}{*\PYGZgt{}\PYGZam{}\PYGZam{}} \PYG{n}{l}\PYG{p}{,}
+					     \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{CombinatorialGame}\PYG{o}{*\PYGZgt{}\PYGZam{}\PYGZam{}} \PYG{n}{r}\PYG{p}{);}
+	\PYG{p}{...}
+  \PYG{k}{private}\PYG{o}{:}
+  	\PYG{c+c1}{// Calculated and cached during initialization}
+  	\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{CombinatorialGame}\PYG{o}{*\PYGZgt{}} \PYG{n}{left}\PYG{p}{;}
+  	\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{CombinatorialGame}\PYG{o}{*\PYGZgt{}} \PYG{n}{right}\PYG{p}{;}
+  	\PYG{k+kt}{bool} \PYG{n}{isSurreal}\PYG{p}{;}
+  	\PYG{k+kt}{bool} \PYG{n}{isSwitch}\PYG{p}{;}
+  	\PYG{k+kt}{float} \PYG{n}{realValue}\PYG{p}{;}
+  	\PYG{k+kt}{float} \PYG{n}{bias}\PYG{p}{;}
+  	\PYG{k+kt}{float} \PYG{n}{temperature}\PYG{p}{;}
+  	\PYG{n}{Thermograph} \PYG{n}{thermograph}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

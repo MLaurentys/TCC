@@ -9,26 +9,26 @@ Intervals} \cite{12} brings the first of such results, although the content feat
 
 The confusion interval of a game is the range of numbers with which it is confused. A game is confused with a number if it is neither greater, smaller nor equal to that number. Any game with temperature greater than 0 is confused with numbers. Take any instance of such cases from previous sections to verify that their confusion interval includes all numbers between the points where the thermograph intersects the $t=0$ line. Some intervals also include either one or both of the intersection points, depending on what the toenail of the thermograph looks like.
 
-However, the reader can also verify that some non-numbers with temperature 0 are also confused with numbers. Section four shows that the thermograph of \gam{0}{0} is different to that of 0, although above the $y=0$ they are the same. However, if using the surreal $\leq$ operation defined in chapter 3, one notices that $\gam{0}{0} \not\lessgtr 0$, which shows $0$ is confused with \gam{0}{0}. However, not all non-numbers behave this way, because some fall in gaps, not being confused with any number. Gaps is another delicate subject related to numbers that will not be discussed. \gam{0}{\gam{0}{0}} is a game inside a gap.
+However, the reader can also verify that some non-numbers with temperature 0 are also confused with numbers. Section four shows that the thermograph of \gam{0}{0} is different to that of 0, although above $t=0$ they are the same. However, if using the surreal $\leq$ operation defined in \textit{Chapter 3}, one notices that $\gam{0}{0} \not\lessgtr 0$, which shows $0$ is confused with \gam{0}{0}. However, not all non-numbers behave this way, because some fall in gaps, not being confused with any number. Gaps is another delicate subject related to numbers that will not be discussed. \gam{0}{\gam{0}{0}} is a game inside a gap.
 
-The confusion interval of \Gm{} is usually indicated by $\ell(G)$ and the intersection points are usually denoted by $LS(G)$ and $RS(G)$, and called left and right stops. Therefore $\ell(G) = LS(G)-RS(G)$. Another important definition is the thermic version of a game. The thermic version of a game \Gm{} is a game $\tilde{\Gm{}}$ with the same temperature of \Gm{} but with only one left and one right option, that are also left and right options for \Gm{}.
+The confusion interval of a game \Gm{} is usually indicated by $\ell(G)$ and the points where the left and right trajectories, $\lambda_t(G), \rho_t(G)$, intersect the $t=0$ line, are usually denoted by $LS(G)$ and $RS(G)$, and called left and right stops. Therefore $\ell(G) = LS(G)-RS(G)$. Another important definition is the thermic version of a game. A thermic version of a game \Gm{} is a game $\tilde{\Gm{}}$ with the same temperature of \Gm{} but with only one left and one right option, that are also left and right options for \Gm{}.
 
-The existence of thermic versions follows: ff \Gm{} is hot, then there exists a \Gm{^L} and a \Gm{^R} such that \mbox{$t(G) = t(\gam{\Gm{^L}}{\Gm{^R}})$}. The proof is simple: the mast of \Gm{} begins where the cooled thermographs of some of the left and right options first intersect. There are possibly many left and right options that intersect on the same point. By taking any one of them, \Gm{^{L_+}} and \Gm{^{R_+}}, it is clear that the thermic version of a game exists, because $t(G) = t(\gam{\Gm{^{L_+}}}{\Gm{^{R_+}}})$.
+The existence of thermic versions follows: if \Gm{} is hot, then there exists left and right options of \Gm{}, \Gm{^{L_*}} and \Gm{^{R_*}}, such that \mbox{$t(G) = t(\gam{\Gm{^{L_*}}}{\Gm{^{R_*}}})$}. The proof is simple. The mast of \Gm{} begins where the cooled thermographs of some of the left and right options first intersect. There are possibly many left and right options that intersect on the same point. By taking any one of them, \Gm{^{L_+}} and \Gm{^{R_+}}, it is clear that the thermic version of a game exists, because $t(G) = t(\gam{\Gm{^{L_+}}}{\Gm{^{R_+}}})$.
 
 Finding in practice the thermic version of a game is not at all simple. In fact, without additional information of \Gm{}, it would be needed to build the entire thermograph, or equivalent information, beforehand. This is an important consideration, that is also made on Huntemann's thesis, but one that is not problematic. Soon, the bound will be created for \Gm{} directly, so that finding the thermic version is not necessary.
 
 It is trivial but it is worth highlighting that the thermograph of \Gm{} and that of $\tilde{\Gm{}}$ may not be the same. In particular $\lambda_t(\tilde{\Gm{}}) \ge \lambda_t(\Gm{})$ and $\rho_t(\tilde{\Gm{}}) \leq \rho_t(\Gm{})$. If it is not clear why the observation is true: for any temperature $t$, the trajectories of the thermograph were either the maximum/minimum of all the corresponding options. The selected left and right options for the thermic version of \Gm{} are only the minimum/maximum for temperatures close to the boiling point. Therefore the initial part of the trajectory might be different, but is always lesser/greater or equal to the thermic trajectories.
 
-Using the notation described above it may be simpler. $\lambda_t(\Gm{}) = LS(\Gm{_t})$ and, by definition, $\lambda_t(\Gm{}) = max_{\Gm{^L}}(RS(\Gm{^L_t}) - t)$. Since $\Gm{^{L_+}} \in \Gm{^L}$, it is clear that $\lambda_t(\tilde{\Gm{}}) \ge \lambda_t(\Gm{})$. An equivalent statement can be made for the right trajectory.
+Using the notation built so far it may be simpler. $\lambda_t(\Gm{}) = LS(\Gm{_t})$ and, by definition, $\lambda_t(\Gm{}) = max_{\Gm{^L}}(RS(\Gm{^L_t}) - t)$. Since $\Gm{^{L_+}} \in \Gm{^L}$, it is clear that $\lambda_t(\tilde{\Gm{}}) \ge \lambda_t(\Gm{})$. An equivalent statement can be made for the right trajectory.
 
-A result, when fixating $t=0$, is:
+A result, when taking $t=0$, is:
 
 \begin{align*}
 \ell(\tilde{\Gm{}}) \leq& \ell(\Gm{})\\
 \text{Since } \ell(\tilde{\Gm{}}) = LS(\tilde{\Gm{}}) - RS(\tilde{\Gm{}})\leq& LS(\Gm{}) - RS(\Gm{}) = \ell(\Gm{})
 \end{align*}
 
-The thermograph, as described in the previous section, is composed of straight lines and $\pm$45$\deg$ oblique lines. The bound is based on this and the size of the confusion interval. Before proceeding, one additional definition.
+The thermograph, as described in the previous section, is composed of straight lines and $\pm 45 \deg$ oblique lines. The bound is based on this and the size of the confusion interval. Before proceeding, one additional definition.
 
 Let $T^L$ be the sequence $(0, t_1, t_2, \ldots, t_k)$ of the temperatures of the turning points of $\lambda(\tilde{\Gm{}})$. Let, now, $A^L$ be the sequence $(a_0, a_1, \ldots, a_k)$ of labels given by:
 
@@ -45,19 +45,23 @@ Lastly,
 
 \hspace{2cm} $T^L_{\text{O}} = \sum\limits_{\substack{i\;|\;a_i \text{ is} \\ \text{oblique}}}(t_{i+1} - t_i)$
 
-Notice that the right counterpart can be done similarly. Essentially, $T^L_{\text{V}}$ is the length of the vertical segments and $T^L_{\text{O}}$ is the length of the oblique segments. Of course
+Notice that the right counterpart can be done similarly. Let $T^L_{\text{V}}$ be the length of the vertical segments and let $T^L_{\text{O}}$ be the length of the oblique segments. The temperature of the game \Gm{} can be given by a combination of the oblique and vertical parts of the thermograph like the following:
 
-\begin{align*}
-	t(\Gm{}) =& T^L_{\text{V}} + T^L_{\text{O}}.\\
-	&\text{and} \\
-	\ell(\tilde{\Gm{}}) =& T^L_{\text{O}} + T^R_{\text{O}}.
-\end{align*}
+$$
+	t(\Gm{}) = T^L_{\text{V}} + T^L_{\text{O}}
+$$
+\newpage
+The length of the confusion interval of the thermic version of \Gm{} can also be given in terms of the oblique part of the thermograph:
+
+$$
+\ell(\tilde{\Gm{}}) = T^L_{\text{O}} + T^R_{\text{O}}.
+$$
 
 \subsection*{The theorem}
 
 \textit{The theorem} discussed in the beginning of the chapter is the following:
 
-Given \Gm{} and $\tilde{\Gm{}}$ its thermic version, then
+For any game \Gm{} and $\tilde{\Gm{}}$ its thermic version, it is true that
 
 
 \begin{align*}
@@ -76,19 +80,25 @@ The length of $T^L_V$ is at most the length of the oblique segments of $\rho(\ti
 
 Therefore, $T^L_V \leq \ell(\tilde{\Gm{}}^L)$
 
-Additionally:
+Additionally, it is true that:
 
-\begin{align*}
-T^L_V + T^L_O =&\;T^R_V+T^R_O\\
-\text{Since, in this case, }& T^L_V \ge T^R_V\text{:}\\
-T^L_O \leq&T^R_O
-\end{align*}
+$$
+T^L_V + T^L_O = T^R_V+T^R_O
+$$
+
+And, since in this case $T^L_V \ge T^R_V$:
+
+$$
+T^L_O \leq T^R_O
+$$
 
 Therefore:
 
 \begin{align*}
-	2\times T^L_O \leq T^L_O + T^R_O =&\;\ell(\tilde{\Gm{}}) \leq \ell(\Gm{})\\
-	T^L_O = \frac{\ell(\tilde{\Gm{}})}{2} &\leq \frac{\ell(\Gm{})}{2}
+	2\times T^L_O &\leq T^L_O + T^R_O \\
+	&= \;\ell(\tilde{\Gm{}})\\
+	&\leq \ell(\Gm{})\\
+	T^L_O \leq\; &\frac{\ell(\tilde{\Gm{}})}{2} \leq \frac{\ell(\Gm{})}{2}
 \end{align*}
 
 Resulting in:
@@ -97,25 +107,25 @@ $$
 t(G) = T^L_V + T^L_O \leq \ell(\tilde{\Gm{}}^L) + \frac{\ell(G)}{2}
 $$
 
-Although longer than other proofs in this text, it is yet another simple proof. The equations and the many symbols might make it unclear, but the each of the steps can be visualized. For clarification, it follows an explanation of the starting points of each sequence or equations \todo{improve clarification?}.
+$T^L_V + T^L_O =\;T^R_V+T^R_O$ is straight forward, because what defines the height is the intersection point of left and right, which is the same for both trajectories. $2\times T^L_O \leq T^L_O + T^R_O$ is a direct result of the previous equation with the given consideration that $T^L_V \ge T^R_V$. 
 
-$T^L_V + T^L_O =\;T^R_V+T^R_O$ is straight forward, because what defines the height is the intersection point of left and right, which is the same for both trajectories. $2\times T^L_O \leq T^L_O + T^R_O$ is a direct result of the previous inequation. 
+Although longer than other proofs in this text, it is yet another simple proof. The equations and the many symbols might make it unclear, but each of the steps are short and can be visualized.
 
 This theorem uses the thermic version of games, which, again, are hard to find in itself. However, from this version, another result that does not use the thermic versions is possible.
 
 \textit{The theorem} might be re-written as:
 
-Let n, m be two non-negative numbers. If $S$ is class of games such that for all $G \in S,\;\ell(G) \leq n$ and for all options $\ell(G^{L/R}) \leq m$, then:
+Let $n, m$ be two non-negative numbers. If $S$ is class of games such that for all $G \in S,\;\ell(G) \leq n$ and for left and right options \Gm{^{L/R}}, $\ell(G^{L/R}) \leq m$, then:
 
 $$
-BP(S) \leq \frac{n}{2} + m
+BP(G) \leq \frac{n}{2} + m
 $$
 
-Although immediate, deciding whether the first version implies the version above might require an explanation. $t(G) \leq \ell(\tilde{\Gm{}}^L) + \frac{\ell(G)}{2} \leq \frac{n}{2} + \ell(\tilde{\Gm{}}^L)$ is true because $\forall G \in S,\;\ell(G) \leq n$. Since $\ell(G^{L/R}) \leq m$, then $\ell(\tilde{\Gm{}}^L) \leq m$, which implies the last inequation $t(G) \leq \frac{n}{2} + \ell(\tilde{\Gm{}}^L) \leq \frac{n}{2} + m$.
+Although immediate, deciding whether the first version implies the version above might require an explanation. $t(G) \leq \ell(\tilde{\Gm{}}^L) + \frac{\ell(G)}{2} \leq \frac{n}{2} + \ell(\tilde{\Gm{}}^L)$ because for all \mbox{$\Gm{} \in S$}, \mbox{$\ell(G) \leq n$}. Since $\ell(G^{L/R}) \leq m$, then $\ell(\tilde{\Gm{}}^L) \leq m$, which implies the last inequality \mbox{$t(G) \leq \frac{n}{2} + \ell(\tilde{\Gm{}}^L) \leq \frac{n}{2} + m$}.
 
-Using a class of games is not as straight-forward as using the definitions typically used in this text. The idea to use the theorem is to first create a class, following the restrictions - therefore having a bound for the temperature. Then one should prove a game or a pattern of games belonging to this class, to make use of this bound.
+Handling a class of games is not as straight-forward as using the definitions typically used in this text. A good way to use the theorem is to first create a class, based the restrictions - therefore having a bound for the confusion intervals of the games and its Left and Right options. Then one should prove a game or a pattern of games belongs to this class, to make use of this bound.
 
-Let, for example, the class $S$ to be defined by $\{G : \ell(G)\leq100, \ell(G^L)\leq200, \ell(G^R)\leq200\}$. Since $S$ meets the requirements it has the proposed boiling point. $\forall G \in S, BP(G) \leq 250$. The maximum length of the confusion intervals are so large that, in particular, all games of this text belong to $S$. It is possible to verify that all the temperatures of games instanced in the text are indeed smaller than $250$. In fact the hottest game \Gm{} analyzed in this text is:
+Let, for example, the class $S$ to be defined by $\{G : \ell(G)\leq100, \ell(G^L)\leq200, \ell(G^R)\leq200\}$. Since $S$ meets the requirements it has the proposed boiling point. For all games $G \in S, BP(G) \leq 250$. The maximum length of the confusion intervals are so large that, in particular, all games of this text belong to $S$. The hottest game \Gm{} analyzed in this text is:
 
 \begin{center}
 	\begin{tikzpicture}
@@ -130,26 +140,28 @@ Let, for example, the class $S$ to be defined by $\{G : \ell(G)\leq100, \ell(G^L
 	\end{tikzpicture}
 \end{center}
 
-With, as shown before, the thermograph:
+The thermograph of \Gm{=\gam{\gam{7}{9},\gam{28}{4}}{\gam{-3}{-1},\gam{2}{-22}}} is:
 \begin{center}
 	\includegraphics[scale=0.5]{../images/thermA.png}
 \end{center}
 
-In this case, $\ell(G) = 10 \leq 100$ and $\ell(\Gm{^{L_1}}) = \ell(\Gm{^{R_1}}) = 0 \leq 200$ and $\ell(\Gm{^{L_2}}) = \ell(\Gm{^{R_2}}) = 24 \leq 200$, so \Gm{\in S}. The boiling point bound the theorem provided for $S$ is loose for \Gm{}, since $\forall H \in S, BP(H) \leq 250$ and $BP(G) = 13$. However, the size of the confusion intervals that defined the class are also loose. In general cases, specially when confusion intervals start getting large, the bound will be loose, but that is because the bound itself is large, not because the theorem is inefficient.
+In this case, $\ell(G) = 10 \leq 100$ and \mbox{$\ell(\gam{7}{9}) = \ell(\gam{-3}{-1}) = 0 \leq 200$} and, finally, \mbox{$\ell(\gam{28}{4}) = \ell(\gam{2}{-22}) = 24 \leq 200$}, so \Gm{\in S}. The boiling point bound the theorem provided for $S$ is loose for \Gm{}, since $\forall H \in S, BP(H) \leq 250$ and $BP(G) = 13$. However, the size of the confusion intervals that defined the class are also loose. In general cases, specially when confusion intervals start getting large, the bound will be loose, but that is because the bound itself is large, not because the theorem is inefficient.
 
-Let $S_*$, now, be the class given by $\{G : \ell(G)\leq10, \ell(G^L)\leq24, \ell(G^R)\leq24\}$. From the analysis of the previous paragraph, \Gm{\in S_*}. However, in this case, the confusion intervals of \Gm{} are tight in respect to the ones that define the class. From the theorem $\forall G \in S_*,\; BP(G) \leq 29$. The bound is tighter for \Gm{} but is still loose, which may lead to the belief that this bound is loose in general.
+Let $S_*$, now, be the class given by $\{G : \ell(G)\leq10, \ell(G^L)\leq24, \ell(G^R)\leq24\}$. From the analysis of the previous paragraph, \Gm{\in S_*}. However, in this case, the confusion intervals of \Gm{} are tight in respect to the ones that define the class. From \textit{the theorem} for all games $G \in S_*,\; BP(G) \leq 29$. The bound is tighter for \Gm{} but is still loose, which may lead to the belief that this bound is loose in general.
 
 In order to verify whether the bound is in fact loose, it would be required to show the following, or something similar:
 $$
-\forall S,\;\exists x\in SN,\; x>0\;|\; \underset{G\in S}{max}BP(G) + x \leq BP(S)
+\forall S,\;\exists x\in \mathbb{R}\footnotemark,\; x>0\;|\; \underset{G\in S}{\max}BP(G) + x \leq BP(S)
 $$
+
+\footnotetext{Convergence can be more complicated using surreal numbers. If instead $x\in\textup{SN}$ was used, an additional infinitesimal $y\in\textup{SN}$ would be required resulting in additional complexity in a topic that is not the focus of the text.}
 
 To dismiss that idea, however, it could be shown:
 $$
-\exists G \in S_*\;|\;\not\exists x>0,\; BP(G)\leq BP(S)+x
+\exists G \in S_*\;|\;\not\exists x \in \mathbb{R}, x>0,\; BP(G) + x \leq BP(S)
 $$
 
-Starting out with the previous example, take $\tilde{G} = \gam{\gam{28}{4}}{\gam{2}{-22}}$. The temperature is, of course, the same as before, 13. However, the Left and Right slant may be moved, since $\ell(\tilde{G}) = 2$. Take \Gm{_+=\gam{\gam{36}{12}}{\gam{2}{-22}}}, result of shifting the left slant to the left, which maintains the left and right confusion intervals, but increases the confusion interval for $\tilde{\Gm{}}$ while maintaining that \Gm{_+ \in S_*}.
+Starting out with the previous example, take $\tilde{G} = \gam{\gam{28}{4}}{\gam{2}{-22}}$. The temperature is 13, the same as before, since, $t(\Gm{}) = \tilde{t(\Gm{})}$. However, the Left and Right slant may be moved, since $\ell(\tilde{G}) = 2$. Take \Gm{_+=\gam{\gam{36}{12}}{\gam{2}{-22}}}, result of shifting the left slant to the left, which maintains the left and right confusion intervals, but increases the confusion interval for $\tilde{\Gm{}}$ while maintaining that \Gm{_+ \in S_*}.
 
 \begin{center}
 \begin{tabular}{cc}
@@ -160,8 +172,9 @@ $\tilde{G}$ & \Gm{_+} \\
 
 The temperature 17 is higher than the initial one but is still far away from the desired 29. However, it is still possible to increase it more. The boiling point of left and right slants are 12, and, for this reason, the oblique line in the thermograph start at $t=12$. Making the left and right games hotter would increase the overall temperature, but increasing the confusion interval is not allowed as it is desired that the resulting game belongs to the class $S_*$.
 
-Since the thermographs of \Gm{^{L/R}} are made of two oblique lines, making part of the lines straight would increase their temperature. One way of doing it is changing \Gm{^L} to \gam{\gam{60}{36}}{12}. The temperature of
-\Gm{_-=\gam{\gam{\gam{60}{36}}{12}}{\gam{2}{\gam{-22}{-46}}}} is 23. To simplify further analysis, take \Gm{_1 = \gam{\gam{\gam{53}{29}}{5}}{\gam{{-}5}{\gam{-29}{-53}}}}, result of centering \Gm{_-} at 0. Notice that \Gm{_1 = \pm\gam{\gam{53}{29}}{5}}.
+Since the thermographs of \Gm{_+^{L/R}} below the boiling point are made of two oblique lines, making part of the lines straight would increase their temperature. The way to achieve higher temperature without increasing the confusion interval is changing \Gm{_+^{L}} so that $RS(G_+^{L})$ remains in the same position but $T^R_O$ of \Gm{_+^L} is increased. Change, then \Gm{_+^L} to \gam{\gam{60}{36}}{12} and \Gm{^R} to \gam{2}{\gam{-22}{-46}}. The reason why \gam{36}{12} was replaced by \gam{60}{\gam{36}{12}} as \Gm{^L} is to keep $\ell(H) = 24$, for $H$ any hot game in the left and right sub-trees of the game tree of $G_+$. This pattern will be kept and helps simplifying results.
+
+Let \Gm{_-=\gam{\gam{\gam{60}{36}}{12}}{\gam{2}{\gam{-22}{-46}}}} be the game resulting from this changes. The temperature of \Gm{_-} is 23. To simplify further analysis, take a game \Gm{_1}, result of centering \Gm{_-} at 0. In this case, \Gm{_1 = \gam{\gam{\gam{53}{29}}{5}}{\gam{{-}5}{\gam{-29}{-53}}}}.  Notice that \Gm{_1 = \pm\gam{\gam{53}{29}}{5}}.
 
 \begin{center}
 	\begin{tabular}{cc}
@@ -170,85 +183,116 @@ Since the thermographs of \Gm{^{L/R}} are made of two oblique lines, making part
 	\end{tabular}
 \end{center}
 
-Following the idea of making one of the slants of \Gm{^{L/R}} straighter in order to increase their temperature, it is possible to keep increasing the temperature of \Gm{}. Consider the following sequence of games is $S_*$:
+Using the strategy of making one of the slants of \Gm{^{L/R}} straighter in order to increase their temperature, it is possible to keep increasing the temperature of \Gm{}. Consider the following sequence of games is $S_*$:
 
 \begin{center}
 	\begin{tabular}{c|c|c}
-		i & \Gm{} & $t(G)$	\\
+		$i$ & \Gm{_i} & $t(G_i)$	\\[0.1cm]
 		\hline
-		0 & $\pm$ \gam{29}{5} & 17 \\
-		1 & $\pm$ \gam{\gam{53}{29}}{5} & 23 \\
-		2 & $\pm$ \gam{\gam{\gam{77}{53}}{29}}{5} & 26 \\
+		0 & $\pm$ \gam{29}{5} & 17 \\[0.1cm]
+		\hline
+		1 & $\pm$ \gam{\gam{53}{29}}{5} & 23 \\[0.1cm]
+		\hline
+		2 & $\pm$ \gam{\gam{\gam{77}{53}}{29}}{5} & 26 \\[0.1cm]
+		\hline
 		3 & $\pm$ \gam{\gam{\gam{\gam{101}{77}}{53}}{29}}{5} & 27.5 \\
 	\end{tabular}\\
 	\vspace{0.3cm}$\cdots$
 \end{center}
 
-The result that the temperature of games in this sequence increases and converges to 29 is desired, but it must be proved. The following proof is general for all sequence of games made in the likes of the sequence above.
+The result that the temperature of games in this sequence increases and converges to 29 is required to prove the bound is tight, so it must be proved. Instead of only proving the convergence in this particular case, which is is sufficient, the following proof shows that the boiling point, given by Svenja, for all classes are tight. The following proof is general for all sequence of games made in the likes of the sequence above.
 
-\textit{Proof:} \todo{I made the proof -- revise}
+\textit{Proof:}
+
+Let $OB$ be the bound $\ell(G^{L/R})$ for the options of \Gm{} in the class $S$.
+
+Let $B$ be the bound for $\ell(G)$ in the class $S$.
+
 \begin{list}{}{}
-	\item[$\rightarrow$] Each term of the sequence increases the length of the straight segment of the left option of \Gm{^L} by $\frac{\ell(G^L)}{2^{i+1}}$.
-	\item[ ] [Via Induction]
-	\item[ ] Base case: $i=1$. Let $\Gm{=\gam{\gam{a + 2\ell(G^L)}{a+\ell(G^L)}}{a}}$. The right trajectory, $\rho$, of \gam{a + 2\ell(G^L)}{a+\ell(G^L)} is oblique until $t=\frac{\ell(G^L)}{2}$. Therefore the left trajectory, $\lambda$, of \Gm{} is straight until $\frac{\ell(G^L)}{2}$. At $t=\frac{\ell(G^L)}{2}$, the right trajectory is at the $a + \frac{\ell(G^L)}{2}$ x-coordinate. Since both trajectories are oblique above this temperature, they cross at the point $(a + \frac{3\ell(G^L)}{4},\; \frac{3\ell(G^L)}{4})$. Therefore, temperature was increased by $\frac{\ell(G^L)}{2}$.
-	\item[ ] Induction Hypothesis: $i=k$. Let 
+	\item[$\rightarrow$] Both $T^L_V$ and $T^R_V$ of $G$ are given by 
+	$$\sum_{i=0}^n\frac{OB}{2^{i+1}}$$
+	The following proof only shows the case for the left option as the proof for the right is analogous.
+	
+	[Via induction on $i$]
+	
+	Base case: $n = 0$.
+	
+	In this case, $G_i^L = G_0^L = \gam{\frac{B}{2} + OB}{\frac{B}{2}}$. Since $G_0^L$ is a switch, both the trajectories are oblique. The trajectories, then, meet at $BP(G_0^L) = \frac{OB}{2}$. This way, the right trajectory of the thermograph of $G_0^L$ is oblique until $\frac{OB}{2}$ and vertical after that. Therefore the left trajectory of $G_0$ is vertical until $\frac{OB}{2}$ and oblique after that point.
+	
+	As a result, 
+	$$T^L_V \text{ of } G = \frac{OB}{2} = \sum_{i=0}^0\frac{OB}{2^{i+1}}$$
+	
+	Considering now that $k > 0$.
+	
 	$$
-	\Gm{=\gam{
+	\Gm{_k=\gam{
 			\gam{
 				\gam{
 					\gam{\ldots
 						\gam
-							{a + (k+1)\ell(G^L)}
-							{a + k\ell(G^L)}
+							{\frac{B}{2} + (k+1)OB}
+							{\frac{B}{2} + kOB}
 						}
 						{\ldots}
 					}
-					{a + 2\ell(G^L)}
+					{\frac{B}{2} + 2OB}
 				}
-				{a+\ell(G^L)}
+				{\frac{B}{2}+OB}
 			}
-			{a}
+			{\frac{B}{2}}
 		}
 	$$
-	Let $b = a + \ell(G^L)$. It is possible to rewrite $G$ so that:
+	
+	Let $b = \frac{B}{2}+OB$. It is possible to rewrite $G$:
+	
 	$$
-	\Gm{=\gam{
+	\Gm{_k=\gam{
 			\gam{
 				\gam{
 					\gam{\ldots
 						\gam
-						{b + k\ell(G^L)}
-						{b + (k-1)\ell(G^L)}
+						{b + kOB}
+						{b + (k-1)OB}
 					}
 					{\ldots}
 				}
-				{b+\ell(G^L)}
+				{b+OB}
 			}
 			{b}
 		}
-		{a}
+		{\frac{B}{2}}
 	}
 	$$
-	Using the inductive hypothesis on:
+	
+	Via inductive hypothesis on:
+	
 	$$
 	\Hm{=
 			\gam{
 				\gam{
 					\gam{\ldots
 						\gam
-						{b + k\ell(G^L)}
-						{b + (k-1)\ell(G^L)}
+						{b + kOB}
+						{b + (k-1)OB}
 					}
 					{\ldots}
 				}
-				{b + \ell(G^L)}
+				{b + OB}
 			}
 			{b}
 	}
 	$$
-	The left slant of $\Hm^L$ has a straight segment of size $\sum\limits_{i=1}^{k-1} \frac{\ell(G^L)}{2^{i+1}}$. Since the right option of $H^L$ is a number, $BP(H^L)= \sum\limits_{i=1}^{k-1} \frac{\ell(G^L)}{2^{i+1}} + \frac{\ell(G^L) - \sum\limits_{i=1}^{k-1} \frac{\ell(G^L)}{2^{i+1}}}{2}$. Therefore, $BP(H^L)= \frac{\ell(G^L) + \sum\limits_{i=1}^{k-1} \frac{\ell(G^L)}{2^{i+1}}}{2} = \sum\limits_{i=1}^{k} \frac{\ell(G^L)}{2^{i+1}}$. Since the right slant of $H^L$ is oblique with size equals to the given temperature, then the left slant of $H$ is straight with the same size. Since $H = G^L$, then the inductive step is indeed correct.
-	\item[$\rightarrow$] Each term of the sequence increases the length of the straight segment of the right option of \Gm{^R} by $\frac{\ell(G^R)}{2^{i+1}}$.
-	\item[ ] The proof is analogous.
+	
+	The total vertical length of the left trajectory of $\Hm_* = \pm \Hm$ is equal to $\sum\limits_{i=0}^{k-1}\frac{OB}{2^{i+1}}$. Added to  the fact that the right option of $\Hm$ is a number, the total oblique length of the right trajectory of $\Hm^L$ is equal to $\sum\limits_{i=0}^{k-1}\frac{OB}{2^{i+1}}$ and it is oblique until the boiling point. 
+	
+	Because of this, the draft of the left trajectory of $G_k^L$ is vertical until the boiling point of $\Hm$. Since the right option of $G_k^L$ is a number, its right trajectory is oblique until the boiling point. Therefore, $BP(G_k^L) = \sum\limits_{i=0}^{k}\frac{OB}{2^{i+1}}$.
+	
+	Once again because the right slant of $G_k^L$ is oblique until $\sum\limits_{i=0}^{k}\frac{OB}{2^{i+1}}$, it is true that:
+	
+	$$
+	T^L_V \text{ of } G = \sum\limits_{i=0}^{k}\frac{OB}{2^{i+1}}
+	$$
+	
 	\item[$\rightarrow$] If both the left option of \Gm{^L} and the right option of \Gm{^R} have their straight length increased by $l$, then so does \Gm{}.
 	\item[ ] As seen before, $t(G) = T^L_V + T^L_O$. Since $\forall i,\; G_i = \tilde{G_i}$ and that increasing both trajectories straight segments does not affect the size of the oblique segments, it is possible to conclude that the temperature of the whole game will increase exactly $l$. Since, again, the size of the oblique segment does not change and the size of the vertical segments do, then the temperature is increased by $l$.
 	\item[$\rightarrow$] The temperature of the games in this sequence converges to the proposed boiling point, while always being elements of the initial class $S$.
@@ -347,7 +391,7 @@ Now, Left can, again, play a move that does not intersect any of the shadows, bu
 
 At this time, Left can no longer play on any shadows, so he/she cannot avoid Right's strategy and will eventually lose. Therefore, if \Gm{} is a snake fitting in a $2\times n$ grid, then $G^L - G -2 < 0$. This means that $\ell(G),\ell(G^L),\ell(G^R) \leq 2$. By using the bound result, in turn, it means that $t(G) \leq 3$. 
 
-This result from the 2019 paper is different, as stated before, from the 2018 thesis because the first part of the proof, that shows the cases $H=G^L,G^R$ can be reduced to the case $H=G$, was missing. Instead the original text only showed that the confusion intervals of $G^L,G^R$ were smaller than 4. This second result is clear because both $G^L$ and $G^R$ are made of two components that are snakes fitting in $2\times n$ grids. As the text shows that such a snake has the confusion interval smaller or equal to 2, then two snakes have that interval smaller or equal to 4.
+This result from the 2019 paper \cite{12} is different, as stated before, from the 2018 thesis because the first part of the proof, that shows the cases $H=G^L,G^R$ can be reduced to the case $H=G$, was missing. Instead the original text only showed that the confusion intervals of $G^L,G^R$ were smaller than 4. This second result is clear because both $G^L$ and $G^R$ are made of two components that are snakes fitting in $2\times n$ grids. As the text shows that such a snake has the confusion interval smaller or equal to 2, then two snakes have that interval smaller or equal to 4.
 
 
 

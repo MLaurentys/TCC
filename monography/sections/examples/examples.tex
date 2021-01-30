@@ -273,33 +273,31 @@ Between other practical and interesting features, it is possible to create any g
 
 \begin{center}\includegraphics[scale=0.3]{../images/cgsex1.png}\end{center}
 
-The game from last section could, then, be converted to the following:
+The game below, copied from the previous chapter could, then, be converted to the following thermographs in \textit{Figure 5.5}:
 
 \begingroup
 \tikzset{every picture/.style={scale=0.5}, every node/.style={scale=0.5}}%
 \input{sections/examples/extended_simp_c}
 \endgroup
-\begin{center}
-	$\Downarrow$
-\end{center}
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.3]{../images/resulting_thermographs.png}
 \end{center}
-\caption{Thermographs of the components from a game from previous chapter}
+\caption{Thermographs of A, B and C components plotted with \texttt{CGSuite}}
 \end{figure}
 
 Therefore the game from last section has indeed the same thermograph as the one featured in the book. The steps taken to reverse engineer the thermographs from the book, might be useful to fully grasp, speed up and exercise the process of building thermographs. To do that, first there is need for one more theorem.
 
-This theorem is about the structure of thermographs. It states that every line in a thermograph has slope equals to ${-}1$, $0$ or $1$ and masts have slope 0. Using the notation created by Aaron \cite{CGT}, let $G$ be a game and $\lambda_t(G), \rho_t(G)$ its thermograph's left and right trajectories, respectively. It means that:
+This theorem is about the structure of thermographs. It states that every line in a thermograph has slope equals to ${-}1$, $0$ or $1$ and masts have slope 0. In order to match the common notation, consider that a slope 0 line is a vertical line and ${-1},1$ slope lines to be lines with slopes $1,{-}1$, respectively. Using the notation created by Aaron \cite{CGT}, let $G$ be a game and $\lambda_t(G), \rho_t(G)$ its thermograph's left and right trajectories, respectively. Also let $\tilde{\lambda_t(G)}, \tilde{\rho_t(G)}$ be the drafts of left and right trajectories. They are defined as following:
 
 \begin{align*}
-\overset{\sim}{\lambda}_t(G) =&\; \underset{G^L}{max}(\rho_t(G^L)- t)\\
-\overset{\sim}{\rho}_t(G) =&\; \underset{G^R}{min}(\lambda_t(G^R) + t)\\
-\lambda_t(G) = \overset{\sim}{\lambda}_t(G),\;\rho_t(G) =& \overset{\sim}{\rho}_t(G)\text{ if $t$ bellow the freezing point.}
+\overset{\sim}{\lambda}_t(G) &=\; \underset{G^L}{max}(\rho_t(G^L)- t)\\
+\overset{\sim}{\rho}_t(G) &=\; \underset{G^R}{min}(\lambda_t(G^R) + t)\\
+\lambda_t(G) = \overset{\sim}{\lambda}_t(G),\;\rho_t(G) &= \overset{\sim}{\rho}_t(G)\text{ if $t$ bellow the freezing point} \\
+\lambda_t(G) = \rho_t(G) &= x \text{ if $t \ge t'$ with } x = \overset{\sim}{\lambda}_{t'}(G) = \overset{\sim}{\rho}_{t'}(G)
 \end{align*}
 
-As seen before, for any temperature above the freezing point, the values of the left and right slants are the same and do not change. 
+Observing the thermographs presented so far, for any temperature above the freezing point $t'$, the values of the left and right slants are the same and do not change. Notice how the definitions do indeed match the drawings. Now, to prove the theorem, consider the following partial results and the proofs that follow.
 
 \hspace{1cm}(a) Every segment of $\lambda_t(G)$ has slope 0 or ${-}1$.
 
@@ -307,7 +305,7 @@ As seen before, for any temperature above the freezing point, the values of the 
 
 \hspace{1cm}(c) Both trajectories have masts of slope 0, with the same value.
 
-The proof is not complicated. First the proof of (a) and (b), given via induction:
+The proof is not complicated. First the proof of (a) and (b), given via induciton:
 
 \textit{Base:} (a) and (b) are true if $G$ is a number, as the slope is always zero.
 
@@ -319,9 +317,9 @@ Now, the proof of (c), also via induction. Notice that this part proves the exis
 
 \textit{Induction Step:} Let the slopes of $\lambda_t(G^R)$ and $\rho_t(G^L)$ be zero. Therefore, the masts of $\overset{\sim}{\lambda}_t(G)$ and $\overset{\sim}{\rho}_t(G)$ are ${-}1$ and ${+}1$ respectively. Since $\overset{\sim}{\lambda}_t(G) \leq \overset{\sim}{\rho}_t(G)$, the left and right trajectory cross and, therefore, there is a freezing point. By definition, after the freezing point, the slope is zero.
 
-If the reader goes through the thermographs in this text, he/she will notice that this is indeed true for the examples. Trying to find a counter-example may help understand the proof, as inevitably, the recursive definition of the thermograph always leads to the base case of number's thermographs. Now that these rules are properly stated, it is possible to understand how to write a game \Gm{=\gam{X}{Y}} based on an existing thermograph.
+The reader can go through the thermographs in this text and verify that this is indeed true, in all cases. Trying to build a counter-example for the previous slope theorem may help understand the proof. Inevitably, the recursive definition of the thermograph always leads to the base case of number's thermographs, as all the leafs of all game trees are zero, a number. Now that these rules are properly stated, it is possible to understand how to write a game \Gm{=\gam{X}{Y}} based on an existing thermograph.
 
-Starting by the thermograph of $C$, it is easy to spot that there is only one viable option for Left. Since the left slant, $\overset{\sim}{\lambda}_t(G)$, of that graphic has slope ${-1}$, then $\rho_T(G)$ has slope 0. Since the slant crosses the x-axis in $x={-12}$, then an option to this Left option is the number ${-12}$. The option then, is the canonical form of this number, adapted to fit the rules of the cashing cheques game. The right trajectory is a bit more complicated.
+Starting by the thermograph of $C$ of \textit{Figure 5.5}, it is easy to spot that there is only one viable option for Left. Since the left slant, $\overset{\sim}{\lambda}_t(G)$, of that graphic has slope ${-1}$, then $\rho_t(G)$ has slope 0. Since the slant crosses the $x$-axis on $x={-12}$, then a possibility to this Left option is the number ${-12}$. The option then, is the canonical form of this number, adapted to fit the rules of the cashing cheques game. The right trajectory is a bit more complicated.
 
 Starting with the inclined slant, the procedure described above helps one finding out that the number ${-24}$ is enough. The vertical line between the bent line and the freezing point must come from a non-number. Because a bent line added to the cooling factor $t$ is a straight line, then the left slant of this non-number must cross the x-axis in $x={-19}$. Another requirement is that this game must be hot until $t=7$, because the straight line goes until this point. With this in place, it is possible to create the game \gam{{-19}}{{-35}}, because ${-35} = {-19} - 7 - 7$, in which the sevens come from the $t=7$ and are used twice because the cooling happens in both directions. In this example, the right option could be any number smaller than ${-35}$, because the boiling point would remain the same
 
@@ -335,17 +333,17 @@ The brief description of how to build dyadic rationals in domineering and how lo
 
 In fact, in 2005 a paper \cite{12} brought to light that Elwyn Berlekamp conjectured, in 2004, that the maximum temperature in domineering is 2. That is yet to be proven or disproved, although computed instances also lead to the same conclusion. It may not be all that clear yet, but many common games cannot have arbitrarily high temperatures. In a domineering position with temperature two, whoever plays first finishes with two spare moves. Before trying to create such a position, the intricacies of such a position might not be clear.
 
-In 2004 an instance of that position was found, and that was the only one, in a connected board of course, up to this day. While this conjecture is a typical open problem in combinatorial game theory, there are not many attempts to solve this. The next section is dedicated a PhD thesis that gave an upper bound for certain configurations in domineering, although that does not answer the question.
+In 2004 an instance of that position was found, and that was the only one, in a connected board of course, up to this day. While this conjecture is a typical open problem in combinatorial game theory that many researches know about, the problem is hard to solve. The next chapter is dedicated to the Ph.D. thesis of Svenja Huntemann \cite{5} that gives an upper bound for classes of games. One of the applications is to bound the temperature of certain configurations in domineering. Although that does not answer the question, it might be a good step.
 
 \subsection*{It is simple but not easy}
 
-The initial code fragment of the section only dealt with simple surreal numbers, even making a lot of assumptions about left and right, without verifying anything. It might make sense to think about how one would implement, in practice, the numerical part of a library like \texttt{CGSuite}. Considering only the SurrealNumber class, if the only available method of defining numbers were the left and right sets, how would be the simple number $3 = \gam{2}{}$ be written?
+The initial code fragment of the section only dealt with simple surreal numbers, even making a lot of assumptions about left and right, without verifying anything. It might make sense to think about how one would implement, in practice, the numerical part of a library like \texttt{CGSuite}. Considering only the \texttt{SurrealNumber} class, if the only available method of defining numbers were the left and right sets, how would be the simple number $3 = \gam{2}{}$ be stored?
 
-Of course that, with only that available, the recursive structure of surreal numbers \gam{\gam{\gam{\gam{}{}}{}}{}}{}. Although correct according to the theory, implementing number like that, only, would cause problems because evaluating a number would no be a trivial operation. For instance, telling whether $2.5 = \gam{2}{3} < 3 = \gam{2}{}$ would require traversing both number's left and right trees. The canonical representation of the number 3, for example, would be something like this:
+Of course that, with only that available, it had to be stored constrained to the recursive structure of games, so to save the number $3$ the computer would have to store the game tree of \gam{\gam{\gam{\gam{}{}}{}}{}}{}. Although correct according to the theory, implementing number like that, only, would cause problems because evaluating a number would no be a trivial operation. For instance, telling whether $2.5 = \gam{2}{3} < 3 = \gam{2}{}$ would require traversing both number's left and right trees. The canonical representation of the number 3, for example, would be something like \textit{Figure 5.6}:
 
 \input{sections/examples/basic_number_repr}
 
-Given this problem, a viable implementation of combinatorial games must look for alternative representations. Some possibilities are allowing surreal numbers to be represented with integers and floats or to store results of the tree traversals to minimize the number of times the complex tree structure must be analyzed. When looking at numbers strictly, the tree that resulted in a float or another chosen numerical representation may be discarded because it does not contain special information.
+This form of representing simple number is a problem both in terms of memory consumption and processing speed. A viable implementation of combinatorial games must look for alternative representations. Some possibilities are allowing surreal numbers to be represented with integers and floats or to store results of the tree traversals to minimize the number of times the complex tree structure must be analyzed. When looking at numbers strictly, the tree that resulted in a float or another chosen numerical representation may be discarded because it does not contain special information.
 
 However, when changing the domain from surreal numbers to games, the tree cannot be always discarded. The reason for that is that the game tree may contain relevant information for gameplay. One could try keeping only the best move for each position in order to save space. However, as seen before, adding games may change which move is best so not all branches can be discarded.
 
