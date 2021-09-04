@@ -45,7 +45,14 @@ Lastly,
 
 \hspace{2cm} $T^L_{\text{O}} = \sum\limits_{\substack{i\;|\;a_i \text{ is} \\ \text{oblique}}}(t_{i+1} - t_i)$
 
-Notice that the right counterpart can be done similarly. Let $T^L_{\text{V}}$ be the length of the vertical segments and let $T^L_{\text{O}}$ be the length of the oblique segments. The temperature of the game \Gm{} can be given by a combination of the oblique and vertical parts of the thermograph like the following:
+See \textit{Figure 6.1} for a visual representation of the new definition. Notice that the right counterpart can be done similarly. Let $T^L_{\text{V}}$ be the length of the vertical segments and let $T^L_{\text{O}}$ be the length of the oblique segments. The temperature of the game \Gm{} can be given by a combination of the oblique and vertical parts of the thermograph like the following:
+
+\begin{figure}
+	\begin{center}
+	\includegraphics{sections/strong_placement_games/thermo_labels.png}
+	\end{center}
+	\caption{Visual representation of how to calculate $T^L_V$ and $T^L_O$}.
+\end{figure}
 
 $$
 	t(\Gm{}) = T^L_{\text{V}} + T^L_{\text{O}}
@@ -109,7 +116,7 @@ $$
 
 $T^L_V + T^L_O =\;T^R_V+T^R_O$ is straight forward, because what defines the height is the intersection point of left and right, which is the same for both trajectories. $2\times T^L_O \leq T^L_O + T^R_O$ is a direct result of the previous equation with the given consideration that $T^L_V \ge T^R_V$. 
 
-Although longer than other proofs in this text, it is yet another simple proof. The equations and the many symbols might make it unclear, but each of the steps are short and can be visualized.
+Although longer and using more notation than other proofs in this text, it is yet another simple proof. Each of the steps are short and \textit{Figure 6.1} helps with the visualization of the equations.
 
 This theorem uses the thermic version of games, which, again, are hard to find in itself. However, from this version, another result that does not use the thermic versions is possible.
 
@@ -187,6 +194,7 @@ Let \Gm{_-=\gam{\gam{\gam{60}{36}}{12}}{\gam{2}{\gam{-22}{-46}}}} be the game re
 
 Using the strategy of making one of the slants of \Gm{^{L/R}} straighter in order to increase their temperature, it is possible to keep increasing the temperature of \Gm{}. Consider the following sequence of games is $S_*$:
 
+\vspace{5cm}
 \begin{center}
 	\begin{tabular}{c|c|c}
 		$i$ & \Gm{_i} & $t(G_i)$	\\[0.1cm]
@@ -202,6 +210,17 @@ Using the strategy of making one of the slants of \Gm{^{L/R}} straighter in orde
 	\vspace{0.3cm}$\cdots$
 \end{center}
 
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[scale=0.5]{sections/strong_placement_games/g0L.png}
+	\includegraphics[scale=0.5]{sections/strong_placement_games/g1L.png}\\
+	\includegraphics[scale=0.5]{sections/strong_placement_games/g2L.png}
+	\includegraphics[scale=0.5]{sections/strong_placement_games/g3L.png}
+	\end{center}
+	\caption{Thermographs of the left option of each $G_i$ in the table}
+\end{figure}
+
+
 The result that the temperature of games in this sequence increases and converges to 29 is required to prove the bound is tight, so it must be proved. Instead of only proving the convergence in this particular case, which is is sufficient, the following proof shows that the boiling point, given by Svenja, for all classes are tight. The following proof is general for all sequence of games made in the likes of the sequence above.
 
 \textit{Proof:}
@@ -214,6 +233,8 @@ Let $B$ be the bound for $\ell(G)$ in the class $S$.
 	\item[$\rightarrow$] Both $T^L_V$ and $T^R_V$ of $G$ are given by 
 	$$\sum_{i=0}^n\frac{OB}{2^{i+1}}$$
 	The following proof only shows the case for the left option as the proof for the right is analogous.
+	
+	Refer to \textit{Figure 6.2} for a visualization of this statement.
 	
 	[Via induction on $i$]
 	
@@ -391,6 +412,7 @@ To help visualize the strategy for this case, let the `shadow' of a move be the 
 		\end{tikzpicture}
 		\caption*{\hspace{0.15cm}Shadow move\newline Opposing board}
 	\end{subfigure}
+\caption{A move and its shadow on the negated board}
 \end{figure}
 
 In the game $G^L -G -2$, if Right plays first, he/she simply has to mimic each and every move Left made by playing the shadow move, maintaining $-2$ intact, starting with the move already played in \Gm{^L}. If, instead Left goes first, he/she can play one of two options. The first is to play a move that does not intersect the shadow of the previous move. In this case, right must play the shadow of either the first or the second move.
@@ -401,9 +423,11 @@ Now, Left can, again, play a move that does not intersect any of the shadows, bu
 
 At this time, Left can no longer play on any shadows, so he/she cannot avoid Right's strategy and will eventually lose. Therefore, if \Gm{} is a snake fitting in a $2\times n$ grid, then $G^L - G -2 < 0$. This means that $\ell(G),\ell(G^L),\ell(G^R) \leq 2$. By using the bound result, in turn, it means that $t(G) \leq 3$. 
 
-This result from the 2019 paper \cite{12} is different, as stated before, from the 2018 thesis because the first part of the proof, that shows the cases $H=G^L,G^R$ can be reduced to the case $H=G$, was missing. Instead the original text only showed that the confusion intervals of $G^L,G^R$ were smaller than 4. This second result is clear because both $G^L$ and $G^R$ are made of two components that are snakes fitting in $2\times n$ grids. As the text shows that such a snake has the confusion interval smaller or equal to 2, then two snakes have that interval smaller or equal to 4.
+The result presented, from the 2019 paper \cite{12}, is different, as stated before, from the 2018 thesis because the first part of the proof, that shows the cases $H=G^L,G^R$ can be reduced to the case $H=G$, was missing. Instead the original text only showed that the confusion intervals of $G^L,G^R$ were smaller than 4. This second result is clear because both $G^L$ and $G^R$ are made of two components that are snakes fitting in $2\times n$ grids. As the text shows that such a snake has the confusion interval smaller or equal to 2, then two snakes have that interval smaller or equal to 4.
 
+Although the result for the game of Domineering was improved it is still insufficient to prove Berlekamp's conjecture, that the maximum temperature is $2$, even in a specific board pattern. Regardless of solving or not the original question, this theorem is an important progress as it only takes into account the thermic nature of games, visualized through the thermograph. It states that by the own nature of games there is a bound to the temperature, which is a very intuitive result, but one that took long to be formalized.
 
+Although reaching important results from a very recent past, there is more to the topic. However, the study and work done in this chapter marks the end on the discussion of game temperature in this text. A good place to follow-up and continue learning is the end of chapter six of volume one of the book \textit{Winning Ways}. Other options are going through Siegel's book and studying his implementation of \texttt{CGSuite}. Siegel's book is much shorter and direct, making it harder, but may be the best option if looking for more formalism.
 
 
 

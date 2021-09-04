@@ -1,19 +1,200 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
-<head>
-  <meta charset="utf-8">
+    <head>
+        <meta charset="utf-8" />
 
-  <title>Matheus TCC</title>
-  <meta name="Description" content="TCC maim page">
-  <meta name="Matheus T. de Laurentys" content="TCC_MAIN">
+        <title>MTL TCC</title>
+        <meta name="Description" content="TCC main page" />
+        <meta name="Matheus T. de Laurentys" content="TCC_MAIN" />
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="index.css" />
+    </head>
 
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <body>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+            <div class="container">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="navbar-brand nav-link" href="#">MAC0499</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="monografia.pdf">Monografia</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
-</head>
+        <!-- Page Content -->
+        <div class="container mt-5">
+            <div class="row col-12">
+                <div class="col">
+                    <h2 class="mt-5">
+                        Hot Games
+                        <hr />
+                    </h2>
+                    <p class="lead">
+                        <strong>Aluno</strong>: Matheus Tararam de Laurentys<br />
+                        <strong>Supervisor</strong>: José Coelho de Pina<br />
+                    </p>
+                    <h3 class="mt-5">
+                        Resumo
+                        <hr />
+                    </h3>
+                    <p class="text-justify">
+                        Jogos combinatórios são chamados quentes quando suas
+                        posições são ativas, o que significa que ambos os
+                        jogadores querem fazer o próximo movimento. Jogos
+                        quentes são aqueles que geralmente proporcionam partidas
+                        interessantes. Antes de discutir essa classe de jogos, o
+                        texto apresentará ideias fundamentais para seu estudo.
+                        Os primeiros três capítulos apresentam e explicam os
+                        conceitos envolvidos com análise de jogos combinatórios.
+                        Nessa primeira metade, há grande foco na correspondência
+                        entre jogos e números e como jogos podem ser ou não
+                        números.
+                    </p>
+                    <p class="text-justify">
+                        O quarto capítulo formaliza a ideia de temperatura e
+                        contém métodos para lidar com jogos quentes. O próximo
+                        capítulo usa de todo o conteúdo a fim de tratar de
+                        problemas mais avançados e discutir aplicações das
+                        definições. O sexto capítulo capítulo toma os conteúdos
+                        até então apresentados para provar um teorema importante
+                        e prover esse resultado para um jogo que permeia o
+                        texto, o Domineering. O texto acaba elencando possíveis
+                        próximos passos e áreas que não foram discutidas,
+                        apontando para algumas outras referências.
+                    </p>
+                </div>
+            </div>
+            <h3 class="mt-5">
+                Cronograma
+                <hr />
+            </h3>
+            <p class="text-justify">
+                Iniciei meu projeto em Dezembro de 2019 com escolha do tema e
+                decisão da referência base que iria utilizar. Até março, quando
+                iniciei as atividades elencadas na tabela abaixo, eu me foquei
+                principalmente em aprender teoria combinatória dos jogos, porém
+                também realizei estudos em outras áreas. Como não havia decidido
+                o foco que teria dentro de teoria combinatória dos jogos, eu
+                passei tempo investigando assuntos, como complexidade e jogos de
+                perseguição e evasão (especialmente o problema do anjo de
+                Conway).
+            </p>
+            <p class="text-justify">
+                Após decidir o tema e de fato ter conhecimento suficiente sobre
+                ele passei para imeplementação de alguns dos métodos. Conforme o
+                conteúdo se solidificava eu ia planejando a monografia e esse
+                período está elencado na tabela abaixo. Note que essa tabela não
+                corresponde com exatidão às datas, mas não há desvios grandes.
+            </p>
+            <p class="text-justify">
+                Após desenvolver o tema suficientemente e decidir sobre o que
+                seria a monografia passei a focar todos os meu esforços para a
+                escrita, que se iniciou em Maio, mas só acelerou mesmo próximo
+                do fim de Julho. Uma versão que tinha a maior parte do conteúdo
+                básico, mas não os capítulos 5 e 6 foi finalizada perto do meio
+                de Outubro. Após Outubro eu trablahei quase exclusivamente na
+                monografia e deixei de detalhar as etapas.
+            </p>
+            <p class="text-justify">
+                Após outubro eu aprimorei os capítulos anteriores mas também
+                adicionei conteúdos novos. Em especial, adicionei o Upper Bound
+                para temperatura provado na tese de doutorado da pesquisadora
+                Svenja Huntemann e todos os detalhes que julguei necessários.
+            </p>
+            <h4 class="mt-5">Tabela com atividades atividades programadas</h4>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Activity</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Implement a game that has hot positions</td>
+                        <td>27 / 03</td>
+                        <td>27 / 05</td>
+                    </tr>
+                    <tr>
+                        <td>Implement position evaluator for Domineering</td>
+                        <td>28 / 03</td>
+                        <td>27 / 05</td>
+                    </tr>
 
-<body>
-    <a href="./games/index.html">Games</a>
-  <script src="./js/scripts.js"></script>
-</body>
+                    <tr>
+                        <td>Monography: Write sample to establish style</td>
+                        <td>15 / 04</td>
+                        <td>10 / 05</td>
+                    </tr>
+                    <tr>
+                        <td>Implement partial numerical library</td>
+                        <td>01 / 05</td>
+                        <td>30 / 06</td>
+                    </tr>
+                    <tr>
+                        <td>Implement partial temperature evaluation</td>
+                        <td>30 / 06</td>
+                        <td>07 / 07</td>
+                    </tr>
+                    <tr>
+                        <td>Browse open problems</td>
+                        <td>01 / 07</td>
+                        <td>30 / 07</td>
+                    </tr>
+
+                    <tr>
+                        <td>Monography: Write sequence of topics</td>
+                        <td>30 / 07</td>
+                        <td>15 / 08</td>
+                    </tr>
+                    <tr>
+                        <td>Monography: Write main topic</td>
+                        <td>30 / 07</td>
+                        <td>15 / 08</td>
+                    </tr>
+                    <tr>
+                        <td>Implement complete numerical library</td>
+                        <td>31 / 07</td>
+                        <td>Unfinished</td>
+                    </tr>
+                    <tr>
+                        <td>Implement termograph plotting</td>
+                        <td>31 / 07</td>
+                        <td>Won't Do</td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Monography: Write the beggining of every section
+                        </td>
+                        <td>15 / 08</td>
+                        <td>30 / 08</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Dialogue with
+                            <a
+                                href="http://library.msri.org/books/Book29/files/unsolved.pdf"
+                                >problem 4</a
+                            >
+                        </td>
+                        <td>30 / 08</td>
+                        <td>30 / 09</td>
+                    </tr>
+                    <tr>
+                        <td>Connect evaluator to numerical library</td>
+                        <td>30 / 08</td>
+                        <td>30 / 09</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <script src="js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>
